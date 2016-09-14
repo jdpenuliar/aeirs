@@ -1,0 +1,19 @@
+{
+  "name": "aeirs",
+  "version": "0.0.1",
+  "description": "A web app that maintain operations of management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdpenuliar/aeirs.git"
+  },
+  "author": "JDPenuliar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdpenuliar/aeirs/issues"
+  },
+  "homepage": "https://github.com/jdpenuliar/aeirs#readme"
+}
