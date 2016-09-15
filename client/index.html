@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="AEIRS">
+<head>
+	<base href="/">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>AEIRS</title>
+
+	<!-- CSS  -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link rel="stylesheet" href="thirdparty/font-awesome-4.6.3/css/font-awesome.min.css">
+	
+	<!-- ANGULAR -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    <script>
+    	var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages"]);
+   //  	AEIRSAppModule.config(function($routeProvider,$locationProvider){
+   //  		$routeProvider
+   //  		.when("/",{
+   //  			templateUrl: "partials/haha.html",
+   //              controller : LandingController
+   //  		})
+   //  		.when("/qwer",{
+   //  			templateUrl: "partials/qwer.html",
+   //              controller : LandingController
+   //  		});
+   //  		$locationProvider.html5Mode({
+			// 	enabled: true,
+			// 	requireBase: false
+			// });
+   //  	});
+   //  	AEIRSAppModule.config([$routeProvider,$locationProvider, function($routeProvider,$locationProvider){
+   //  		$routeProvider
+   //  		.when("/",{
+   //  			templateUrl: "partials/haha.html",
+   //              controller : "LandingController"
+   //  		})
+   //  		.when("/qwer",{
+   //  			templateUrl: "partials/qwer.html",
+   //              controller : "LandingController"
+   //  		})
+   //  		.otherwise({
+   //  			redirectTo: "/"
+   //  		});
+   //  		$locationProvider.html5Mode({
+			// 	enabled: true,
+			// 	requireBase: false
+			// });
+   //  	}]);
+
+		AEIRSAppModule.config(['$routeProvider','$locationProvider',
+			function ($routeProvider, $locationProvider){
+				$routeProvider
+				.when("/",{
+					templateUrl: "partials/haha.html",
+					controller : "LandingController"
+				})
+				.when("/x",{
+					templateUrl: "partials/qwer.html",
+					controller : "LandingController"
+				})
+				.otherwise({redirectTo: "/"});
+				$locationProvider.html5Mode({
+					enabled: true,
+					requireBase: false
+				});
+			}]
+		);
+		
+
+    	AEIRSAppModule.controller("LandingController",function($scope){
+    		$scope.pythonImage = "/images/python001.png"
+    	});
+    </script>
+
+</head>
+<body>
+	
+<div ng-view="">
+	
+</div>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>

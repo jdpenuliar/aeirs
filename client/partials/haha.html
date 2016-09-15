@@ -1,0 +1,48 @@
+<a href="x">x</a>
+<div ng-controller="LandingController">
+	<div class="row">
+		<div class="col s12">
+			<form name='userForm'>
+				<label>Email: </label>
+				<input type="email" id="newUserEmail" name="newUserEmail" ng-model="user.newEmail" required>
+				<span ng-show="userForm.newUserEmail.$dirty && userForm.newUserEmail.$invalid">Invalid Email</span>
+				<!-- <span ng-show="userForm.newUserEmail.$dirty && userForm.newUserEmail.$error">Error</span> -->
+
+				<label>Username: <input type="text" name="newUserName" ng-model="user.userName" required></label>
+				<label>Password: <input type="password" name="newUserPassword" ng-model="user.userPassword" required></label>
+				<label>Password retype: <input type="password" name="newUserPasswordRetype" ng-model="user.userPasswordRetype" required></label>
+				<label>User Level:
+					<select class="" name="newUserLevel" ng-model="user.userLevel" material-select watch required>
+						<option value=1>CEO</option>
+						<option value=2>Project Manager</option>
+						<option value=3>Developer</option>
+					</select>
+				</label>
+
+				<label>FirstName: <input type="text" name="newUserFirstName" ng-model="user.userFirstName" required></label>
+				<label>MiddleName: <input type="text" name="newUserMiddleName" ng-model="user.userMiddleName" required></label>
+				<label>Last Name: <input type="text" name="newUserLastName" ng-model="user.userLastName" required></label>
+				<label>User Gender:
+					<select class="" name="newUserGender" ng-model="user.userGender" material-select watch required>
+						<option value="Male">Male</option>
+						<option value=Femaile>Female</option>
+					</select>
+				</label>
+				
+				<label>Address Street: <input type="text" name="newUserAddressStreet" ng-model="user.userAddressStreet" required></label>
+				
+				<label>Address City: <input type="text" name="newUserAddressCity" ng-model="user.userAddressCity" required></label>
+				<label>Address State: <input type="text" name="newUserAddressState" ng-model="user.userAddressState" required></label>
+				<label>Address Zip: <input type="number" name="newUserAddressZip" ng-model="user.userAddressZip" required></label>
+				<label>Address Country: <input type="text" name="newUserAddressCountry" ng-model="user.userAddressCountry" required></label>
+
+				<button class="btn waves-effect waves-light" ng-click="addNewAdmin()" ng-disabled="userForm.$invalid">Enter</button>
+			</form>
+			<div ng-messages = "userForm.newUserName.$error">
+				<p ng-message="minlength">The customer name is too short.</p>
+				<p ng-message="required">The customer name is required.</p>
+			</div>
+		</div>
+		
+	</div>
+</div>
