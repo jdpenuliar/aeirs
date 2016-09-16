@@ -17,6 +17,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script>
+    (function(){
     	var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages"]);
    //  	AEIRSAppModule.config(function($routeProvider,$locationProvider){
    //  		$routeProvider
@@ -74,7 +75,10 @@
 
     	AEIRSAppModule.controller("LandingController",function($scope){
     		$scope.pythonImage = "/images/python001.png"
+    		console.log($scope.pythonImage);
     	});
+    })();
+    	
     </script>
 
 </head>
