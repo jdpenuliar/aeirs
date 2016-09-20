@@ -19,58 +19,46 @@
     <script>
     (function(){
     	var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages"]);
-   //  	AEIRSAppModule.config(function($routeProvider,$locationProvider){
-   //  		$routeProvider
-   //  		.when("/",{
-   //  			templateUrl: "partials/haha.html",
-   //              controller : LandingController
-   //  		})
-   //  		.when("/qwer",{
-   //  			templateUrl: "partials/qwer.html",
-   //              controller : LandingController
-   //  		});
-   //  		$locationProvider.html5Mode({
-			// 	enabled: true,
-			// 	requireBase: false
-			// });
-   //  	});
-   //  	AEIRSAppModule.config([$routeProvider,$locationProvider, function($routeProvider,$locationProvider){
-   //  		$routeProvider
-   //  		.when("/",{
-   //  			templateUrl: "partials/haha.html",
-   //              controller : "LandingController"
-   //  		})
-   //  		.when("/qwer",{
-   //  			templateUrl: "partials/qwer.html",
-   //              controller : "LandingController"
-   //  		})
-   //  		.otherwise({
-   //  			redirectTo: "/"
-   //  		});
-   //  		$locationProvider.html5Mode({
-			// 	enabled: true,
-			// 	requireBase: false
-			// });
-   //  	}]);
 
-		AEIRSAppModule.config(['$routeProvider','$locationProvider',
-			function ($routeProvider, $locationProvider){
-				$routeProvider
-				.when("/",{
-					templateUrl: "partials/haha.html",
-					controller : "LandingController"
-				})
-				.when("/x",{
-					templateUrl: "partials/qwer.html",
-					controller : "LandingController"
-				})
-				.otherwise({redirectTo: "/"});
-				$locationProvider.html5Mode({
-					enabled: true,
-					requireBase: false
-				});
-			}]
-		);
+		// AEIRSAppModule.config(['$routeProvider','$locationProvider',
+		// 	function ($routeProvider, $locationProvider){
+		// 		if(window.history && window.history.pushState){
+		// 			$locationProvider.html5Mode(true);
+		// 		}
+		// 		$routeProvider
+		// 		.when("/",{
+		// 			templateUrl: "partials/haha.html",
+		// 			controller : "LandingController"
+		// 		})
+		// 		.when("/x",{
+		// 			templateUrl: "partials/qwer.html",
+		// 			controller : "LandingController"
+		// 		})
+		// 		.otherwise({redirectTo: "/"});
+		// 		$locationProvider.html5Mode({
+		// 			enabled: true,
+		// 			requireBase: false
+		// 		});
+		// 	}]
+		// );
+
+		AEIRSAppModule.config(function($routeProvider,$locationProvider){
+			if(window.history && window.history.pushState){
+				$locationProvider.html5Mode(true);
+			}
+			$routeProvider
+			.when("/",{
+				templateUrl: "partials/haha.html"
+			})
+			.when("/x",{
+				templateUrl: "partials/qwer.html"
+			})
+			.otherwise({
+				redirectTo: "/"
+			});
+
+
+		});
 		
 
     	AEIRSAppModule.controller("LandingController",function($scope){
