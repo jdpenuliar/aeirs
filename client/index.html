@@ -6,16 +6,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>AEIRS</title>
 
-	<!-- CSS  -->
+	<!-- Materialize CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link rel="stylesheet" href="thirdparty/font-awesome-4.6.3/css/font-awesome.min.css">
-	
-	<!-- ANGULAR -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/materialize.css">
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+
+    <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <!-- ANGULAR -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
     <script>
     (function(){
     	var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages"]);
@@ -57,7 +61,7 @@
 			function ($routeProvider, $locationProvider){
 				$routeProvider
 				.when("/",{
-					templateUrl: "partials/haha.html",
+					templateUrl: "partials/landing.html",
 					controller : "LandingController"
 				})
 				.when("/x",{
@@ -65,10 +69,10 @@
 					controller : "LandingController"
 				})
 				.otherwise({redirectTo: "/"});
-				$locationProvider.html5Mode({
-					enabled: true,
-					requireBase: false
-				});
+				// $locationProvider.html5Mode({
+				// 	enabled: true,
+				// 	requireBase: false
+				// });
 			}]
 		);
 		
