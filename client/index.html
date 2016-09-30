@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="AEIRS">
 <head>
-	<base href="/">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>AEIRS</title>
@@ -23,81 +22,76 @@
 	<script>
 		(function(){
 			var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ui.materialize"]);
-   //  	AEIRSAppModule.config(function($routeProvider,$locationProvider){
-   //  		$routeProvider
-   //  		.when("/",{
-   //  			templateUrl: "partials/haha.html",
-   //              controller : LandingController
-   //  		})
-   //  		.when("/qwer",{
-   //  			templateUrl: "partials/qwer.html",
-   //              controller : LandingController
-   //  		});
-   //  		$locationProvider.html5Mode({
-			// 	enabled: true,
-			// 	requireBase: false
-			// });
-   //  	});
-   //  	AEIRSAppModule.config([$routeProvider,$locationProvider, function($routeProvider,$locationProvider){
-   //  		$routeProvider
-   //  		.when("/",{
-   //  			templateUrl: "partials/haha.html",
-   //              controller : "LandingController"
-   //  		})
-   //  		.when("/qwer",{
-   //  			templateUrl: "partials/qwer.html",
-   //              controller : "LandingController"
-   //  		})
-   //  		.otherwise({
-   //  			redirectTo: "/"
-   //  		});
-   //  		$locationProvider.html5Mode({
-			// 	enabled: true,
-			// 	requireBase: false
-			// });
-   //  	}]);
 
-   AEIRSAppModule.config(['$routeProvider','$locationProvider',
-   	function ($routeProvider, $locationProvider){
-   		$routeProvider
-   		.when("/",{
-   			templateUrl: "partials/landing.html",
-   			controller : "LandingController"
-   		})
-   		.when("/x",{
-   			templateUrl: "partials/haha.html",
-   			controller : "LandingController"
-   		})
-   		.otherwise({redirectTo: "/"});
+			AEIRSAppModule.config(['$routeProvider','$locationProvider',
+			function ($routeProvider, $locationProvider){
+				$routeProvider
+				.when("/",{
+				templateUrl: "partials/landing.html",
+				controller : "LandingController"
+				})
+				.when("/x",{
+				templateUrl: "partials/haha.html",
+				controller : "LandingController"
+				})
+				.otherwise({redirectTo: "/"});
 				// $locationProvider.html5Mode({
 				// 	enabled: true,
 				// 	requireBase: false
 				// });
-			}]
-			);
+			}]);
    
+			AEIRSAppModule.factory("usersFactory",function($http){
+				var factory = {};
+				var users = [];
+				factory.test = function(callback){
+					$http.get("/haha").then(function(data){
+						users = data;
+						callback(users);
+					});
+				}
+				factory.login = function(info, callback){
+					$http.post("/login", info).then(function(data){
+						users = data;
+						callback(users);
+					});
+				}
+				factory.register = function(info, callback){
+					$http.post("/register", info).then(function(data){
 
-   AEIRSAppModule.controller("LandingController",function($scope){
-   	$scope.login = function(){
-   		console.log("haha");
-   	}
-   });
-})();
+						console.log("usersFactory-------\n",data);
+						users = data;
+						callback(users);
+					});
+				}
+				return factory;
+				// factory.test = function(info,callback){
+				// 	$http.get("/haha").then(function(data){
+				// 		users = data;
+				// 		callback(users);
+				// 	})
+				// }
+			});
+			AEIRSAppModule.controller("LandingController",function($scope,usersFactory){
+				$scope.userLogin = function(){
+					console.log($scope.user);
+					usersFactory.login($scope.user,function(data){
+						console.log("-------------------",data);
+					});
+				}
+				$scope.userRegister = function(){
+					console.log($scope.user);
+					usersFactory.register($scope.user, function(data){
+						console.log("-------------------haha",data);
+					});
+				}
+			});
+		})();
 
 </script>
-
 </head>
 <body>
-	
 	<div ng-view="">
-
 	</div>
-
-	<!--  Scripts-->
-	<!-- this causes errors and weird behaviors-->
-<!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script> -->
-
 </body>
 </html>
