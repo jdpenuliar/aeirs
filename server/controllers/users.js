@@ -13,10 +13,10 @@ module.exports = (function(){
 		// return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 		return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
 	}
-	// // using bcrypt to check passwords at login
-	// var isValidPassword = function(user, password){
-	// 	return bCrypt.compareSync(password, user.password);
-	// }
+	// using bcrypt to check passwords at login
+	var isValidPassword = function(user, password){
+		return bCrypt.compareSync(password, user.password);
+	}
 	return{
 		index: function(req,res){
 			console.log("-------------------------------------\n",req.body);
@@ -28,6 +28,19 @@ module.exports = (function(){
 			var filteredPassword = xssFilters.inHTMLData(req.body.loginPassword);
 			console.log("-------------------------------------\n",filteredUsername);
 			console.log("-------------------------------------\n",filteredPassword);
+			User.findOne({userName: filteredUsername},function(err,data){
+				if(err){
+					res.json(err);
+				}else{
+					var token = jwt.sign({
+						data
+					},
+					jwtSecret,
+					{expiresIn: 86400});
+					res.json({token: token, user:data, loggedIn: true});
+					// res.json(data);
+				}
+			});
 		},
 		create: function(req,res){
 			console.log("-------------------------------------register\n",req.body);
@@ -48,7 +61,7 @@ module.exports = (function(){
 			var newUser = new User({
 				userName: filteredRegisterUserName,
 				emailAddress: filteredRegisterEmailAddress,
-				password: filteredRegisterUserPassword,
+				password: createhash(filteredRegisterUserPassword),
 				passwordConfirm: filteredRegisterUserPasswordConfirm,
 				firstName: filteredRegisterUserFirstName,
 				lastName:  filteredRegisterUserLastName,
@@ -89,7 +102,7 @@ module.exports = (function(){
 								},
 								jwtSecret,
 								{expiresIn: 86400});
-								res.json(token);
+								res.json({token: token, user:data, loggedIn: true});
 								// res.json(data);
 							}
 						});
