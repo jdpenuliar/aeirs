@@ -62,7 +62,6 @@ module.exports = (function(){
 				userName: filteredRegisterUserName,
 				emailAddress: filteredRegisterEmailAddress,
 				password: createhash(filteredRegisterUserPassword),
-				passwordConfirm: filteredRegisterUserPasswordConfirm,
 				firstName: filteredRegisterUserFirstName,
 				lastName:  filteredRegisterUserLastName,
 				phoneNumber: filteredRegisterUserPhoneNumber
