@@ -61,7 +61,7 @@ module.exports = (function(){
 			var newUser = new User({
 				userName: filteredRegisterUserName,
 				emailAddress: filteredRegisterEmailAddress,
-				password: createhash(filteredRegisterUserPassword),
+				password: createHash(filteredRegisterUserPassword),
 				firstName: filteredRegisterUserFirstName,
 				lastName:  filteredRegisterUserLastName,
 				phoneNumber: filteredRegisterUserPhoneNumber
