@@ -5,13 +5,13 @@
 				<form name="userLoginForm">
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="loginUserName" type="text" class="validate" name="loginUserName" ng-model="user.loginUserName" required>
+							<input id="loginUserName" type="text" class="validate" name="loginUserName" ng-model="userLoginData.loginUserName" required>
 							<label for="loginUserName">Username</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input id="loginUserPassword" type="password" class="validate" name="loginPassword" ng-model="user.loginPassword" required>
+							<input id="loginUserPassword" type="password" class="validate" name="loginPassword" ng-model="userLoginData.loginPassword" required>
 							<label for="loginUserPassword">Password</label>
 						</div>
 					</div>
@@ -25,33 +25,33 @@
 			<form name="userRegisterForm">
 				<div class="col s12 m4 l4">
 					<div class="input-field col s12">
-						<input id="registerUserName" class="validate" type="text" name="registerUserName" ng-model="user.registerUserName" required></input>
+						<input id="registerUserName" class="validate" type="text" name="registerUserName" ng-model="userRegisterData.registerUserName" required></input>
 						<label for="registerUserName">Username</label>
 					</div>
 					<div class="input-field col s12">
-						<input id="registerEmailAddress" class="validate" type="text" name="registerEmailAddress" ng-model="user.registerEmailAddress" required></input>
+						<input id="registerEmailAddress" class="validate" type="text" name="registerEmailAddress" ng-model="userRegisterData.registerEmailAddress" required></input>
 						<label for="registerEmailAddress">Email address</label>
 					</div>
 					<div class="input-field col s12">
-						<input id="registerUserPassword" class="validate" type="password" name="registerUserPassword" ng-model="user.registerUserPassword" required></input>
+						<input id="registerUserPassword" class="validate" type="password" name="registerUserPassword" ng-model="userRegisterData.registerUserPassword" required></input>
 						<label for="registerUserPassword">Password</label>
 					</div>
 					<div class="input-field col s12">
-						<input id="registerUserPasswordConfirm" class="validate" type="password" name="registerUserPasswordConfirm" ng-model="user.registerUserPasswordConfirm" required></input>
+						<input id="registerUserPasswordConfirm" class="validate" type="password" name="registerUserPasswordConfirm" ng-model="userRegisterData.registerUserPasswordConfirm" required></input>
 						<label for="registerUserPasswordConfirm">Confirm Password</label>
 					</div>
 				</div>
 				<div class="col s12 m4 l4">
 					<div class="input-field col s12">
-						<input id="registerUserFirstName" class="validate" type="text" name="registerUserFirstName" ng-model="user.registerUserFirstName" required></input>
+						<input id="registerUserFirstName" class="validate" type="text" name="registerUserFirstName" ng-model="userRegisterData.registerUserFirstName" required></input>
 						<label for="registerFirstName">First Name</label>
 					</div>
 					<div class="input-field col s12">
-						<input id="registerUserLastName" class="validate" type="text" name="registerUserLastName" ng-model="user.registerUserLastName" required></input>
+						<input id="registerUserLastName" class="validate" type="text" name="registerUserLastName" ng-model="userRegisterData.registerUserLastName" required></input>
 						<label for="registerLastName">Last Name</label>
 					</div>
 					<div class="input-field col s12">
-						<input id="registerUserPhoneNumber" class="validate" type="number" name="registerUserPhoneNumber" ng-model="user.registerUserPhoneNumber" required></input>
+						<input id="registerUserPhoneNumber" class="validate" type="number" name="registerUserPhoneNumber" ng-model="userRegisterData.registerUserPhoneNumber" required></input>
 						<label for="registerPhoneNumber">Phone number</label>
 					</div>
 					<div class="input-field col s12">

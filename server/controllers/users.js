@@ -101,6 +101,8 @@ module.exports = (function(){
 								},
 								jwtSecret,
 								{expiresIn: 86400});
+								// console.log("-------------------------------------token\n",token);
+								// console.log("-------------------------------------data\n",data);
 								res.json({token: token, user:data, loggedIn: true});
 								// res.json(data);
 							}

@@ -27,12 +27,12 @@
 			function ($routeProvider, $locationProvider){
 				$routeProvider
 				.when("/",{
-				templateUrl: "partials/landing.html",
-				controller : "LandingController"
+					templateUrl: "partials/landing.html",
+					controller : "LandingController"
 				})
 				.when("/x",{
-				templateUrl: "partials/haha.html",
-				controller : "LandingController"
+					templateUrl: "partials/haha.html",
+					controller : "LandingController"
 				})
 				.otherwise({redirectTo: "/"});
 				// $locationProvider.html5Mode({
@@ -74,14 +74,14 @@
 			});
 			AEIRSAppModule.controller("LandingController",function($scope,usersFactory){
 				$scope.userLogin = function(){
-					console.log($scope.user);
-					usersFactory.login($scope.user,function(data){
+					console.log($scope.userLoginData);
+					usersFactory.login($scope.userLoginData,function(data){
 						console.log("-------------------",data);
 					});
 				}
 				$scope.userRegister = function(){
-					console.log($scope.user);
-					usersFactory.register($scope.user, function(data){
+					console.log($scope.userRegisterData);
+					usersFactory.register($scope.userRegisterData, function(data){
 						console.log("-------------------haha",data);
 					});
 				}
