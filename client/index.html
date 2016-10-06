@@ -40,8 +40,25 @@
 				// 	requireBase: false
 				// });
 			}]);
-   
-			AEIRSAppModule.factory("usersFactory",function($http){
+   			AEIRSAppModule.factory("authTokenFactory",function($http,$window){
+   				var factory = {};
+   				var store = $window.localStorage;
+   				const key = "jkdhahsdfhjlkasdfhjkladfshkjl";
+   				factory.key = key;
+   				factory.getToken = function(){
+   					store.getItem(key);
+   				}
+   				factory.setToken = function(token){
+   					if(token != null){
+   						store.setItem(key,token.data.token);
+   					}else{
+   						store.removeItem(key);
+   					}
+   					console.log("------------storefactory\n",store);
+   				}
+   				return factory;
+   			});
+			AEIRSAppModule.factory("usersFactory",function($http,$window,authTokenFactory){
 				var factory = {};
 				var users = [];
 				factory.test = function(callback){
@@ -51,15 +68,22 @@
 					});
 				}
 				factory.login = function(info, callback){
-					$http.post("/login", info).then(function(data){
-						users = data;
-						callback(users);
+					$http.post("/login", info).then(function(data,err){
+						if(data.data != null){
+							authTokenFactory.setToken(data);
+						}else if(data.data == null){
+							authTokenFactory.setToken();
+						}
 					});
 				}
 				factory.register = function(info, callback){
 					$http.post("/register", info).then(function(data){
-
-						console.log("usersFactory-------\n",data);
+						users = data;
+						callback(users);
+					});
+				}
+				factory.logout = function(info,callback){
+					$http.post("/logout", info).then(function(data){
 						users = data;
 						callback(users);
 					});
@@ -72,17 +96,17 @@
 				// 	})
 				// }
 			});
-			AEIRSAppModule.controller("LandingController",function($scope,usersFactory){
+			AEIRSAppModule.controller("LandingController",function($scope,$window,usersFactory){
+				console.log("------------localStorage\n",$window.localStorage);
 				$scope.userLogin = function(){
-					console.log($scope.userLoginData);
 					usersFactory.login($scope.userLoginData,function(data){
-						console.log("-------------------",data);
+						$scope.userLoginData = {};
 					});
 				}
 				$scope.userRegister = function(){
 					console.log($scope.userRegisterData);
 					usersFactory.register($scope.userRegisterData, function(data){
-						console.log("-------------------haha",data);
+						$scope.userRegisterData = {}
 					});
 				}
 			});

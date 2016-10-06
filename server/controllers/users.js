@@ -26,19 +26,25 @@ module.exports = (function(){
 			console.log("-------------------------------------login\n",req.body);
 			var filteredUsername = xssFilters.inHTMLData(req.body.loginUserName);
 			var filteredPassword = xssFilters.inHTMLData(req.body.loginPassword);
-			console.log("-------------------------------------\n",filteredUsername);
-			console.log("-------------------------------------\n",filteredPassword);
 			User.findOne({userName: filteredUsername},function(err,data){
 				if(err){
 					res.json(err);
+				}else if(data != null){
+					if(isValidPassword(data,filteredPassword) == true){
+						var token = jwt.sign({
+							data
+						},
+						jwtSecret,
+						{expiresIn: 60});
+						console.log("haha\n",token);
+						res.json({token: token, user:data, loggedIn: true});
+					}else{
+						//empty data meaning invalid credentials
+						data = null
+						res.json(data);
+					}
 				}else{
-					var token = jwt.sign({
-						data
-					},
-					jwtSecret,
-					{expiresIn: 86400});
-					res.json({token: token, user:data, loggedIn: true});
-					// res.json(data);
+					res.json(data);
 				}
 			});
 		},
@@ -66,6 +72,7 @@ module.exports = (function(){
 				lastName:  filteredRegisterUserLastName,
 				phoneNumber: filteredRegisterUserPhoneNumber
 			});
+
 			// User.findOne({userName: filteredRegisterUserName},function(err,data){
 			// 	if(err){
 			// 		console.log(err,{error: "user name already taken"});
@@ -84,6 +91,7 @@ module.exports = (function(){
 			// 		}
 			// 	}
 			// });
+
 			User.findOne({userName: filteredRegisterUserName},function(err,data){
 				if(err){
 					console.log(err,{error: "user name already taken"});
@@ -100,11 +108,8 @@ module.exports = (function(){
 									data
 								},
 								jwtSecret,
-								{expiresIn: 86400});
-								// console.log("-------------------------------------token\n",token);
-								// console.log("-------------------------------------data\n",data);
+								{expiresIn: 60});
 								res.json({token: token, user:data, loggedIn: true});
-								// res.json(data);
 							}
 						});
 					}
