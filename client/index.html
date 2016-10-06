@@ -28,11 +28,8 @@
 				$routeProvider
 				.when("/",{
 					templateUrl: "partials/landing.html",
-					controller : "LandingController"
-				})
-				.when("/x",{
-					templateUrl: "partials/haha.html",
-					controller : "LandingController"
+					//if controller below is uncommented please remove the ng-controller on the partial
+					// controller : "LandingController"
 				})
 				.otherwise({redirectTo: "/"});
 				// $locationProvider.html5Mode({
