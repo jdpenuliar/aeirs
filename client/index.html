@@ -23,22 +23,72 @@
 		(function(){
 			var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ui.materialize"]);
 
-			AEIRSAppModule.config(['$routeProvider','$locationProvider',
-			function ($routeProvider, $locationProvider){
+			// AEIRSAppModule.config(['$routeProvider','$locationProvider',"$httpProvider",
+			// function ($routeProvider,$httpProvider){
+			// 	$httpProvider.interceptors.push("authInterceptorFactory");
+			// 	$routeProvider
+			// 	.when("/",{
+			// 		templateUrl: "partials/landing.html"
+			// 	})
+			// 	.when("/dashboard",{
+			// 		templateUrl: "partials/dashboard.html"
+			// 	});
+			// }]);
+			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {  
+				$httpProvider.interceptors.push("authInterceptorFactory");
 				$routeProvider
 				.when("/",{
-					templateUrl: "partials/landing.html",
-					controller : "LandingController"
+					templateUrl: "partials/landing.html"
 				})
-				// .when("/x",{
-				// 	templateUrl: "partials/haha.html",
-				// 	controller : "LandingController"
-				// })
-				.otherwise({redirectTo: "/"});
-				// $locationProvider.html5Mode({
-				// 	enabled: true,
-				// 	requireBase: false
-				// });
+				.when("/dashboard",{
+					templateUrl: "partials/dashboard.html"
+				})
+				.otherwise({
+					redirectTo: "/"
+				});
+			}]);
+			
+
+			//////////sample
+			// AEIRSAppModule.factory('myInterceptor', ['$log', function($log) {  
+			// 	$log.debug('$log is here to show you that this is a regular factory with injection');
+
+			// 	var myInterceptor = {
+			// 	};
+
+			// 	return myInterceptor;
+			// }]);
+			
+			// AEIRSAppModule.config(['$httpProvider', function($httpProvider) {  
+			// 	$httpProvider.interceptors.push('myInterceptor');
+			// }]);
+			//////////sample
+
+
+
+			AEIRSAppModule.run(function($rootScope, $location, $route, authTokenFactory){
+				$rootScope.$on("$routeChangeStart",function(event, next, current){
+					if(!authTokenFactory.getToken()){
+						$location.path("/");
+					}
+				});
+			});
+			
+
+
+			AEIRSAppModule.factory("authInterceptorFactory",["$log",function($log,authTokenFactory){
+				$log.debug('$log is here to show you that this is a regular factory with injection');
+				var factory = {};
+				factory.addToken = function(config){
+					var token = authTokenFactory.getToken();
+					console.log("interceptor haha---------\n",token);
+					// if(token){
+					// 	config.headers = config.headers || {};
+					// 	config.headers.Authorization = 'Bearer ' + token;
+					// }
+					// return config;
+				}
+				return factory;
 			}]);
    			AEIRSAppModule.factory("authTokenFactory",function($http,$window){
    				var factory = {};
@@ -46,7 +96,7 @@
    				const key = "jkdhahsdfhjlkasdfhjkladfshkjl";
    				factory.key = key;
    				factory.getToken = function(){
-   					store.getItem(key);
+   					return store.getItem(key);
    				}
    				factory.setToken = function(token){
    					if(token != null){
@@ -54,7 +104,7 @@
    					}else{
    						store.removeItem(key);
    					}
-   					console.log("------------storefactory\n",store);
+   					console.log("------------authtokensettokenfactory\n",store);
    				}
    				return factory;
    			});
@@ -69,8 +119,10 @@
 				}
 				factory.login = function(info, callback){
 					$http.post("/login", info).then(function(data,err){
+						console.log("factory\n",data)
 						if(data.data != null){
 							authTokenFactory.setToken(data);
+							callback(data);
 						}else if(data.data == null){
 							authTokenFactory.setToken();
 						}
@@ -83,23 +135,20 @@
 					});
 				}
 				factory.logout = function(info,callback){
-					$http.post("/logout", info).then(function(data){
-						users = data;
-						callback(users);
-					});
+					users = null
+					authTokenFactory.setToken();
+				}
+				factory.getUser = function(){
+
 				}
 				return factory;
-				// factory.test = function(info,callback){
-				// 	$http.get("/haha").then(function(data){
-				// 		users = data;
-				// 		callback(users);
-				// 	})
-				// }
 			});
-			AEIRSAppModule.controller("LandingController",function($scope,$window,usersFactory){
-				console.log("------------localStorage\n",$window.localStorage);
+			AEIRSAppModule.controller("LandingController",function($scope,$window,$location,usersFactory,authInterceptorFactory){
 				$scope.userLogin = function(){
+					console.log("login\n");
 					usersFactory.login($scope.userLoginData,function(data){
+						console.log("successful login\n",data);
+						$location.url("/dashboard");
 						$scope.userLoginData = {};
 					});
 				}
@@ -109,6 +158,9 @@
 						$scope.userRegisterData = {}
 					});
 				}
+			});
+			AEIRSAppModule.controller("DashboardController",function($scope,$window,$location){
+				console.log("scope-------------\n",$scope);
 			});
 		})();
 
