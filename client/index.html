@@ -60,9 +60,9 @@
 			AEIRSAppModule.run(function($rootScope, $location, $route, authTokenFactory){
 				$rootScope.$on("$routeChangeStart",function(event, next, current){
 					console.log("route changed");
-					if(!authTokenFactory.getToken()){
-						$location.path("/");
-					}
+					// if(!authTokenFactory.getToken()){
+					// 	$location.path("/");
+					// }
 				});
 			});
 
@@ -155,7 +155,7 @@
 			});
 
 			AEIRSAppModule.controller("DashboardController",function($scope,$window,$location){
-				console.log("scope-------------\n",$scope);
+				console.log("scopehahadashboard-------------\n",$scope);
 			});
 		})();
 
