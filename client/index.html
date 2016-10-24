@@ -25,6 +25,7 @@
 
 			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {  
 				// $httpProvider.interceptors.push("authInterceptorFactory");
+				// $httpProvider.interceptors.push('AuthInterceptor');
 				$routeProvider
 				.when("/",{
 					templateUrl: "partials/landing.html"
