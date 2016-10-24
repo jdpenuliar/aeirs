@@ -1,4 +1,4 @@
-AEIRSAppModule.factory('studentFactory', function($http){
+angular.module('AEIRS').factory('studentFactory', function($http){
 
 	// This is my dummyFactory. I usually add this into any project that
 	// I do. Just so that I can use it for reference as I add new Factories

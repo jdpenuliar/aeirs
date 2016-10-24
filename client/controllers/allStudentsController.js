@@ -1,4 +1,4 @@
-AEIRSAppModule.controller('allStudentsController', function($scope, studentFactory){
+angular.module('AEIRS').controller('allStudentsController', function($scope, studentFactory){
 
 	console.log('I am able to load my allStudentsController along with my all_students partial');
 
