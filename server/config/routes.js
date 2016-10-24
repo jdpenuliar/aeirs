@@ -1,4 +1,5 @@
 var users = require("./../controllers/users.js");
+var students = require("./../controllers/students.js");
 // var jwt = require('express-jwt');
 
 module.exports = function(app){
@@ -10,5 +11,8 @@ module.exports = function(app){
 	});
 	app.post("/register",function(req,res){
 		users.create(req,res);
+	});
+	app.get("/all_students",function(req,res){
+		students.getStudents(req,res);
 	});
 }

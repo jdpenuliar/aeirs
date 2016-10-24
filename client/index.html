@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>AEIRS</title>
 
+		<!-- controllers -->
+		<script src = "/controllers/allStudentsController.js"></script>
+
+    <!--factories -->
+    <script src = "/factories/studentFactory.js"></script>
+
 	<!-- Materialize CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="./css/materialize.css">
@@ -23,7 +29,7 @@
 		(function(){
 			var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ui.materialize"]);
 
-			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {  
+			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {
 				// $httpProvider.interceptors.push("authInterceptorFactory");
 
 				$routeProvider
@@ -33,13 +39,16 @@
 				.when("/dashboard",{
 					templateUrl: "partials/dashboard.html"
 				})
+				.when("/all_students",{
+					templateUrl: "partials/all_students.html"
+				})
 				.otherwise({
 					redirectTo: "/"
 				});
 			}]);
-			
+
 			//////////sample
-			// AEIRSAppModule.factory('myInterceptor', ['$log', function($log) {  
+			// AEIRSAppModule.factory('myInterceptor', ['$log', function($log) {
 			// 	$log.debug('$log is here to show you that this is a regular factory with injection');
 
 			// 	var myInterceptor = {
@@ -47,8 +56,8 @@
 
 			// 	return myInterceptor;
 			// }]);
-			
-			// AEIRSAppModule.config(['$httpProvider', function($httpProvider) {  
+
+			// AEIRSAppModule.config(['$httpProvider', function($httpProvider) {
 			// 	$httpProvider.interceptors.push('myInterceptor');
 			// }]);
 			//////////sample
@@ -61,7 +70,7 @@
 					}
 				});
 			});
-			
+
 			AEIRSAppModule.factory("authInterceptorFactory",["$log","authTokenFactory",function($log,authTokenFactory){
 				$log.debug("$log is authInterceptorFactory");
 				var factory = {};
@@ -72,7 +81,7 @@
 					// 	config.headers.Authorization = 'Bearer ' + token;
 					// }
 					// return config;
-					
+
 					console.log("haha");
 				}
 				return factory;
