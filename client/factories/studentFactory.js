@@ -6,7 +6,7 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	// as how we would create a get request.
 	var students=[];
 	var factory = {};
-
+	factory.haha = "hahahaqwer";
 	factory.addStudent=function(data, callback){
 		console.log('made it to my student Factory');
 		$http.post('/student', data).then(function(data){
@@ -25,43 +25,19 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 		});
 	};
 
-	// factory.getMongoose=function(mongID, callback){
-	// 	$http.get('/mongoose/' + mongID).then(function(mongoose){
-	// 		console.log('made it back from backend this is one mongoose ', mongoose);
-	// 		callback(mongoose);
-	// 	})
-	// }
+	factory.getStudent=function(studentID, callback){
+		$http.get('/students/' + studentID).then(function(student){
+			console.log('made it back from backend this is one student ', student);
+			callback(student);
+		})
+	}
 
-	// factory.updateMongoose=function(updatedMongoose, callback){
-	// 	$http.post('/mongoose/' + updatedMongoose._id + '/update', updatedMongoose).then(function(data){
-	// 		console.log('made it back from backend this is updated mongoose', data);
-	// 		callback(data);
-	// 	})
-	// }
-
-	// factory.getDummies = function(callback){
-	// 	$http.get('/dummies').then(function(data){
-	// 		mongooses = data.data;
-	// 		callback(data.data);
-	// 	});
-	// }
-
-	// // the info parameter below is the the dummy that we're trying to add into our database
-
-	// // I added a test for myself below. I'm passing both a body element as well a params element
-	// // I use this as an initial test that I can pass information to my backend.
-	// // Check out your server console and you should see the body and the value we pass through
-	// // the url.
-	// factory.addDummy = function(info, callback){
-	// 	$http.post('/dummies/youShouldSeeThisInServerConsoleReqParams', info).then(function(data){
-	// 		if(data.error){
-	// 			callback(data);
-	// 		} else {
-	// 			mongooses.push(data)
-	// 			callback(mongooses);
-	// 		}
-	// 	})
-	// }
+	factory.updateStudent=function(updatedStudent, callback){
+		$http.post('/student/' + updatedStudent._id + '/update', updatedStudent).then(function(data){
+			console.log('made it back from backend this is updated student', data);
+			callback(data);
+		})
+	}
 
 	return factory;
 })

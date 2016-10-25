@@ -37,6 +37,14 @@
 				.when("/all_students",{
 					templateUrl: "partials/all_students.html"
 				})
+				.when('/students/:id', {
+					controller: 'showStudentController',
+					templateUrl: 'partials/show_students.html'
+				})
+				.when('/students/:id/edit', {
+					controller: 'editStudentController',
+					templateUrl: 'partials/edit_student.html'
+				})
 				.otherwise({
 					redirectTo: "/"
 				});
@@ -164,6 +172,8 @@
 
 		<!-- controllers -->
 		<script src = "./controllers/allStudentsController.js"></script>
+		<script src = "./controllers/showStudentController.js"></script>
+		<script src = "./controllers/editStudentController.js"></script>
 
     <!--factories -->
     <script src = "./factories/studentFactory.js"></script>

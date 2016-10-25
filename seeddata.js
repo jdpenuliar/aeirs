@@ -21,7 +21,39 @@ list = [
       father_last: "Bye",
       parent_email: "parent@gmail.com",
       parent_phone: 14085557777
-    }, {timestamps:true}
+    }, {timestamps:true},
+    {
+      student_first: "Shivani",
+      student_middle: "none",
+      student_last: "Bhardwaj",
+      student_id: 187692,
+      student_email: "shivani@gmail.com",
+      student_phone: 14089993333,
+      mother_first: "S",
+      mother_middle: "G",
+      mother_last: "Bhardwaj",
+      father_first: "J",
+      father_middle: "K",
+      father_last: "Bhardwaj",
+      parent_email: "parent@gmail.com",
+      parent_phone: 14085557777
+    }, {timestamps:true},
+    {
+      student_first: "Neesha",
+      student_middle: "none",
+      student_last: "Bhardwaj",
+      student_id: 348692,
+      student_email: "neesa@gmail.com",
+      student_phone: 14089993333,
+      mother_first: "S",
+      mother_middle: "G",
+      mother_last: "Bhardwaj",
+      father_first: "J",
+      father_middle: "K",
+      father_last: "Bhardwaj",
+      parent_email: "parent@gmail.com",
+      parent_phone: 14085557777
+    }, {timestamps:true},
 ];
 
 for(var i in list){

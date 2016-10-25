@@ -15,7 +15,8 @@ module.exports = function(app){
 	app.get("/all_students",function(req,res){
 		students.getStudents(req,res);
 	});
-	app.get("/seed",function(req,res){
-		users.seedData(req,res);
+	app.get("/students/:id",function(req,res){
+		students.getStudent(req,res);
 	});
+
 };
