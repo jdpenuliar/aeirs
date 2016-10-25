@@ -2,9 +2,9 @@
 	<h2>This partial is to show all students</h2>
 	<a href="">Add a Student</a>
 	<div ng-repeat= "student in students">
-		<h3><a href="#/student/{{student._id}}">{{student.student_first}} {{student.student_last}}</a></h3>
-		<h4>{{student.student_id}}</h4>
-		<h4>{{student.student_email}}</h4>
+		<h3>Student Name: <a href="#/student/{{student._id}}">{{student.student_first}} {{student.student_last}}</a></h3>
+		<h4>Student ID: {{student.student_id}}</h4>
+		<h4>Student Email: {{student.student_email}}</h4>
 		<hr>
 	</div>
 

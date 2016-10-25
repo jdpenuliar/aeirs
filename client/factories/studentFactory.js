@@ -5,7 +5,7 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	// below we have an example of how we would create a post request, as well
 	// as how we would create a get request.
 	var students=[];
-	var factory = {}
+	var factory = {};
 
 	factory.addStudent=function(data, callback){
 		console.log('made it to my student Factory');
@@ -13,17 +13,17 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 			console.log('made it back from backend this is the new student ', data);
 			students.push(data.data);
 			callback(students);
-		})
-	}
+		});
+	};
 
 	factory.getStudents=function(callback){
 		console.log('made it to student factory getStudents');
-		$http.get('/student').then(function(mongooses){
+		$http.get('/all_students').then(function(student){
 			console.log('made it back from backend this is all students ', student);
 			students=student.data;
 			callback(students);
-		})
-	}
+		});
+	};
 
 	// factory.getMongoose=function(mongID, callback){
 	// 	$http.get('/mongoose/' + mongID).then(function(mongoose){
