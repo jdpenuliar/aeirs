@@ -15,8 +15,16 @@ module.exports = function(app){
 	app.get("/all_students",function(req,res){
 		students.getStudents(req,res);
 	});
+	//route for updating specific student
+	app.post("/students/:id",function(req,res){
+		students.updateStudent(req,res);
+	});
+	//route for showing html edit for specific student
+	app.get("/students/:id/edit",function(req,res){
+		students.getStudent(req,res);
+	});
+	//route for getting specific student
 	app.get("/students/:id",function(req,res){
 		students.getStudent(req,res);
 	});
-
 };

@@ -6,12 +6,12 @@ angular.module('AEIRS').controller('editStudentController', function($scope, $ro
   console.log('this is routeParams.id ', $routeParams.id);
   studentFactory.getStudent(studentID, function(data){
     console.log('this is data from show controller ', data);
-    $scope.student=data.data[0];
+    $scope.student=data.data;
   })
 
   $scope.updateStudent = function(){
     studentFactory.updateStudent($scope.editStudent, function(data){
-      $location.path('/');
+      // $location.path('/students/' +);
     })
   }
 })

@@ -1,5 +1,5 @@
-var student = require('mongoose');
-var StudentSchema = new student.Schema({
+var mongoose = require('mongoose');
+var StudentSchema = new mongoose.Schema({
     student_first: {type: String, required: true, minlength: 1},
     student_middle: {type: String, required: true, minlength: 1},
     student_last: {type: String, required: true, minlength: 1},
@@ -16,7 +16,7 @@ var StudentSchema = new student.Schema({
     parent_phone: {type: Number, required: true, minlength: 1}
 });
 
-student.model('studentDB', StudentSchema);
+mongoose.model('Student', StudentSchema);
 // Validations
 // StudentSchema.path('color').required(true, 'Color cannot be blank');
 // StudentSchema.path('weight').required(true, 'Weight cannot be blank');

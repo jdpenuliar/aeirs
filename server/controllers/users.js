@@ -1,7 +1,6 @@
 //include packages needed for sanitizing the input and jwt
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
-var Student = mongoose.model("studentDB");
 // var faker = require('faker');
 var jwt = require('jsonwebtoken');
 var jwtSecret = 'hahagasps';
@@ -114,32 +113,6 @@ module.exports = (function(){
 							}
 						});
 					}
-				}
-			});
-		},
-		seedData: function(req,res){
-			console.log("seed sample");
-			var seedStudent = new Student({
-				 student_first: "Joseph Donn",
-				 student_middle: "Calaunan",
-				 student_last: "Penuliar",
-				 student_middle: 887123,
-				 student_email: "jaydz@gmail.com",
-				 student_phone: 14089993333,
-				 mother_first: "Mary",
-				 mother_middle: "Lee",
-				 mother_last: "Hi",
-				 father_first: "Josh",
-				 father_middle: "Lee",
-				 father_last: "Bye",
-				 parent_email: "parent@gmail.com",
-				 parent_phone: 14085557777
-			});
-			seedStudent.save(function(err,data){
-				if(err){
-					console.log("something is worng hahaha");
-				}else{
-					console.log("yeah!");
 				}
 			});
 		}

@@ -7,7 +7,7 @@ angular.module('AEIRS').controller('showStudentController', function($scope, $ro
 	var studentID = $routeParams.id;
 	console.log("try factory haha-------------\n",studentFactory.haha);
   studentFactory.getStudent(studentID, function(data){
-    console.log('this is data from show controller ', data);
-    $scope.student=data.data[0];
+    console.log('this is data from show controller-------------\n', data);
+    $scope.student=data.data;
   })
 })

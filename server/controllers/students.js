@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var studentDB = mongoose.model('studentDB');
+var Student = mongoose.model('Student');
 
 module.exports=(function(){
 	return{
 		getStudents: function(req, res){
-			studentDB.find({}, function(err, students){
+			Student.find({}, function(err, students){
 				if(err){
 					console.log(err);
 					console.log('error in getStudents controller');
@@ -15,7 +15,7 @@ module.exports=(function(){
 			})
 		},
 		getStudent: function(req, res){
-			studentDB.find({_id: req.params.id}, function(err, result){
+			Student.findOne({_id: req.params.id}, function(err, result){
 				if(err){
 					console.log('this is the err when looking for student', err);
 				} else {
@@ -23,6 +23,29 @@ module.exports=(function(){
 					res.json(result);
 				}
 			})
+		},
+		updateStudent: function(req, res){
+			Student.findOne({_id:req.params.id}, function(err, result){
+				if (err){
+					console.log('unable to find student, here is error ', err);
+					res.json(err);
+				}
+				else {
+					result.student_first=req.body.student_first;
+					result.student_middle=req.body.student_middle;
+					result.student_last=req.body.student_last;
+					result.save(function(err, result){
+						if(err){
+							console.log('unable to save student, here is err', err);
+							res.json(err);
+						} else{
+							console.log('successfully updated student!', result);
+							res.json(result);
+						}
+					})
+				}
+			})
 		}
+
   }
 })();
