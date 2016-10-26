@@ -1,0 +1,165 @@
+<div>
+	<!-- Dropdown Structure for Web navbar -->
+	<ul id='dropdownWebNavbar' class='dropdown-content'>
+		<li><a href="javascript:void(0);">Link 1</a></li>
+		<li><a href="javascript:void(0);">Link 2</a></li>
+		<li><a href="javascript:void(0);">Link 3</a></li>
+		<li><a href="javascript:void(0);">Link 4</a></li>
+		<li><a href="javascript:void(0);">Link 5</a></li>
+	</ul>
+	<!-- Dropdown Structure for Mobile navbar -->
+	<ul id='dropdownMobileNavbar' class='dropdown-content'>
+		<li><a href="javascript:void(0);">Link 1</a></li>
+		<li><a href="javascript:void(0);">Link 2</a></li>
+		<li><a href="javascript:void(0);">Link 3</a></li>
+		<li><a href="javascript:void(0);">Link 4</a></li>
+		<li><a href="javascript:void(0);">Link 5</a></li>
+	</ul>
+	<nav class="teal">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo">SRS</a>
+			<a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="sass.html">Sass</a></li>
+				<li><a href="badges.html">Components</a></li>
+				<li><a href="collapsible.html">Javascript</a></li>
+				<li><a href="mobile.html">Mobile</a></li>
+				<!-- Dropdown Trigger -->
+				<li><a class='dropdown-button' href='javascript:void(0);' data-activates='dropdownWebNavbar' dropdown data-hover="true">
+					This is a dropdown
+				</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile">
+				<li><a href="sass.html">Sass</a></li>
+				<li><a href="badges.html">Components</a></li>
+				<li><a href="collapsible.html">Javascript</a></li>
+				<li><a href="mobile.html">Mobile</a></li>
+				<!-- Dropdown Trigger -->
+				<li><a class='dropdown-button' href='javascript:void(0);' data-activates='dropdownMobileNavbar' dropdown data-hover="true">
+					This is a dropdown
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<form name="studentRegistrationForm">
+			<div class="row">
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormStudentID" type="number" class="validate" name="studentRegistrationFormStudentID" ng-model="studentRegistrationData.studentRegistrationFormStudentID" required>
+							<label for="studentRegistrationFormStudentID">Student ID</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormEmail" type="text" class="validate" name="studentRegistrationFormEmail" ng-model="studentRegistrationData.studentRegistrationFormEmail" required>
+							<label for="studentRegistrationFormEmail">Student E-mail</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentregistrationFormPhone" type="number" class="validate" name="studentregistrationFormPhone" ng-model="studentRegistrationData.studentregistrationFormPhone" required>
+							<label for="studentregistrationFormPhone">Student Phone Number</label>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFomrStudentFirstName" type="text" class="validate" name="studentRegistrationFomrStudentFirstName" ng-model="studentRegistrationData.studentRegistrationFomrStudentFirstName" required>
+							<label for="studentRegistrationFomrStudentFirstName">Student First Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormStudentMiddleName" type="text" class="validate" name="studentRegistrationFormStudentMiddleName" ng-model="studentRegistrationData.studentRegistrationFormStudentMiddleName" required>
+							<label for="studentRegistrationFormStudentMiddleName">Student Middle Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormStudentLastName" type="text" class="validate" name="studentRegistrationFormStudentLastName" ng-model="studentRegistrationData.studentRegistrationFormStudentLastName" required>
+							<label for="studentRegistrationFormStudentLastName">Student Last Name</label>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormMotherFirstName" type="text" class="validate" name="studentRegistrationFormMotherFirstName" ng-model="studentRegistrationData.studentRegistrationFormMotherFirstName" required>
+							<label for="studentRegistrationFormMotherFirstName">Mother First Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormMotherMiddleName" type="text" class="validate" name="studentRegistrationFormMotherMiddleName" ng-model="studentRegistrationData.studentRegistrationFormMotherMiddleName" required>
+							<label for="studentRegistrationFormMotherMiddleName">Mother Middle Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormMotherLastName" type="text" class="validate" name="studentRegistrationFormMotherLastName" ng-model="studentRegistrationData.studentRegistrationFormMotherLastName" required>
+							<label for="studentRegistrationFormMotherLastName">Mother Last Name</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormFatherFirstName" type="text" class="validate" name="studentRegistrationFormFatherFirstName" ng-model="studentRegistrationData.studentRegistrationFormFatherFirstName" required>
+							<label for="studentRegistrationFormFatherFirstName">Father First Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormFatherMiddleName" type="text" class="validate" name="studentRegistrationFormFatherMiddleName" ng-model="studentRegistrationData.studentRegistrationFormFatherMiddleName" required>
+							<label for="studentRegistrationFormFatherMiddleName">Father Middle Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFatherLastName" type="text" class="validate" name="studentRegistrationFatherLastName" ng-model="studentRegistrationData.studentRegistrationFatherLastName" required>
+							<label for="studentRegistrationFatherLastName">Father Last Name</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormParentPhoneNumber" type="number" class="validate" name="studentRegistrationFormParentPhoneNumber" ng-model="studentRegistrationData.studentRegistrationFormParentPhoneNumber" required>
+							<label for="studentRegistrationFormParentPhoneNumber">Parent Phone Number</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="studentRegistrationFormParentEmail" type="text" class="validate" name="studentRegistrationFormParentEmail" ng-model="studentRegistrationData.studentRegistrationFormParentEmail" required>
+							<label for="studentRegistrationFormParentEmail">Parent Email</label>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<button class="btn waves-effect waves-light" ng-click="studentRegister()" ng-disabled="studentRegistrationForm.$invalid">Register Student</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+	<!-- ANGULAR -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+	<script src="js/init.js"></script>
+</div>

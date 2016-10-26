@@ -4,21 +4,39 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
 	<title>AEIRS</title>
+	<!-- Add to homescreen for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" sizes="192x192" href="./thirdparty/mdl-templates/assets/android-desktop.png">
 
+	<!-- Add to homescreen for Safari on iOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Material Design Lite">
+	<link rel="apple-touch-icon-precomposed" href="./thirdparty/mdl-templates/assets/ios-desktop.png">
+
+
+
+	<link rel="shortcut icon" href="./thirdparty/mdl-templates/assets/favicon.png">
 
 	<!-- Materialize CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="./css/materialize.css">
-	<link type="text/css" rel="stylesheet" href="./css/style.css">
+	<!-- <link type="text/css" rel="stylesheet" href="./css/style.css"> -->
+	<!-- bower Materialize CSS -->
+	<!-- <link type="text/css" rel="stylesheet" href="./../bower_components/materialize/bin/materialize.css"> -->
+	
 
 	<!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script src="js/init.js"></script>
+
 	<!-- ANGULAR -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script> -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
 	<script>
 		(function(){
@@ -44,6 +62,13 @@
 				.when('/students/:id/edit', {
 					controller: 'editStudentController',
 					templateUrl: 'partials/edit_student.html'
+				})
+				.when('/faculty', {
+					controller: 'FacultyController',
+					templateUrl: 'partials/facultyDashboard.html'
+				})
+				.when('/!', {
+					
 				})
 				.otherwise({
 					redirectTo: "/"
@@ -86,7 +111,7 @@
 					// return config;
 
 					console.log("haha");
-				}
+				};
 				return factory;
 			}]);
 
@@ -97,7 +122,7 @@
 				const key = "jkdhahsdfhjlkasdfhjkladfshkjl";
 				factory.getToken = function(){
 					return store.getItem(key);
-				}
+				};
 				factory.setToken = function(token){
 					if(token != null){
 						store.setItem(key,token.data.token);
@@ -105,7 +130,7 @@
 						store.removeItem(key);
 					}
 					console.log("------------authtokensettokenfactory\n",store);
-				}
+				};
 				return factory;
 			}]);
 
@@ -117,31 +142,31 @@
 						users = data;
 						callback(users);
 					});
-				}
+				};
 				factory.login = function(info, callback){
 					$http.post("/login", info).then(function(data,err){
-						console.log("factory\n",data)
-						if(data.data != null){
+						console.log("factory\n",data);
+						if (data.data != null) {
 							authTokenFactory.setToken(data);
 							callback(data);
 						}else if(data.data == null){
 							authTokenFactory.setToken();
 						}
 					});
-				}
+				};
 				factory.register = function(info, callback){
 					$http.post("/register", info).then(function(data){
 						users = data;
 						callback(users);
 					});
-				}
+				};
 				factory.logout = function(info,callback){
 					users = null
 					authTokenFactory.setToken();
-				}
+				};
 				factory.getUser = function(){
 
-				}
+				};
 				return factory;
 			});
 
@@ -153,30 +178,33 @@
 						$location.url("/dashboard");
 						$scope.userLoginData = {};
 					});
-				}
+				};
 				$scope.userRegister = function(){
 					console.log($scope.userRegisterData);
 					usersFactory.register($scope.userRegisterData, function(data){
-						$scope.userRegisterData = {}
+						$scope.userRegisterData = {};
 					});
-				}
+				};
 			});
 
 			AEIRSAppModule.controller("DashboardController",function($scope,$window,$location){
 				console.log("scopehahadashboard-------------\n",$scope);
 			});
+			AEIRSAppModule.controller("FacultyController",function($scope,$window,$location){
+				console.log("scopehahadashboardfaculty-------------\n",$scope);
+			});
 		})();
 
-</script>
+	</script>
 
 
-		<!-- controllers -->
-		<script src = "./controllers/allStudentsController.js"></script>
-		<script src = "./controllers/showStudentController.js"></script>
-		<script src = "./controllers/editStudentController.js"></script>
+	<!-- controllers -->
+	<script src = "./controllers/allStudentsController.js"></script>
+	<script src = "./controllers/showStudentController.js"></script>
+	<script src = "./controllers/editStudentController.js"></script>
 
-    <!--factories -->
-    <script src = "./factories/studentFactory.js"></script>
+	<!--factories -->
+	<script src = "./factories/studentFactory.js"></script>
 </head>
 <body>
 	<div ng-view="">

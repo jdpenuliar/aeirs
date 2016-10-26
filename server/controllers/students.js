@@ -12,7 +12,7 @@ module.exports=(function(){
 					console.log('this is all the students', students);
 					res.json(students);
 				}
-			})
+			});
 		},
 		getStudent: function(req, res){
 			Student.findOne({_id: req.params.id}, function(err, result){
@@ -22,7 +22,7 @@ module.exports=(function(){
 					console.log('this is the student', result);
 					res.json(result);
 				}
-			})
+			});
 		},
 		updateStudent: function(req, res){
 			Student.findOne({_id:req.params.id}, function(err, result){
@@ -42,9 +42,9 @@ module.exports=(function(){
 							console.log('successfully updated student!', result);
 							res.json(result);
 						}
-					})
+					});
 				}
-			})
+			});
 		}
 
   }

@@ -12,8 +12,8 @@ var StudentSchema = new mongoose.Schema({
     father_first: {type: String, required: true, minlength: 1},
     father_middle: {type: String, required: true, minlength: 1},
     father_last: {type: String, required: true, minlength: 1},
-    parent_email: {type: String, required: true, minlength: 1},
-    parent_phone: {type: Number, required: true, minlength: 1}
+    parent_phone: {type: Number, required: true, minlength: 1},
+    parent_email: {type: String, required: true, minlength: 1}
 });
 
 mongoose.model('Student', StudentSchema);
