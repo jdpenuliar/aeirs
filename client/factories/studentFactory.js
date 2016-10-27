@@ -33,7 +33,7 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	}
 
 	factory.updateStudent=function(updatedStudent, callback){
-		$http.post('/student/' + updatedStudent._id + '/update', updatedStudent).then(function(data){
+		$http.post('/student/' + updatedStudent._id, updatedStudent).then(function(data){
 			console.log('made it back from backend this is updated student', data);
 			callback(data);
 		})

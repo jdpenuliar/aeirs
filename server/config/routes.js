@@ -16,7 +16,7 @@ module.exports = function(app){
 		students.getStudents(req,res);
 	});
 	//route for updating specific student
-	app.post("/students/:id",function(req,res){
+	app.post("/student/:id",function(req,res){
 		students.updateStudent(req,res);
 	});
 	//route for showing html edit for specific student
