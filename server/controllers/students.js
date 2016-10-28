@@ -10,7 +10,7 @@ module.exports=(function(){
 					console.log('error in getStudents controller');
 				} else{
 					console.log('this is all the students', students);
-					res.json(students);
+					res.json({ "data": students});
 				}
 			});
 		},
@@ -47,5 +47,5 @@ module.exports=(function(){
 			});
 		}
 
-  }
+  };
 })();
