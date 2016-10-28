@@ -1,0 +1,24 @@
+{
+  "name": "aeirs",
+  "description": "A web app that maintain operations of management",
+  "main": "client/index.html",
+  "authors": [
+    "JDPenuliar"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "aeirs"
+  ],
+  "homepage": "https://github.com/jdpenuliar/aeirs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-datatables": "^0.5.5"
+  }
+}

@@ -21,17 +21,16 @@
 	<!-- Materialize CSS -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="./css/materialize.css">
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
-	<!-- DATATABLES -->
-	<link rel="stylesheet" href="./css/datatables/dataTables.material.min.css">
-	<!-- <link type="text/css" rel="stylesheet" href="./css/style.css"> -->
-	<!-- bower Materialize CSS -->
-	<!-- <link type="text/css" rel="stylesheet" href="./../bower_components/materialize/bin/materialize.css"> -->
+
+	<!-- datable css -->
+	<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+	<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.material.min.css">
 	
 
-	<!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-	<script src="js/init.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	
+	<!-- <script src="js/init.js"></script> -->
 
 	<!-- ANGULAR -->
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
@@ -39,10 +38,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
 
 	<script src="js/materialize.js"></script>
-	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script> -->
+
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
 
-	
 
 	<script>
 		(function(){
@@ -59,11 +57,11 @@
 					templateUrl: "partials/dashboard.html"
 				})
 				.when('/students', {
-					controller: 'FacultyController',
+					controller: 'StudentController',
 					templateUrl: 'partials/students.html'
 				})
 				.when('/students/new', {
-					controller: 'FacultyController',
+					controller: 'StudentController',
 					templateUrl: 'partials/createStudent.html'
 				})
 				.when("/all_students",{
@@ -179,6 +177,18 @@
 				};
 				return factory;
 			});
+			AEIRSAppModule.factory("studentsFactory",function($http,$window,authTokenFactory){
+				var factory = {};
+				var users = [];
+				factory.test = function(callback){
+					$http.get("/haha").then(function(data){
+						users = data;
+						callback(users);
+					});
+				};
+				
+				return factory;
+			});
 
 			AEIRSAppModule.controller("LandingController",function($scope,$window,$location,usersFactory,authInterceptorFactory){
 				$scope.userLogin = function(){
@@ -200,9 +210,28 @@
 			AEIRSAppModule.controller("DashboardController",function($scope,$window,$location){
 				console.log("scopehahadashboard-------------\n",$scope);
 			});
-			AEIRSAppModule.controller("FacultyController",function($scope,$window,$location){
-				console.log("scopehahadashboardfaculty-------------\n",$scope);
+
+			AEIRSAppModule.controller('WithAjaxCtrl', function(DTOptionsBuilder, DTColumnBuilder){
+				console.log("haha");
+				var vm = this;
+				vm.dtOptions = DTOptionsBuilder.fromSource('http://localhost:8000/all_students')
+				.withPaginationType('full_numbers');
+				vm.dtColumns = [
+				DTColumnBuilder.newColumn('_id').withTitle('ID')
+
+				// ,
+				// DTColumnBuilder.newColumn('firstName').withTitle('First name'),
+				// DTColumnBuilder.newColumn('lastName').withTitle('Last name').notVisible()
+				];
 			});
+
+
+			AEIRSAppModule.controller("StudentController",function($scope,$window,$location,studentsFactory){
+				console.log("scopehahadashboardStudent-------------\n",$scope);
+
+			});
+
+
 		})();
 
 	</script>
@@ -219,5 +248,8 @@
 <body>
 	<div ng-view="">
 	</div>
+
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
 </body>
 </html>
