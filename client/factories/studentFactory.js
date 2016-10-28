@@ -8,7 +8,7 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	var factory = {};
 	factory.haha = "hahahaqwer";
 
-	factory.studentRegister=function(data, callback){
+	factory.addStudent=function(data, callback){
 		console.log('made it to studentFactory');
 		$http.post('/students', data).then(function(data){
 			console.log('made it back from backend this is new student ', data);

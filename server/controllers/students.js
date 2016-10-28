@@ -48,9 +48,11 @@ module.exports=(function(){
 		},
 		studentRegister: function(req, res){
 			student=new Student(req.body);
+			console.log('this is req.body', req.body);
 			student.save(function(err, result){
-				if(error){
-					console.log('error creating a new student, ', error);
+				if(err){
+					console.log('error creating a new student, ', err);
+					console.log('this is req.body', req.body);
 				} else{
 					console.log('this is our new student ', result);
 					res.json(result);

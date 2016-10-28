@@ -63,7 +63,7 @@
 					templateUrl: 'partials/students.html'
 				})
 				.when('/students/new', {
-					controller: 'FacultyController',
+					controller: 'newStudentController',
 					templateUrl: 'partials/createStudent.html'
 				})
 				.when("/all_students",{
@@ -212,6 +212,7 @@
 	<script src = "./controllers/allStudentsController.js"></script>
 	<script src = "./controllers/showStudentController.js"></script>
 	<script src = "./controllers/editStudentController.js"></script>
+	<script src = "./controllers/newStudentController.js"></script>
 
 	<!--factories -->
 	<script src = "./factories/studentFactory.js"></script>
