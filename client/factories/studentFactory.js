@@ -7,14 +7,25 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	var students=[];
 	var factory = {};
 	factory.haha = "hahahaqwer";
-	factory.addStudent=function(data, callback){
-		console.log('made it to my student Factory');
-		$http.post('/student', data).then(function(data){
-			console.log('made it back from backend this is the new student ', data);
+
+	factory.studentRegister=function(data, callback){
+		console.log('made it to studentFactory');
+		$http.post('/students', data).then(function(data){
+			console.log('made it back from backend this is new student ', data);
 			students.push(data.data);
 			callback(students);
 		});
 	};
+
+
+	// factory.addStudent=function(data, callback){
+	// 	console.log('made it to my student Factory');
+	// 	$http.post('/student', data).then(function(data){
+	// 		console.log('made it back from backend this is the new student ', data);
+	// 		students.push(data.data);
+	// 		callback(students);
+	// 	});
+	// };
 
 	factory.getStudents=function(callback){
 		console.log('made it to student factory getStudents');
@@ -38,6 +49,8 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 			callback(data);
 		})
 	}
+
+
 
 	return factory;
 })

@@ -45,7 +45,17 @@ module.exports=(function(){
 					});
 				}
 			});
+		},
+		studentRegister: function(req, res){
+			student=new Student(req.body);
+			student.save(function(err, result){
+				if(error){
+					console.log('error creating a new student, ', error);
+				} else{
+					console.log('this is our new student ', result);
+					res.json(result);
+				}
+			})
 		}
-
   }
 })();

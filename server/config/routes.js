@@ -15,6 +15,10 @@ module.exports = function(app){
 	app.get("/all_students",function(req,res){
 		students.getStudents(req,res);
 	});
+	//route for creating new student
+	app.post("/students",function(req,res){
+		students.studentRegister(req,res);
+	});
 	//route for updating specific student
 	app.post("/student/:id",function(req,res){
 		students.updateStudent(req,res);

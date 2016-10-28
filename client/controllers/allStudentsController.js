@@ -8,12 +8,12 @@ angular.module('AEIRS').controller('allStudentsController', function($scope, $ro
 		$scope.students=data;
 	})
 
-	$scope.createStudent=function(){
-		console.log('createStudent in the addStudentController', $scope.newStudent);
-		studentFactory.addStudent($scope.newStudent, function(studentArray){
-			$scope.students=studentArray;
-		})
-	}
+	// $scope.createStudent=function(){
+	// 	console.log('createStudent in the addStudentController', $scope.newStudent);
+	// 	studentFactory.addStudent($scope.newStudent, function(studentArray){
+	// 		$scope.students=studentArray;
+	// 	})
+	// }
 
 	// var studentID=$routeParams.id;
 	// console.log('this is routeParams.id ', $routeParams.id);
