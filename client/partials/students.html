@@ -42,7 +42,7 @@
 		</div>
 	</nav>
 	<div class="container">
-		<table id="example" class="display mdl-data-table" cellspacing="0" width="50%">
+		<table id="example" class="display" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th>_id</th>
@@ -82,11 +82,13 @@
 				</tr>
 			</tfoot>
 		</table>
+
+		
 	</div>
-	<script src="js/init.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#example').DataTable({
+				"scrollX": true,
 				"ajax": "http://localhost:8000/all_students",
 				"columns": [
 				{ "data": "_id" },
@@ -104,16 +106,11 @@
 				{ "data": "father_last" },
 				{ "data": "parent_email" },
 				{ "data": "parent_phone" }
-				],
-				columnDefs: [
-				{
-					targets: [ 0, 1, 2 ],
-					className: 'mdl-data-table__cell--non-numeric'
-				}
 				]
 			});
 		});
 
 	</script>
 	
+	<script src="js/init.js"></script>
 </div>
