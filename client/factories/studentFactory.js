@@ -40,17 +40,17 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 		$http.get('/students/' + studentID).then(function(student){
 			console.log('made it back from backend this is one student ', student);
 			callback(student);
-		})
-	}
+		});
+	};
 
 	factory.updateStudent=function(updatedStudent, callback){
 		$http.post('/student/' + updatedStudent._id, updatedStudent).then(function(data){
 			console.log('made it back from backend this is updated student', data);
 			callback(data);
-		})
-	}
+		});
+	};
 
 
 
 	return factory;
-})
+});

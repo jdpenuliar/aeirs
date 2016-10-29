@@ -31,18 +31,19 @@ module.exports=(function(){
 					res.json(err);
 				}
 				else {
-					result.student_first=req.body.student_first;
-					result.student_middle=req.body.student_middle;
-					result.student_last=req.body.student_last;
-					result.save(function(err, result){
-						if(err){
-							console.log('unable to save student, here is err', err);
-							res.json(err);
-						} else{
-							console.log('successfully updated student!', result);
-							res.json(result);
-						}
-					});
+					console.log("foundit!\n",result);
+					// result.student_first=req.body.student_first;
+					// result.student_middle=req.body.student_middle;
+					// result.student_last=req.body.student_last;
+					// result.save(function(err, result){
+					// 	if(err){
+					// 		console.log('unable to save student, here is err', err);
+					// 		res.json(err);
+					// 	} else{
+					// 		console.log('successfully updated student!', result);
+					// 		res.json(result);
+					// 	}
+					// });
 				}
 			});
 		},
