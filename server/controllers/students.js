@@ -32,18 +32,29 @@ module.exports=(function(){
 				}
 				else {
 					console.log("foundit!\n",result);
-					// result.student_first=req.body.student_first;
-					// result.student_middle=req.body.student_middle;
-					// result.student_last=req.body.student_last;
-					// result.save(function(err, result){
-					// 	if(err){
-					// 		console.log('unable to save student, here is err', err);
-					// 		res.json(err);
-					// 	} else{
-					// 		console.log('successfully updated student!', result);
-					// 		res.json(result);
-					// 	}
-					// });
+					result.student_first=req.body.student_first;
+					result.student_middle=req.body.student_middle;
+					result.student_last=req.body.student_last;
+					result.student_id=req.body.student_id;
+					result.student_email=req.body.student_email;
+					result.student_phone=req.body.student_phone;
+					result.mother_first=req.body.mother_first;
+					result.mother_middle=req.body.mother_middle;
+					result.mother_last=req.body.mother_last;
+					result.father_first=req.body.father_first;
+					result.father_middle=req.body.father_middle;
+					result.father_last=req.body.father_last;
+					result.parent_phone=req.body.parent_phone;
+					result.parent_email=req.body.parent_email;
+					result.save(function(err, result){
+						if(err){
+							console.log('unable to save student, here is err', err);
+							res.json(err);
+						} else{
+							console.log('successfully updated student!', result);
+							res.json(result);
+						}
+					});
 				}
 			});
 		},

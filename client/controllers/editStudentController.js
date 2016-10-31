@@ -12,7 +12,7 @@ angular.module('AEIRS').controller('editStudentController', function($scope, $ro
   $scope.updateStudent = function(){
     console.log("haha");
     studentFactory.updateStudent($scope.student, function(data){
-      // $location.path('/all_students');
+      $location.path('/all_students');
     });
   };
 });
