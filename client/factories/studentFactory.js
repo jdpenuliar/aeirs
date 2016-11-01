@@ -18,15 +18,6 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	};
 
 
-	// factory.addStudent=function(data, callback){
-	// 	console.log('made it to my student Factory');
-	// 	$http.post('/student', data).then(function(data){
-	// 		console.log('made it back from backend this is the new student ', data);
-	// 		students.push(data.data);
-	// 		callback(students);
-	// 	});
-	// };
-
 	factory.getStudents=function(callback){
 		console.log('made it to student factory getStudents');
 		$http.get('/all_students').then(function(student){
@@ -50,7 +41,14 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 		});
 	};
 
-
+	factory.removeStudent = function(studentID, callback){
+    console.log("inside the removeStudent method in the studentFactory");
+    console.log(studentID, "this is student id");
+    $http.post('/student/' + studentID +'/delete').then(function(data){
+      console.log('made it back from backend, after deleting student from DB', data);
+      callback(data);
+    })
+  }
 
 	return factory;
 });

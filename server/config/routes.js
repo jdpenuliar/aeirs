@@ -19,6 +19,10 @@ module.exports = function(app){
 	app.post("/students",function(req,res){
 		students.studentRegister(req,res);
 	});
+	app.post('/student/:id/delete', function(req, res){
+		console.log('made it to my /student/:id/delete post route');
+		students.removeStudent(req,res);
+	})
 	//route for updating specific student
 	app.post("/student/:id",function(req,res){
 		students.updateStudent(req,res);

@@ -70,6 +70,18 @@ module.exports=(function(){
 					res.json(result);
 				}
 			})
+		},
+		removeStudent: function(req, res){
+			console.log("this is the id using req params ", req.params.id);
+			Student.remove({_id:req.params.id}, function(err, result){
+				if(err){
+					console.log('couldnt delete the desired student', err);
+				}
+				else{
+					console.log('sccuessfully deleted student from DB', result);
+					res.json(result);
+				}
+			})
 		}
   }
 })();
