@@ -7,7 +7,7 @@
 		<h4>Student Email: {{student.student_email}}</h4>
 		<h4><a href="#/students/{{student._id}}">Show Student Record</a></h4>
 		<h4><a href="#/students/{{student._id}}/edit">Edit Student Record</a></h4>
-		<!-- <h4><a href="#/student/{{student._id}}">Delete Student</a></h4> -->
+		<button ng-click='removeStudent(student._id)'>Delete Student Record</button>
 		<hr>
 	</div>
 

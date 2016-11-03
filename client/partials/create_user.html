@@ -1,0 +1,114 @@
+<div>
+	<!-- Dropdown Structure for Web navbar -->
+	<ul id='dropdownWebNavbar' class='dropdown-content'>
+		<li><a href="javascript:void(0);">Link 1</a></li>
+		<li><a href="javascript:void(0);">Link 2</a></li>
+		<li><a href="javascript:void(0);">Link 3</a></li>
+		<li><a href="javascript:void(0);">Link 4</a></li>
+		<li><a href="javascript:void(0);">Link 5</a></li>
+	</ul>
+	<!-- Dropdown Structure for Mobile navbar -->
+	<ul id='dropdownMobileNavbar' class='dropdown-content'>
+		<li><a href="javascript:void(0);">Link 1</a></li>
+		<li><a href="javascript:void(0);">Link 2</a></li>
+		<li><a href="javascript:void(0);">Link 3</a></li>
+		<li><a href="javascript:void(0);">Link 4</a></li>
+		<li><a href="javascript:void(0);">Link 5</a></li>
+	</ul>
+	<nav class="teal">
+		<div class="nav-wrapper">
+			<a href="#!" class="brand-logo">SRS</a>
+			<a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="#">Create User</a></li>
+				<li><a href="badges.html">Components</a></li>
+				<li><a href="collapsible.html">Javascript</a></li>
+				<li><a href="mobile.html">Mobile</a></li>
+				<!-- Dropdown Trigger -->
+				<li><a class='dropdown-button' href='javascript:void(0);' data-activates='dropdownWebNavbar' dropdown data-hover="true">
+					This is a dropdown
+				</a></li>
+			</ul>
+			<ul class="side-nav" id="mobile">
+				<li><a href="#">Create User</a></li>
+				<li><a href="badges.html">Components</a></li>
+				<li><a href="collapsible.html">Javascript</a></li>
+				<li><a href="mobile.html">Mobile</a></li>
+				<!-- Dropdown Trigger -->
+				<li><a class='dropdown-button' href='javascript:void(0);' data-activates='dropdownMobileNavbar' dropdown data-hover="true">
+					This is a dropdown
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<form name="userRegistrationForm">
+			<div class="row">
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormUserName" type="text" class="validate" name="userRegistrationFormUserName" ng-model="userRegistrationData.userName" required>
+							<label for="userRegistrationFormUserName">User Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormEmailAddress" type="text" class="validate" name="userRegistrationFormEmailAddress" ng-model="userRegistrationData.emailAddress" required>
+							<label for="userRegistrationFormEmailAddress">E-mail Address</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userregistrationFormPassword" type="text" class="validate" name="userregistrationFormPassword" ng-model="userRegistrationData.password" required>
+							<label for="userregistrationFormPassword">Password</label>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormUserFirstName" type="text" class="validate" name="userRegistrationFormUserFirstName" ng-model="userRegistrationData.firstName" required>
+							<label for="userRegistrationFormUserFirstName">First Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormLastName" type="text" class="validate" name="userRegistrationFormLastName" ng-model="userRegistrationData.lastName" required>
+							<label for="userRegistrationFormLastName">Last Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormPhoneNumber" type="number" class="validate" name="userRegistrationFormPhoneNumber" ng-model="userRegistrationData.phoneNumber" required>
+							<label for="userRegistrationFormPhoneNumber">Phone Number</label>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="userRegistrationFormUserLevel" type="number" class="validate" name="userRegistrationFormUserLevel" ng-model="userRegistrationData.userLevel" required>
+							<label for="userRegistrationFormUserLevel">User Level</label>
+						</div>
+					</div>
+        </div>
+				<div class="col s12 m3 l3">
+					<div class="row">
+						<div class="input-field col s12">
+							<button class="btn waves-effect waves-light" ng-click="userRegister()" ng-disabled="studentRegistrationForm.$invalid">Register Student</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<h4><a href="#/all_users">All User Records</a></h4>
+	</div>
+
+<!-- ANGULAR -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
+	<script src="js/init.js"></script>
+</div>

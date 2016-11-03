@@ -58,6 +58,7 @@
 				.when("/dashboard",{
 					templateUrl: "partials/dashboard.html"
 				})
+				//STUDENT ROUTES
 				.when('/students', {
 					controller: 'FacultyController',
 					templateUrl: 'partials/students.html'
@@ -76,6 +77,22 @@
 				.when('/students/:id/edit', {
 					controller: 'editStudentController',
 					templateUrl: 'partials/edit_student.html'
+				})
+				//USER routes
+				.when('/users/new', {
+					controller: 'newUserController',
+					templateUrl: 'partials/create_user.html'
+				})
+				.when("/all_users",{
+					templateUrl: "partials/all_users.html"
+				})
+				.when('/users/:id', {
+					controller: 'showUserController',
+					templateUrl: 'partials/show_user.html'
+				})
+				.when('/users/:id/edit', {
+					controller: 'editUserController',
+					templateUrl: 'partials/edit_user.html'
 				})
 				.when('/!', {
 
@@ -213,9 +230,14 @@
 	<script src = "./controllers/showStudentController.js"></script>
 	<script src = "./controllers/editStudentController.js"></script>
 	<script src = "./controllers/newStudentController.js"></script>
+	<script src = "./controllers/allUsersController.js"></script>
+	<script src = "./controllers/showUserController.js"></script>
+	<script src = "./controllers/editUserController.js"></script>
+	<script src = "./controllers/newUserController.js"></script>
 
 	<!--factories -->
 	<script src = "./factories/studentFactory.js"></script>
+	<script src = "./factories/userFactory.js"></script>
 </head>
 <body>
 	<div ng-view="">
