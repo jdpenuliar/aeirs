@@ -48,7 +48,7 @@
 		(function(){
 			var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ui.materialize"]);
 
-			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {
+			AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", "ngCookies" function($httpProvider, $ngCookies, $routeProvider,$locationProvider) {
 				// $httpProvider.interceptors.push("authInterceptorFactory");
 
 				$routeProvider
