@@ -1,11 +1,11 @@
 <body ng-controller = 'loginController'>
   <div class = 'container'>
-  <h2>Welcome to Domination!</h2>
+  <!-- <h2>Welcome to Domination!</h2> -->
   <form ng-model = "registration" ng-submit = "register()">
-    <h3>Join Us!</h3>
+    <!-- <h3>Join Us!</h3> -->
     {{errors}}
     {{errors.userName.message}}
-    <div><input type="text" ng-model = "registration.userName" placeholder= "first name"></div>
+    <div><input type="text" ng-model = "registration.userName" placeholder= "user name"></div>
     {{errors.firstName.message}}
     <div><input type="text" ng-model = "registration.firstName" placeholder= "first name"></div>
     {{errors.lastName.message}}
