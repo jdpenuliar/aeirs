@@ -12,7 +12,7 @@ var Schema = new mongoose.Schema({
 	middleName: {type: String, required: true, minlength: 1},
 	lastName: {type: String, required: true, minlength: 1},
 	phoneNumber: {type: Number, required: true, minlength: 1}
-	// ,
-	// classes: [{type: Schema.Types.ObjectId, ref:"Class"}]
+	,
+	classes: [{type: mongoose.Schema.Types.ObjectId, ref: "Class"}]
 },{timestamps: true});
 mongoose.model("User",Schema);
