@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jdpenuliar/aeirs#readme",
   "dependencies": {
+    "angular-cookies": "^1.5.8",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "bower": "^1.7.9",
@@ -24,7 +25,11 @@
     "express-jwt": "^5.0.0",
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.0",
-    "xss-filters": "^1.2.7"
+    "xss-filters": "^1.2.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-messages": "latest",
+    "angular-cookies": "^1.5.8"
   },
   "devDependencies": {
     "eslint-config-rallycoding": "^3.1.0"

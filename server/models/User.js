@@ -7,11 +7,11 @@ var Schema = new mongoose.Schema({
 	userName: {type: String, required: true, minlength: 1},
 	emailAddress: {type: String, required: true, minlength: 1},
 	password: {type: String, required: true, minlength: 1},
-	userLevel: {type: String, required: true, minlength: 1},
+	userLevel: {type: String, required: true, default: 2},
 	firstName: {type: String, required: true, minlength: 1},
 	middleName: {type: String, required: true, minlength: 1},
 	lastName: {type: String, required: true, minlength: 1},
-	phoneNumber: {type: Number, required: true, minlength: 1}
+	phoneNumber: {type: String, required: true, minlength: 1}
 	,
 	classes: [{type: mongoose.Schema.Types.ObjectId, ref: "Class"}]
 },{timestamps: true});

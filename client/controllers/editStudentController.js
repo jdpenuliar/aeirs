@@ -7,11 +7,12 @@ angular.module('AEIRS').controller('editStudentController', function($scope, $ro
   studentFactory.getStudent(studentID, function(data){
     console.log('this is data from show controller ', data);
     $scope.student=data.data;
-  })
+  });
 
   $scope.updateStudent = function(){
+    console.log("haha");
     studentFactory.updateStudent($scope.student, function(data){
       $location.path('/all_students');
-    })
-  }
-})
+    });
+  };
+});
