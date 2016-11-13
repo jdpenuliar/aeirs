@@ -1,13 +1,45 @@
-<h2>Edit User Partial</h2>
-<h4><a href="#/all_users">All User Records</a></h4>
-<h4><a href="#/users/{{user._id}}">Show User Record</a></h4>
-<form action="">
-	User name: <input type="text" ng-model="user.userName">
-	Email Address: <input type="text" ng-model="user.emailAddress">
-  Password: <input type="text" ng-model="user.password">
-  First Name: <input type="text" ng-model="user.firstName">
-	Last Name: <input type="text" ng-model="user.lastName">
-  Phone Number: <input type="text" ng-model='user.phoneNumber'>
-	User Level: <input type="text" ng-model="user.userLevel">
-	<input type="submit" ng-click="updateUser()">
-</form>
+<div class="row">
+<a href="#/faculty/allUsers">All User Records</a> | <a href="#/users/{{user._id}}">Show User Record</a>
+	<form ng-submit="updateUser()" class="col s12">
+		<div class="input-field col s6">
+			<input id="first_name" type="text" class="validate" ng-model="user.firstName">
+			<label for="first_name">First Name</label>
+			{{errors.firstName.messages}}
+		</div>
+		<div class="input-field col s6">
+			<input id="middle_name" type="text" class="validate" ng-model="user.middleName">
+			<label for="middle_name">Middle Name</label>
+			{{errors.middleName.messages}}
+		</div>
+		<div class="input-field col s6">
+			<input id="last_name" type="text" class="validate" ng-model="user.lastName">
+			<label for="last_name">Last Name</label>
+			{{errors.lastName.messages}}
+		</div>
+		<div class="input-field col s6">
+			<input id="emailAddress" type="email" class="validate" ng-model="user.emailAddress">
+			<label for="emailAddress">Email Address</label>
+			{{errors.emailAddress.messages}}
+		</div>
+		<div class="input-field col s6">
+			<select id="userLevel" ng-model="user.userLevel">
+				<option value="" disabled>User Level</option>
+				<option value="0">0 - Admin/Principal</option>
+				<option value="1">1 - Faculty</option>
+			</select>
+			{{errors.userLevel.messages}}
+		</div>
+		<button class="btn waves-effect waves-light col s4 m4 l2 offset-s4 offset-m4 offset-l5" ng-click="submit" name="action">Update<i class="material-icons right">send</i></button>
+	</form>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('select').material_select();
+			$('#how_heard').trigger('autoresize');
+			$('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+		});
+	</script>

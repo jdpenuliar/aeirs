@@ -37,24 +37,9 @@ list = [
       father_last: "Bhardwaj",
       parent_email: "parent@gmail.com",
       parent_phone: 14085557777
-    }, {timestamps:true},
-    {
-      student_first: "Neesha",
-      student_middle: "none",
-      student_last: "Bhardwaj",
-      student_id: 348692,
-      student_email: "neesa@gmail.com",
-      student_phone: 14089993333,
-      mother_first: "S",
-      mother_middle: "G",
-      mother_last: "Bhardwaj",
-      father_first: "J",
-      father_middle: "K",
-      father_last: "Bhardwaj",
-      parent_email: "parent@gmail.com",
-      parent_phone: 14085557777
-    }, {timestamps:true},
+    }, {timestamps:true}
 ];
+
 
 for(var i in list){
   students = new Student(list[i]);
@@ -67,3 +52,4 @@ for(var i in list){
    }
  }
 )}
+
