@@ -1,13 +1,16 @@
 <div ng-controller="allUsersController">
+    <a ng-click='logout()'><button>Log Out</button></a>
+
 	<h2>This partial is to show all users</h2>
 	<a href="#/users/new">Add a New User</a>
 	<div ng-repeat= "user in users">
 		<h3>Username: {{user.userName}}</h3>
-		<h4>First & Last Name: {{user.firstName}} {{user.lastName}}</h4>
+		<h4>First & Last Name: {{user.firstName}}
+		{{user.middleName}} {{user.lastName}}</h4>
 		<h4>User Email: {{user.emailAddress}}</h4>
+		<h4>Phone Number: {{user.phoneNumber}}</h4>
 		<h4><a href="#/users/{{user._id}}">Show User Record</a></h4>
 		<h4><a href="#/users/{{user._id}}/edit">Edit User Record</a></h4>
-    <button ng-click='removeUser(user._id)'>Delete User Record</button>
 		<hr>
 	</div>
 

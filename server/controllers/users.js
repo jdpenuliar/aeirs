@@ -4,29 +4,37 @@ var User = mongoose.model('User');
 module.exports=(function(){
 	return{
     login: function(req, res){
-			User.findOne({
+    	console.log('hit login-------\n');
+		User.findOne({
         emailAddress: req.body.emailAddress
       },
       function(err, data) {
         if (err) {
-          res.json(
-            {
-              errors: {
-                login_reg: {
-                  message: "user name and/or password is invalid",
-                  kind: "what didn't work",
-                  path: "reference to the schema's name",
-                  value: "cause of the initial error"
-                }
-              },name: "Validation error"
-            });
-        } else if (data && data.validPassword(req.body.password)) {
+        	console.log('this is err when logging in user \n ', err);
+			res.json(
+				{
+				errors: {
+					login_reg: {
+					message: "user name and/or password is invalid",
+					kind: "what didn't work",
+					path: "reference to the schema's name",
+					value: "cause of the initial error"
+					}
+					},name: "Validation error"
+				}
+			);
+        }
+        else if (data && data.validPassword(req.body.password)) {
             res.json({
                 _id: data._id,
                 firstName: data.firstName,
-                lastName: data.lastName
+                lastName: data.lastName,
+				emailAddress: data.emailAddress,
+				userLevel: data.userLevel
             });
-        } else {
+        } 
+        else {
+        	console.log('haha \n ', data);
             res.json({
               errors: {
                 login_reg: {

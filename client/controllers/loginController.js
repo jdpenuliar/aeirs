@@ -35,30 +35,34 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
     })
   }
 
-  $scope.login = function(){
-    userFactory.login(
-      $scope.userLogin,
-      function(data){
-        if (data.data.errors){
-          $scope.errors = data.data.errors;
+    $scope.login = function(){
+      userFactory.login(
+        $scope.userLogin,
+        function(data){
+          if (data.data.errors){
+
+            console.log('front end fail log in---\n');
+            $scope.errors = data.data.errors;
+          }
+          else{
+            console.log('front end success log in---\n');
+            $scope.user = data.data;
+            cookie_userID = data.data._id;
+            cookie_firstName = data.data.firstName;
+            cookie_lastName = data.data.lastName;
+            cookie_emailAddress = data.data.emailAddress;
+            cookie_userLevel = data.data.userLevel;
+            $location.url('/all_users');
+            $cookies.put('logged_user', cookie_userID);
+            $cookies.put('firstName', cookie_firstName);
+            $cookies.put('lastName', cookie_lastName);
+            $cookies.put('emailAddress', cookie_emailAddress);
+            $cookies.put('userLevel', cookie_userLevel);
+          }
+        },
+        function(err){
         }
-        else{
-          $scope.user = data.data;
-          cookie_userID = data.data._id;
-          cookie_firstName = data.data.firstName;
-          cookie_lastName = data.data.lastName;
-          cookie_emailAddress = data.data.emailAddress;
-          cookie_userLevel = data.data.userLevel;
-          $location.url('/all_users');
-          $cookies.put('logged_user', cookie_userID);
-          $cookies.put('firstName', cookie_firstName);
-          $cookies.put('lastName', cookie_lastName);
-          $cookies.put('emailAddress', cookie_emailAddress);
-          $cookies.put('userLevel', cookie_userLevel);
-        }
-      },
-      function(err){
-      });
+      );
     }
 
 

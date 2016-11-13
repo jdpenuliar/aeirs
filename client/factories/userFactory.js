@@ -3,13 +3,13 @@ AEIRSAppModule.factory('userFactory', function($http){
 	var factory = {};
 	factory.haha = "hahahaqwer";
 
-  factory.login = function(data,callback,errback){
-    $http.post('/login',data).then(callback,errback);
-  };
+	factory.login = function(data,callback,errback){
+		$http.post('/login',data).then(callback,errback);
+	};
 
-  factory.register = function(data,callback,errback){
-    $http.post('/register',data).then(callback,errback);
-  };
+	factory.register = function(data,callback,errback){
+		$http.post('/register',data).then(callback,errback);
+	};
 
 	factory.addUser=function(data, callback){
 		console.log('made it to userFactory');

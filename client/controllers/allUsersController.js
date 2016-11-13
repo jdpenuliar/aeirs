@@ -7,4 +7,8 @@ AEIRSAppModule.controller('allUsersController', function($scope, $routeParams, $
 		console.log('this is data in allUsersController getUsers', data);
 		$scope.users=data;
 	})
+	$scope.logout = function(){
+		$cookies.remove('logged_user');
+		$location.url('/');
+	}
 })
