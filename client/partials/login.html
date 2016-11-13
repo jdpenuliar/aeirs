@@ -1,26 +1,7 @@
 <body ng-controller = 'loginController'>
 	<div class="row">
 		<div class="col s12 m4 l4">
-			<div class="card hoverable">
-				<div class="card-image waves-effect waves-block waves-light">
-					<img class="activator" src="images/tsu001.png">
-				</div>
-				<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">Tarlac State University<i class="material-icons right">more_vert</i></span>
-					<p><a href="http://www.tsu.edu.ph/">Tarlac State University</a></p>
-				</div>
-				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">Tarlac State University<i class="material-icons right">close</i></span>
-					<p>
-						Republic Act 6764 (October 13, 1989) was passed into law converting Tarlac College of Technology-College of Arts and Trade (TCT-CAT) into a university, now known as Tarlac State University (TSU). This law mandates TSU to expand the technology and agro-industrial projects and programs to advanced instruction in literature, philosophy, the sciences, engineering and the arts to include professional and technical training courses.
-
-						TSU is further mandated to expand its programs diametrically its quadruple functions: instruction, research, extension and production in response to national and global needs and demands.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="col s12 m4 l4">
-			<h3 class="hoverable center-align">AEIRS</h3>
+			<h3 class="hoverable center-align">AEIRS Login</h3>
 			<form ng-model = "userLogin" ng-submit = "login()">
 				<div class="row">
 					<div class="input-field col s12">
@@ -41,6 +22,25 @@
 				</div>
 			</form>
 			{{errors.login_reg.message}}
+		</div>
+		<div class="col s12 m4 l4">
+			<div class="card hoverable">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="images/tsu001.png">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Tarlac State University<i class="material-icons right">more_vert</i></span>
+					<p><a href="http://www.tsu.edu.ph/">Tarlac State University</a></p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Tarlac State University<i class="material-icons right">close</i></span>
+					<p>
+						Republic Act 6764 (October 13, 1989) was passed into law converting Tarlac College of Technology-College of Arts and Trade (TCT-CAT) into a university, now known as Tarlac State University (TSU). This law mandates TSU to expand the technology and agro-industrial projects and programs to advanced instruction in literature, philosophy, the sciences, engineering and the arts to include professional and technical training courses.
+
+						TSU is further mandated to expand its programs diametrically its quadruple functions: instruction, research, extension and production in response to national and global needs and demands.
+					</p>
+				</div>
+			</div>
 		</div>
 		<div class="col s12 m4 l4">
 			<div class="card hoverable">
