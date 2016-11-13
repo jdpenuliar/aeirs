@@ -1,7 +1,9 @@
-<h1>This is show_user.html</h1>
-
-<p>{{user}}</p>
+<h3>{{user.firstName}}'s Profile</h3>
+<p>Name: {{user.firstName}} {{user.middleName}} {{user.lastName}}</p>
+<p>Email Address: {{user.emailAddress}}</p>
+<p>Phone: {{user.phoneNumber}}</p>
+<p>Access Level: {{user.userLevel}}</p>
 
 <a href="#/users/{{user._id}}/edit">Edit User</a>
-| <a href="#/all_users">All User Records</a><br><br>
+| <a href="#/faculty/allUsers">All User Records</a> |  <a href="#/faculty">Dashboard</a><br>
 <button ng-click='removeUser(user._id)'>Delete User Record</button>

@@ -11,7 +11,7 @@ angular.module('AEIRS').controller('editUserController', function($scope, $route
 
   $scope.updateUser = function(){
     userFactory.updateUser($scope.user, function(data){
-      $location.path('/all_users');
+      $location.path('/faculty/allUsers');
     });
   };
 });

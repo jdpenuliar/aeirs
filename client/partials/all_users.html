@@ -1,8 +1,6 @@
 <div ng-controller="allUsersController">
     <a ng-click='logout()'><button>Log Out</button></a>
-
-	<h2>This partial is to show all users</h2>
-	<a href="#/users/new">Add a New User</a>
+    <a href="#/faculty">Dashboard</a>
 	<div ng-repeat= "user in users">
 		<h3>Username: {{user.userName}}</h3>
 		<h4>First & Last Name: {{user.firstName}}

@@ -5,6 +5,7 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
   $scope.userLevel = $cookies.get("userLevel");
   $scope.lastName = $cookies.get("lastName");
   $scope.emailAddress = $cookies.get("emailAddress");
+  console.log('this is the cookie data',  $scope.firstName )
   if(!logged_in_user){
     $location.url('/')
   }
@@ -15,21 +16,22 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
         $scope.errors = data.data.errors;
       }
       else{
-        $scope.user = data.data;
-        cookie_userID = data.data._id;
-        cookie_firstName = data.data.firstName;
-        cookie_lastName = data.data.lastName;
-        cookie_emailAddress = data.data.emailAddress;
-        cookie_userLevel = data.data.userLevel;
-        $cookies.put('logged_user', cookie_userID);
-        $cookies.put('firstName', cookie_firstName);
-        $cookies.put('lastName', cookie_lastName);
-        $cookies.put('emailAddress', cookie_emailAddress);
-        $cookies.put('userLevel', cookie_userLevel);
-        $location.url('/all_users');
+        console.log('this is the else statement inside resiger')
+        // $scope.user = data.data;
+        // cookie_userID = data.data._id;
+        // cookie_firstName = data.data.firstName;
+        // cookie_lastName = data.data.lastName;
+        // cookie_emailAddress = data.data.emailAddress;
+        // cookie_userLevel = data.data.userLevel;
+        // $cookies.put('logged_user', cookie_userID);
+        // $cookies.put('firstName', cookie_firstName);
+        // $cookies.put('lastName', cookie_lastName);
+        // $cookies.put('emailAddress', cookie_emailAddress);
+        // $cookies.put('userLevel', cookie_userLevel);
+        $location.url('/faculty/allUsers');
         // $scope.register = {};
-        $scope.firstName = $cookies.get("firstName");
-        $scope.emailAddress = $cookies.get("emailAddress");
+        // $scope.firstName = $cookies.get("firstName");
+        // $scope.emailAddress = $cookies.get("emailAddress");
       }
     }, function(err){
     })
@@ -52,7 +54,7 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
             cookie_lastName = data.data.lastName;
             cookie_emailAddress = data.data.emailAddress;
             cookie_userLevel = data.data.userLevel;
-            $location.url('/all_users');
+            $location.url('/faculty');
             $cookies.put('logged_user', cookie_userID);
             $cookies.put('firstName', cookie_firstName);
             $cookies.put('lastName', cookie_lastName);

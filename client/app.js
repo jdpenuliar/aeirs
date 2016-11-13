@@ -8,52 +8,58 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 			templateUrl: "partials/login.html",
 			controller: "loginController"
 		})
-		.when("/dashboard",{
-			templateUrl: "partials/dashboard.html"
-		})
+		// .when("/dashboard",{
+		// 	templateUrl: "partials/dashboard.html"
+		// })
 		//STUDENT ROUTES
-	    .when('/students', {
-	      controller: 'FacultyController',
-	      templateUrl: 'partials/students.html'
-	    })
-	    .when('/students/new', {
-	      controller: 'newStudentController',
-	      templateUrl: 'partials/createStudent.html'
-	    })
-	    .when("/all_students",{
-	      controller: "allStudentsController",
-	      templateUrl: "partials/all_students.html"
-	    })
-	    .when('/students/:id', {
-	      controller: 'showStudentController',
-	      templateUrl: 'partials/show_student.html'
-	    })
-	    .when('/students/:id/edit', {
-	      controller: 'editStudentController',
-	      templateUrl: 'partials/edit_student.html'
-	    })
+		.when('/students', {
+			controller: 'FacultyController',
+			templateUrl: 'partials/students.html'
+		})
+		.when('/students/new', {
+			controller: 'newStudentController',
+			templateUrl: 'partials/createStudent.html'
+		})
+		.when("/all_students",{
+			controller: "allStudentsController",
+			templateUrl: "partials/all_students.html"
+		})
+		.when('/students/:id', {
+			controller: 'showStudentController',
+			templateUrl: 'partials/show_student.html'
+		})
+		.when('/students/:id/edit', {
+			controller: 'editStudentController',
+			templateUrl: 'partials/edit_student.html'
+		})
 	    //USER routes
-	    .when('/users/new', {
-	      controller: 'newUserController',
-	      templateUrl: 'partials/create_user.html'
+	    .when('/faculty',
+	    {
+	    	templateUrl: "partials/dashboard.html",
+	    	controller: 'loginController'
 	    })
-	    .when("/all_users",{
-	      templateUrl: "partials/all_users.html"
+	    .when('/faculty/createUser', {
+	    	controller: 'loginController',
+	    	templateUrl: 'partials/create_user.html'
+	    })
+	    .when("/faculty/allUsers",{
+	    	controller: 'loginController',
+	    	templateUrl: "partials/all_users.html"
 	    })
 	    .when('/users/:id', {
-	      controller: 'showUserController',
-	      templateUrl: 'partials/show_user.html'
+	    	controller: 'showUserController',
+	    	templateUrl: 'partials/show_user.html'
 	    })
 	    .when('/users/:id/edit', {
-	      controller: 'editUserController',
-	      templateUrl: 'partials/edit_user.html'
+	    	controller: 'editUserController',
+	    	templateUrl: 'partials/edit_user.html'
 	    })
-		.when('/!', {
+	    .when('/!', {
 
-		})
-		.otherwise({
-			redirectTo: "/"
-		});
+	    })
+	    .otherwise({
+	    	redirectTo: "/"
+	    });
 	}]);
 
 
