@@ -24,6 +24,10 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 			controller: "allStudentsController",
 			templateUrl: "partials/all_students.html"
 		})
+		.when("/allClasses",{
+			controller: "allClassesController",
+			templateUrl: "partials/all_classes.html"
+		})
 		.when('/students/:id', {
 			controller: 'showStudentController',
 			templateUrl: 'partials/show_student.html'
@@ -54,6 +58,11 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 	    	controller: 'editUserController',
 	    	templateUrl: 'partials/edit_user.html'
 	    })
+	    //GradeLevel Routes
+	    .when('/newGradeLevel', {
+			controller: 'newGradeLevelController',
+			templateUrl: 'partials/create_GradeLevel.html'
+		})
 	    .when('/!', {
 
 	    })

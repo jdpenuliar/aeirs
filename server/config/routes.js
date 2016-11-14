@@ -1,6 +1,7 @@
 "use strict";
 var users = require("./../controllers/users.js");
 var students = require("./../controllers/students.js");
+var classes = require("./../controllers/classes.js");
 
 // var jwt = require('express-jwt');
 
@@ -14,6 +15,11 @@ module.exports = function(app){
 	app.post("/register",function(req,res){
 		users.register(req,res);
 	});
+	//Class routes
+	app.get("/allClasses",function(req,res){
+		classes.getClasses(req,res);
+	});
+
 
 	//STUDENT ROUTES
 	app.get("/all_students",function(req,res){
