@@ -4,7 +4,7 @@ var ClassModel = mongoose.model('Class');
 
 module.exports=(function(){
 	return{
-		gradeLevelRegister: function(req, res){
+		createGradeLevel: function(req, res){
 			var new_gradeLevel = new GradeLevel(req.body);
 			console.log('this is req.body', req.body);
 			ClassModel.findOne({_id: req.params._id}, function(err, classListFromDb){
