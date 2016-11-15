@@ -5,15 +5,22 @@ var GradeLevel = mongoose.model('GradeLevel');
 module.exports=(function(){
 	return{
 		getClasses: function(req, res){
-			Class.find({}, function(err, classes_list){
+			Class.find({}).populate("grade_levels").exec(function(err,data){
 				if(err){
-					console.log(err);
-					console.log('error in getClasses controller');
-				} else{
-					console.log('this is all the classes_list', classes_list);
-					res.json(classes_list);
+					res.json(err);
+				}else{
+					res.json(data);
 				}
 			});
+			// Class.find({}, function(err, classes_list){
+			// 	if(err){
+			// 		console.log(err);
+			// 		console.log('error in getClasses controller');
+			// 	} else{
+			// 		console.log('this is all the classes_list', classes_list);
+			// 		res.json(classes_list);
+			// 	}
+			// });
 		},
 		addclass: function(req, res){
 			console.log('this is addclass from BACKEND class controller----\n',req.body);
@@ -49,9 +56,33 @@ module.exports=(function(){
 								res.json(err);
 							}else{
 								res.json(data);
-								
-							}
-						});
+								Class.find({_id: data._id}).populate("grade_levels").exec(function(err,data){
+									if(err){
+										res.json(err);
+									}else{
+										console.log("-------------\n",data);
+										res.json(data);
+									}
+								});
+
+
+                                // Product.find({}).populate("productBids").exec(function(err,data){
+                                //     if(err){
+                                //         res.json(err);
+                                //     }else{
+                                //         Product.populate(data,{path: "productBids.bider", model:"User"},function(err,data){
+                                //             if(err){
+                                //                 res.json(err);
+                                //             }else{
+                                //                 console.log(data);
+                                //                 res.json(data);
+                                //             }
+                                //         });
+                                //     }
+                                // });
+
+                            }
+                        });
 						
 					});
 
