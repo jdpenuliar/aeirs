@@ -49,7 +49,14 @@ module.exports=(function(){
 								res.json(err);
 							}else{
 								res.json(data);
-								
+								// Product.populate(data,{path: "productBids.bider", model:"User"},function(err,data){
+								// 	if(err){
+								// 		res.json(err);
+								// 	}else{
+								// 		console.log(data);
+								// 		res.json(data);
+								// 	}
+								// });
 							}
 						});
 						
