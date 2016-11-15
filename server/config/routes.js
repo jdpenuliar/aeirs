@@ -15,10 +15,14 @@ module.exports = function(app){
 	app.post("/register",function(req,res){
 		users.register(req,res);
 	});
-	//Class routes
+
+	//CLASS ROUTES
 	app.get("/allClasses",function(req,res){
 		classes.getClasses(req,res);
 	});
+	app.post("/new_class", function(req, res){
+		classes.addclass(req, res);
+	})
 
 
 	//STUDENT ROUTES
