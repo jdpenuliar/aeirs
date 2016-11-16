@@ -28,6 +28,17 @@ module.exports=(function(){
                 })
             }
         })
-        }
+        },
+        getgradeLevels: function(req, res){
+            GradeLevel.find({}, function(err, grade_levels){
+                if(err){
+                    console.log(err);
+                    console.log('error in getgradeLevels controller');
+                } else{
+                    console.log('this is all the grade_levels', grade_levels);
+                    res.json(grade_levels);
+                }
+            });
+        },
     }
 })();

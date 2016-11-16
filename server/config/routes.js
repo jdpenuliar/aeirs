@@ -2,6 +2,7 @@
 var users = require("./../controllers/users.js");
 var students = require("./../controllers/students.js");
 var classes = require("./../controllers/classes.js");
+var gradeLevel = require("./../controllers/gradeLevels.js");
 
 // var jwt = require('express-jwt');
 
@@ -49,6 +50,17 @@ module.exports = function(app){
 	app.get("/students/:id",function(req,res){
 		students.getStudent(req,res);
 	});
+
+	//GRADE LEVEL ROUTES
+	//route for creating new sections by gradelevel
+	app.post("/gradeLevel",function(req,res){
+		console.log('made it to my /gradeLevel post route');
+		gradeLevel.addgradeLevel(req,res);
+	});
+	app.get("/allgradeLevels",function(req,res){
+		gradeLevel.getgradeLevels(req,res);
+	});
+
 
 	//USER ROUTES
 	app.get("/all_users",function(req,res){

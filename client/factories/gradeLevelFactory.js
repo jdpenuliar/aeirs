@@ -1,4 +1,4 @@
-angular.module('AEIRS').factory('gradeLevelsFactory', function($http){
+angular.module('AEIRS').factory('gradeLevelFactory', function($http){
 
 	// This is my dummyFactory. I usually add this into any project that
 	// I do. Just so that I can use it for reference as I add new Factories

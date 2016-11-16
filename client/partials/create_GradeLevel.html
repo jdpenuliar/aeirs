@@ -1,7 +1,49 @@
 <h2>This partial is to add a grade level</h2>
 
+{{grade_levels}}
+
+
+<!-- 
+<div ng-controller="ExampleController">
+  <form name="myForm">
+    <label for="repeatSelect"> Repeat select: </label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="data.model">
+      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  </form>
+  <hr>
+  <tt>model = {{data.model}}</tt><br/>
+</div>
+ -->
+
+
 <form action="">
-	Grade Level Name: <input type="text" ng-model="newGradeLevel.grade_level">
-	Section Quantity: <input type="number" ng-model="newGradeLevel.section_quantity">
+<!-- 	<label for="repeatSelect"> Grade Level:</label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="newGradeLevel.grade_level">		
+    	<option ng-repeat="gl in grade_levels" value="{{gl._id}}">{{gl._id}}</option>
+    </select> -->
+	Grade Level:
+	<select ng-model="newGradeLevel.grade_level">
+		<option value="" disabled selected>Choose Grade Level</option>
+		<option ng-repeat="gl in grade_levels" value="{{gl._id}}">{{gl._id}}</option>
+	</select>
+	Section Quantity:
+	<select ng-model="newGradeLevel.section_quantity">
+		<option value="" disabled selected>Choose Quantity</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+	</select>
+	<label>Materialize Select</label>
 	<input type="submit" ng-click="createGradeLevel()">
 </form>
+<script src="js/init.js"></script>
