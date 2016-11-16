@@ -38,8 +38,8 @@ module.exports=(function(){
 					// res.json('haha success----\n',data);
 					Class.findOne({_id: new_class_result_fromDB._id},function(err,class_fromfromDB){
 						var new_gradeLevel = new GradeLevel();
-						for (var i = 0; i<req.body.gradeLevel_quantity; i+=1){
-							new_gradeLevel.grade_level = 'Grade '+(i+1);
+						for (var i = 1; i<req.body.gradeLevel_quantity+1; i+=1){
+							new_gradeLevel.grade_level = 'Grade '+i;
 							new_gradeLevel.created_by = req.body.created_by;
 							new_gradeLevel._class = class_fromfromDB._id;
 							new_gradeLevel.save(function(err,data){
