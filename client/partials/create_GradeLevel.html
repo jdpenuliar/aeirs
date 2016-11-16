@@ -14,19 +14,26 @@
   <hr>
   <tt>model = {{data.model}}</tt><br/>
 </div>
- -->
+-->
 
 
 <form action="">
+	Grade Level:
+	<!-- <select ng-model="grade_levels" ng-options="grade_level._id as grade_level.grade_level for grade_level in grade_levels">
+	    <option value="">Select Account</option>
+	</select> -->
+	<select ng-model="grade_levels" ng-options="x for x in grade_levels.grade_level">
+	</select>
+
 <!-- 	<label for="repeatSelect"> Grade Level:</label>
     <select name="repeatSelect" id="repeatSelect" ng-model="newGradeLevel.grade_level">		
     	<option ng-repeat="gl in grade_levels" value="{{gl._id}}">{{gl._id}}</option>
     </select> -->
-	Grade Level:
-	<select ng-model="newGradeLevel.grade_level">
+<!-- 	Grade Level:
+	<select ng-model="grade_levels">
 		<option value="" disabled selected>Choose Grade Level</option>
 		<option ng-repeat="gl in grade_levels" value="{{gl._id}}">{{gl._id}}</option>
-	</select>
+	</select> -->
 	Section Quantity:
 	<select ng-model="newGradeLevel.section_quantity">
 		<option value="" disabled selected>Choose Quantity</option>

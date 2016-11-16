@@ -6,6 +6,7 @@ angular.module('AEIRS').controller('newGradeLevelController', function($scope, $
 	gradeLevelFactory.getgradeLevels(function(data){
 		console.log('this is data in newGradeLevelController getgradeLevels', data);
 		$scope.grade_levels=data;
+		console.log('---------\n', $scope.grade_levels);
 	})
 
 
