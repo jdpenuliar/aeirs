@@ -37,8 +37,9 @@ module.exports=(function(){
 				}else{
 					// res.json('haha success----\n',data);
 					Class.findOne({_id: new_class_result_fromDB._id},function(err,class_fromfromDB){
+						console.log('quantity------\n',req.body.gradeLevel_quantity)
 						var new_gradeLevel = new GradeLevel();
-						for (var i = 0; i<req.body.gradeLevel_quantity; i+=1){
+						for (var i = 0; i<req.body.gradeLevel_quantity; i++){
 							new_gradeLevel.grade_level = 'Grade '+(i+1);
 							new_gradeLevel.created_by = req.body.created_by;
 							new_gradeLevel._class = class_fromfromDB._id;
