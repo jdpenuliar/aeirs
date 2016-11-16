@@ -67,6 +67,10 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 			controller: 'newGradeLevelController',
 			templateUrl: 'partials/create_GradeLevel.html'
 		})
+		.when('/gradelevel/:id', {
+			controller: 'showGradeLevelController',
+			templateUrl: 'partials/show_gradeLevel.html'
+		})
 	    .when('/!', {
 
 	    })

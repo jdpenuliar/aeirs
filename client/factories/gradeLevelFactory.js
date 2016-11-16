@@ -25,5 +25,12 @@ angular.module('AEIRS').factory('gradeLevelFactory', function($http){
 		});
 	};
 
+	factory.getGradeLevel=function(GL_ID, callback){
+		$http.get('/gradelevel/' + GL_ID).then(function(grade_level){
+			console.log('made it back from backend this is one grade_level ', grade_level);
+			callback(grade_level);
+		})
+	};
+
 	return factory;
 })

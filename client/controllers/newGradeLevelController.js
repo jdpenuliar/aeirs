@@ -10,10 +10,10 @@ angular.module('AEIRS').controller('newGradeLevelController', function($scope, $
 	})
 
 
-	$scope.createGradeLevel=function(){
-		console.log('createGradeLevel in the newgradeLevelController', $scope.gradeLevelRegistrationData);
-		gradeLevelFactory.addgradeLevel($scope.gradeLevelRegistrationData, function(gradeLevelArray){
-			$scope.gradeLevels=gradeLevelArray;
-		})
-	}
+	// $scope.createGradeLevel=function(){
+	// 	console.log('createGradeLevel in the newgradeLevelController', $scope.gradeLevelRegistrationData);
+	// 	gradeLevelFactory.addgradeLevel($scope.gradeLevelRegistrationData, function(gradeLevelArray){
+	// 		$scope.gradeLevels=gradeLevelArray;
+	// 	})
+	// }
 })

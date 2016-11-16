@@ -1,13 +1,12 @@
-<h2>This partial is to add a grade level</h2>
+<h2>{{grade_level.grade_level}}, {{grade_level._class.school_year}}</h2>
 
-{{grade_levels}}
+<p>Grade: {{grade_level.grade_level}}</p>
+{{grade_level}}
+
 <form action="">
-	Grade Level:
-	<select ng-model="newGradeLevelhaha" ng-options="x.grade_level for x in grade_levels">
-	</select>
 	Section Quantity:
-	<select ng-model="newGradeLevel.section_quantity">
-		<option value="" disabled selected>Choose Quantity</option>
+	<select ng-model="newSection.section_quantity">
+		<option value="" disabled selected>Choose Number of Sections</option>
 		<option value="1">1</option>
 		<option value="2">2</option>
 		<option value="3">3</option>
@@ -21,7 +20,8 @@
 		<option value="11">11</option>
 		<option value="12">12</option>
 	</select>
-	<label>Materialize Select</label>
-	<input type="submit" ng-click="createGradeLevel()">
+	<input type="submit" ng-click="createSection()">
 </form>
 <script src="js/init.js"></script>
+
+<p><a href="#/allClasses">Back to Class List</a></p>

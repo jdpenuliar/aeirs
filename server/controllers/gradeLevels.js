@@ -40,5 +40,24 @@ module.exports=(function(){
                 }
             });
         },
+        getGradeLevel: function(req, res){
+            GradeLevel.findOne({_id: req.params.id}, function(err, result){
+                if(err){
+                    console.log('this is err when finding specific GradeLevel ', err);
+                }
+                else{
+                    console.log('this is the GradeLevel we were looking for ', result);
+                    // res.json(result);
+                    GradeLevel.findOne({_id: result._id}).populate("_class").exec(function(err,data){
+                        if(err){
+                            res.json(err);
+                        }else{
+                            console.log("-------------\n",data);
+                            res.json(data);
+                        }
+                    });
+                }
+            })
+        }
     }
 })();
