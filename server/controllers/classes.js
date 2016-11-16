@@ -40,9 +40,14 @@ module.exports=(function(){
 						console.log('quantity------\n',req.body.gradeLevel_quantity)
 						var new_gradeLevel = new GradeLevel();
 						for (var i = 0; i<req.body.gradeLevel_quantity; i++){
-							new_gradeLevel.grade_level = 'Grade '+(i+1);
-							new_gradeLevel.created_by = req.body.created_by;
-							new_gradeLevel._class = class_fromfromDB._id;
+							var new_gradeLevel = new GradeLevel({
+								grade_level: 'Grade '+(i+1),
+								created_by: req.body.created_by,
+								_class: class_fromfromDB._id
+							});
+							// new_gradeLevel.grade_level = 'Grade '+(i+1);
+							// new_gradeLevel.created_by = req.body.created_by;
+							// new_gradeLevel._class = class_fromfromDB._id;
 							new_gradeLevel.save(function(err,data){
 								if(err){
 									console.log('noooo----\n',err);
@@ -65,8 +70,8 @@ module.exports=(function(){
 										res.json(data);
 									}
 								});
-                            }
-                        });						
+							}
+						});						
 					});
 				}
 			});
