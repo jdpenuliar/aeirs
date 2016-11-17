@@ -11,8 +11,8 @@ module.exports=(function(){
 				if(err){
 					res.send('this is an err', err);
 				} else{
-					
 					console.log("gradeLevelFromDb-----------\n",gradeLevelFromDb);
+					console.log('this is section_quantity backend section controller---------\n', req.body.section_quantity);
 					for (var i = 0; i<req.body.section_quantity; i++){
 						var new_section = new Section({
 							_grade_level: gradeLevelFromDb._id,
@@ -20,8 +20,6 @@ module.exports=(function(){
 							_created_by: req.body.logged_in_user_id,
 							_class: req.body.class
 						});
-						
-
 						new_section.save(function(err,data){
 							if(err){
 								console.log('noooo----\n',err);
@@ -40,6 +38,7 @@ module.exports=(function(){
 								if(err){
 									res.send('err saving new_section', err);
 								} else{
+									console.log('successfully saved the new sections!!!');
 									res.json(result);
 								}
 							})
@@ -47,6 +46,36 @@ module.exports=(function(){
 					})
 				}
 			})
+		}, 
+		getSections: function(req, res){
+			GradeLevel.findOne({_id: req.params.id}).populate("sections").populate("_class").exec(function(err,data){
+				if(err){
+					res.json(err);
+				}else{
+					// console.log("-------------\n",data);
+					// res.json(data);
+					// GradeLevel.populate(data,{path:"sections._grade_level", model: "Section"}, function(err, data){
+					// 	if(err){
+					// 		res.send('but why? :( ------\n', err);
+					// 	}else{
+					// 		console.log('but why? :( ------\n', data);
+					// 		res.json(data);
+					// 	}
+					// });
+					GradeLevel.populate(data,{
+							path:"sections._grade_level", 
+							model: "Section"
+						}, 
+						function(err, data){
+						if(err){
+							res.send('but why? :( ------\n', err);
+						}else{
+							console.log('yeahhhh :)) ------\n', data);
+							res.json(data);
+						}
+					});
+				}
+			});
 		}
 	}
 })();

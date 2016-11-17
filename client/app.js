@@ -1,4 +1,3 @@
-
 var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies","ui.materialize"]);
 (function(){
 
@@ -60,6 +59,12 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 		.when("/new_class",{
 			controller: "newClassController",
 			templateUrl: "partials/create_class.html"
+		})
+
+		//section routes
+		.when('/grade/:id/sections', {
+			controller: 'allSectionsController',
+			templateUrl: 'partials/all_sections.html'
 		})
 
 	    //GradeLevel Routes

@@ -56,8 +56,10 @@ module.exports = function(app){
 		console.log('made it to my /new_section post route');
 		sections.addSection(req,res);
 	});
-
-	
+	app.get("/GL/:id",function(req,res){
+		console.log('made it to my getSections by GL_ID route');
+		sections.getSections(req,res);
+	});
 
 
 	//GRADE LEVEL ROUTES

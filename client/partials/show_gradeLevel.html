@@ -1,10 +1,8 @@
 <h2>{{grade_level.grade_level}}, {{grade_level._class.school_year}}</h2>
 
-<p>Grade: {{grade_level.grade_level}}</p>
-{{grade_level}}
+<p>{{grade_level.grade_level}}</p>
 
 <form action="">
-	Section Quantity:
 	<select ng-model="newSection.section_quantity">
 		<option value="" disabled selected>Choose Number of Sections</option>
 		<option value="1">1</option>
@@ -25,3 +23,4 @@
 <script src="js/init.js"></script>
 
 <p><a href="#/allClasses">Back to Class List</a></p>
+<p><a href="#/grade/{{grade_level._id}}/sections">All Sections</a></p>

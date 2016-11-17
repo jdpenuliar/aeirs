@@ -11,5 +11,14 @@ angular.module('AEIRS').factory('sectionFactory', function($http){
 		});
 	};
 
+	factory.getSections=function(GL_ID, callback){
+		console.log('made it to gradeLevels factory getSections');
+		$http.get('/GL/'+GL_ID).then(function(section){
+			console.log('made it back from backend this is all sections ', section);
+			sections=section.data;
+			callback(sections);
+		});
+	};
+
 	return factory;
 })

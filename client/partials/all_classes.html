@@ -4,19 +4,6 @@
 <div ng-repeat="class in classes">
 	<h3>School Year: {{class.school_year}}</h3>
 	<a href="#/gradelevel/{{x._id}}" ng-repeat="x in class.grade_levels">{{x.grade_level}} | </a>
-<!-- 	<h4><a href="#/class/{{class._id}}">See Associated Grade Levels</a></h4>
- -->	<hr>
+	<!--<h4><a href="#/class/{{class._id}}">See Associated Grade Levels</a></h4>-->	
+	<hr>
 </div>
-<!-- {{classes}} -->
-
-
-<!-- 
-	<div ng-repeat= "student in students">
-		<h3>Student Name: {{student.student_first}} {{student.student_last}}</h3>
-		<h4>Student ID: {{student.student_id}}</h4>
-		<h4>Student Email: {{student.student_email}}</h4>
-		<h4><a href="#/students/{{student._id}}">Show Student Record</a></h4>
-		<h4><a href="#/students/{{student._id}}/edit">Edit Student Record</a></h4>
-		<h4><a href="#/student/{{student._id}}">Delete Student</a></h4>
-		<hr>
-	</div> -->
