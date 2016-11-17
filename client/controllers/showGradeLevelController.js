@@ -1,7 +1,22 @@
 angular.module('AEIRS').controller('showGradeLevelController', function($scope, $routeParams, $cookies, $location, sectionFactory, gradeLevelFactory){
 
 	console.log('I am able to load my showgradelevelController along with my show GL partial');
+
 	var logged_in_user = $cookies.get('logged_user');
+	$scope.firstName = $cookies.get("firstName");
+	$scope.userLevel = $cookies.get("userLevel");
+	$scope.lastName = $cookies.get("lastName");
+	$scope.emailAddress = $cookies.get("emailAddress");
+	console.log('this is the cookie data',  $scope.firstName )
+	if(!logged_in_user){
+		$location.url('/')
+	}
+
+	//log out method
+	$scope.logout = function(){
+		$cookies.remove('logged_user');
+		$location.url('/');
+	}
 
 	$scope.logged_in_user_id = logged_in_user;
 	var GL_ID=$routeParams.id;

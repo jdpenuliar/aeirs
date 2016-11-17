@@ -11,12 +11,18 @@ angular.module('AEIRS').controller('newUserController', function($scope, $routeP
 	if(!logged_in_user){
 		$location.url('/')
 	}
+	//log out method
+	$scope.logout = function(){
+		$cookies.remove('logged_user');
+		$location.url('/');
+	}
 
 	$scope.userRegister=function(){
 		console.log('userRegister in the newUserController', $scope.userRegistrationData);
 		userFactory.addUser($scope.userRegistrationData, function(userArray){
 			$scope.users=userArray;
 		})
+		$location.url('/allUsers');
 	}
 
 })

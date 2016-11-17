@@ -1,23 +1,22 @@
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
 <h2>Welcome, {{firstName}}!</h2>
 
-<div ng-if="userLevel==0">
-	<a href="#/faculty/allUsers"><h1 class="center-align">View All Users</h1></a>
-	<a href="#/allClasses"><h1 class="center-align">View All Classes</h1></a>
-	<a href="#/newSchoolYear"><h1 class="center-align">Create New School Year</h1></a>
-	<a href="#/new_class"><h1 class="center-align">Create New Class</h1></a>
-	<a href="#/newGradeLevel"><h1 class="center-align">Create New Grade Level</h1></a>
-	<a href="#/faculty/createUser"><h1 class="center-align">Add New User</h1></a>
+<!-- <div class="row">
+	<div class="center-align">
+		<a ng-click='logout()'><button>Log Out</button></a>
+	</div>
 
 </div>
-
-<ul>
-	<li><a href="#/faculty/all_students"><h1 class="center-align">View Student Records</h1></a></li>
-	<!-- <li><a href="#/staff/jobs/new"><h1 class="center-align">New Work Request</h1></a></li>
-	<li><a href="#/staff/jobs/reports"><h1 class="center-align">Reports</h1></a></li>
-	<li><a href="#/staff/mails"><h1 class="center-align">Contact Requests</h1></a></li>
-	<li><div ng-if="userLevel!=1"><a href="#/staff/pages"><h1 class="center-align">Edit Front Page</h1></a></div></li> -->
-</ul>
-
-<div class="center-align">
-	<a ng-click='logout()'><button>Log Out</button></a>
-</div>
+ -->

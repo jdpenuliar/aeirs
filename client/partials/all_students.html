@@ -1,6 +1,19 @@
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
 <div ng-controller="allStudentsController">
 	<h2>This partial is to show all students</h2>
-	<a href="">Add a Student</a>
+	<a href="#/students/new">Add a Student</a>
 	<div ng-repeat= "student in students">
 		<h3>Student Name: {{student.student_first}} {{student.student_last}}</h3>
 		<h4>Student ID: {{student.student_id}}</h4>
