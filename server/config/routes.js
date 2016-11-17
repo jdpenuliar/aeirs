@@ -31,8 +31,8 @@ module.exports = function(app){
 		students.getStudents(req,res);
 	});
 	//route for creating new student
-	app.post("/students",function(req,res){
-		students.studentRegister(req,res);
+	app.post("/student",function(req,res){
+		students.addStudent(req,res);
 	});
 	app.post('/student/:id/delete', function(req, res){
 		console.log('made it to my /student/:id/delete post route');

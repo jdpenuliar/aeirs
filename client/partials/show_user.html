@@ -1,3 +1,16 @@
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
 <h2>{{user.firstName}}'s Profile</h2>
 <p>Name: {{user.firstName}} {{user.middleName}} {{user.lastName}}</p>
 <p>Email Address: {{user.emailAddress}}</p>
@@ -5,5 +18,5 @@
 <p>Access Level: {{user.userLevel}}</p>
 
 <a href="#/users/{{user._id}}/edit">Edit User</a>
-| <a href="#/faculty/allUsers">All User Records</a> |  <a href="#/faculty">Dashboard</a><br>
+| <a href="#/faculty/allUsers">All User Records</a> <br>
 <button ng-click='removeUser(user._id)'>Delete User Record</button>

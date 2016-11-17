@@ -1,4 +1,17 @@
-<h1>This is show_student.html</h1>
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
+<h1>Student Record</h1>
 
 <p>{{student}}</p>
 

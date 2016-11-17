@@ -29,7 +29,7 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 			templateUrl: 'partials/edit_student.html'
 		})
 	    //USER routes
-	    .when('/faculty',
+	    .when('/dashboard',
 	    {
 	    	templateUrl: "partials/dashboard.html",
 	    	controller: 'loginController'

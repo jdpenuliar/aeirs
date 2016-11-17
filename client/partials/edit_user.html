@@ -1,5 +1,18 @@
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
 <div class="row">
-<a href="#/faculty/allUsers">All User Records</a> | <a href="#/users/{{user._id}}">Show User Record</a>
+	<a href="#/faculty/allUsers">All User Records</a> | <a href="#/users/{{user._id}}">Show User Record</a>
 	<form ng-submit="updateUser()" class="col s12">
 		<div class="input-field col s6">
 			<input id="first_name" type="text" class="validate" ng-model="user.firstName">

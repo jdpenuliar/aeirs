@@ -1,15 +1,68 @@
-<div ng-controller="allUsersController">
-    <a ng-click='logout()'><button>Log Out</button></a>
-    <a href="#/faculty">Dashboard</a>
-	<div ng-repeat= "user in users">
-		<h3>Username: {{user.userName}}</h3>
-		<h4>First & Last Name: {{user.firstName}}
-		{{user.middleName}} {{user.lastName}}</h4>
-		<h4>User Email: {{user.emailAddress}}</h4>
-		<h4>Phone Number: {{user.phoneNumber}}</h4>
-		<h4><a href="#/users/{{user._id}}">Show User Record</a></h4>
-		<h4><a href="#/users/{{user._id}}/edit">Edit User Record</a></h4>
-		<hr>
+<nav>
+	<div class="nav-wrapper">
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+			<li><a href="#/students">View Student Records</a></li>
+			<li><a href="#/dashboard">Dashboard</a></li>
+			<li><a ng-click='logout()'>Log Out</a></li>
+		</ul>
+	</div>
+</nav>
+<h2>All Users</h2>
+<div>
+	<div class="container">
+		<table id="example" class="display" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Username</th>
+					<th>Email Address</th>
+					<th>User Level</th>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Phone Number</th>
+					<th>Classes</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th>ID</th>
+					<th>Username</th>
+					<th>Email Address</th>
+					<th>User Level</th>
+					<th>First Name</th>
+					<th>Middle Name</th>
+					<th>Last Name</th>
+					<th>Phone Number</th>
+					<th>Classes</th>
+				</tr>
+			</tfoot>
+		</table>
 	</div>
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#example').DataTable({
+				"scrollX": true,
+				"ajax": "http://localhost:8000/all_users",
+				"columns": [
+				{ "data": "_id" },
+				{ "data": "userName" },
+				{ "data": "emailAddress" },
+				{ "data": "userLevel" },
+				{ "data": "firstName" },
+				{ "data": "middleName" },
+				{ "data": "lastName" },
+				{ "data": "phoneNumber" },
+				{ "data": "classes" }
+				]
+			});
+		});
+	</script>
+	
+	<script src="js/init.js"></script>
 </div>
