@@ -19,7 +19,8 @@ angular.module('AEIRS').controller('newStudentController', function($scope, $rou
 
 
 	$scope.studentRegister=function(){
-		console.log('studentRegister in the newStudentController', $scope.studentRegistrationData);
+		console.log('studentRegister in the newStudentController', $scope.studentRegistrationData,"\nrouteparams-----\n", $routeParams);
+		$scope.studentRegistrationData.section = $routeParams.id;
 		studentFactory.addStudent($scope.studentRegistrationData, function(studentArray){
 			$scope.students=studentArray;
 			$location.url('/all_students');

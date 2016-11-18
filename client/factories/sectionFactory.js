@@ -20,5 +20,19 @@ angular.module('AEIRS').factory('sectionFactory', function($http){
 		});
 	};
 
+	factory.getSection=function(sectionID, callback){
+		$http.get('/section/'+sectionID).then(function(section){
+			console.log('made it back from backend this is the section we are looking for ', section);
+			callback(section);
+		})
+	};
+
+	factory.getStudentsFromSection=function(sectionID, callback){
+		$http.get('/section/' + sectionID + '/show_students').then(function(student){
+			console.log('made it back from backend this is one student ', student);
+			callback(student);
+		})
+	}
+
 	return factory;
 })

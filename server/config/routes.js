@@ -27,12 +27,12 @@ module.exports = function(app){
 
 
 	//STUDENT ROUTES
-	app.get("/all_students",function(req,res){
-		students.getStudents(req,res);
-	});
 	//route for creating new student
 	app.post("/student",function(req,res){
 		students.addStudent(req,res);
+	});
+	app.get("/all_students",function(req,res){
+		students.getStudents(req,res);
 	});
 	app.post('/student/:id/delete', function(req, res){
 		console.log('made it to my /student/:id/delete post route');
@@ -60,7 +60,18 @@ module.exports = function(app){
 		console.log('made it to my getSections by GL_ID route');
 		sections.getSections(req,res);
 	});
-
+	app.get("/section/:id",function(req,res){
+		console.log('made it to my getSection by section/:id route');
+		sections.getSection(req,res);
+	});
+	app.post("/section/:id/add_student",function(req,res){
+		console.log('made it to my addStudentSection by section/:id/add_student route');
+		sections.addStudentSection(req,res);
+	});
+	app.get("/section/:id/show_students",function(req,res){
+		console.log('made it to my addStudentSection by section/:id/show_students route');
+		sections.getStudentsFromSection(req,res);
+	});
 
 	//GRADE LEVEL ROUTES
 	//route for creating new sections by gradelevel

@@ -1,19 +1,16 @@
 var mongoose = require('mongoose');
 var GradeLevel = mongoose.model('GradeLevel');
 var Section = mongoose.model('Section');
-
+var Student = mongoose.model('Student');
 module.exports=(function(){
 	return{
 		addSection: function(req, res){
-			// var new_section = new Section(req.body);
-			console.log("-----------\n",req.body);
 			GradeLevel.findOne({_id: req.body.grade_level}, function(err, gradeLevelFromDb){
 				if(err){
 					res.send('this is an err', err);
 				} else{
-					console.log("gradeLevelFromDb-----------\n",gradeLevelFromDb);
-					console.log('this is section_quantity backend section controller---------\n', req.body.section_quantity);
 					for (var i = 0; i<req.body.section_quantity; i++){
+						console.log("-----------\n",'Section '+(i+1));
 						var new_section = new Section({
 							_grade_level: gradeLevelFromDb._id,
 							section: 'Section '+(i+1),
@@ -29,7 +26,6 @@ module.exports=(function(){
 						});
 						gradeLevelFromDb.sections.push(new_section);
 					}
-					gradeLevelFromDb.sections.push(new_section);
 					gradeLevelFromDb.save(function(err, result){
 						if(err){
 							res.send('err saving the gradeLevelFromDb', err);
@@ -52,30 +48,29 @@ module.exports=(function(){
 				if(err){
 					res.json(err);
 				}else{
-					// console.log("-------------\n",data);
-					// res.json(data);
-					// GradeLevel.populate(data,{path:"sections._grade_level", model: "Section"}, function(err, data){
-					// 	if(err){
-					// 		res.send('but why? :( ------\n', err);
-					// 	}else{
-					// 		console.log('but why? :( ------\n', data);
-					// 		res.json(data);
-					// 	}
-					// });
-					GradeLevel.populate(data,{
-							path:"sections._grade_level", 
-							model: "Section"
-						}, 
-						function(err, data){
-						if(err){
-							res.send('but why? :( ------\n', err);
-						}else{
-							console.log('yeahhhh :)) ------\n', data);
-							res.json(data);
-						}
-					});
+					console.log('------------\n',data)
+					res.json(data);
 				}
 			});
+		}, 
+		getStudentsFromSection: function(req, res){
+			console.log("---------\n",req.params.id);
+			// Section.findOne({_id: req.params.id}).populate("students").exec(function(err,data){
+				Section.findOne({_id: req.params.id}).populate({
+					path: 'student',
+					model: 'User',
+					populate: {
+						path: 'friends',
+						model: 'User'
+					}
+				}).exec(function(err,data){
+					if(err){
+						res.json(err);
+					}else{
+						console.log('hahahahahhahahahahahahahaha\n',data)
+						res.json(data);
+					}
+				});
+			}
 		}
-	}
-})();
+	})();

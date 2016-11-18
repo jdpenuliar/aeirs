@@ -24,6 +24,34 @@ module.exports=(function(){
 				}
 			});
 		},
+		addStudent: function(req, res){
+			console.log("--------new haha\n",req.body);
+			var new_student = new Student({
+				student_first: req.body.studentRegistrationFormStudentFirstName,
+				student_middle: req.body.studentRegistrationFormStudentMiddleName,
+				student_last: req.body.studentRegistrationFormStudentLastName,
+				student_id: req.body.studentRegistrationFormStudentID,
+				student_email: req.body.studentRegistrationFormParentEmail,
+				student_phone: req.body.studentregistrationFormPhone,
+				mother_first: req.body.studentRegistrationFormMotherFirstName,
+				mother_middle: req.body.studentRegistrationFormMotherMiddleName,
+				mother_last: req.body.studentRegistrationFormMotherLastName,
+				father_first: req.body.studentRegistrationFormFatherFirstName,
+				father_middle: req.body.studentRegistrationFormFatherMiddleName,
+				father_last: req.body.studentRegistrationFatherLastName,
+				parent_phone: req.body.studentRegistrationFormParentPhoneNumber,
+				parent_email: req.body.studentRegistrationFormParentEmail,
+				_section: req.body.section
+			});
+			new_student.save(function(err,data){
+				if(err){
+					res.json('noooo----\n',err);
+				}else{
+					console.log('yesssss----\n',data);
+					res.json(data);
+				}
+			});
+		},
 		updateStudent: function(req, res){
 			Student.findOne({_id:req.params.id}, function(err, result){
 				if (err){
@@ -47,5 +75,5 @@ module.exports=(function(){
 			});
 		}
 
-  };
+	};
 })();

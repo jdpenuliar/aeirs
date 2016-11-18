@@ -54,7 +54,7 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
             cookie_lastName = data.data.lastName;
             cookie_emailAddress = data.data.emailAddress;
             cookie_userLevel = data.data.userLevel;
-            $location.url('/faculty');
+            $location.url('/dashboard');
             $cookies.put('logged_user', cookie_userID);
             $cookies.put('firstName', cookie_firstName);
             $cookies.put('lastName', cookie_lastName);

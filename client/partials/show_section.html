@@ -11,10 +11,14 @@
 		</ul>
 	</div>
 </nav>
-{{sections.sections}}
-<h2>All Sections for Year: {{sections._class.school_year}} Grade: {{sections.grade_level}}</h2>
+<h2>this is show section for {{section.section}}</h2>
 
-<div ng-repeat="x in sections.sections">
-	<h3><a href="#/section/{{x._id}}">{{x.section}}</a></h3>
+<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
+<div ng-repeat= "student in students">
+	<h3>Student Name: {{student.student_first}} {{student.student_last}}</h3>
+	<h4>Student ID: {{student.student_id}}</h4>
+	<h4>Student Email: {{student.student_email}}</h4>
+	<h4><a href="#/students/{{student._id}}">Show Student Record</a></h4>
+	<h4><a href="#/students/{{student._id}}/edit">Edit Student Record</a></h4>
 	<hr>
 </div>
