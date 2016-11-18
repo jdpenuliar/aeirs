@@ -52,25 +52,20 @@ module.exports=(function(){
 					res.json(data);
 				}
 			});
-		}, 
+		},
 		getStudentsFromSection: function(req, res){
-			console.log("---------\n",req.params.id);
-			// Section.findOne({_id: req.params.id}).populate("students").exec(function(err,data){
-				Section.findOne({_id: req.params.id}).populate({
-					path: 'student',
-					model: 'User',
-					populate: {
-						path: 'friends',
-						model: 'User'
-					}
-				}).exec(function(err,data){
-					if(err){
-						res.json(err);
-					}else{
-						console.log('hahahahahhahahahahahahahaha\n',data)
-						res.json(data);
-					}
-				});
-			}
+			Section.findOne({_id: req.params.id}).populate("students")
+			.populate("_grade_level")
+			.populate("_class")
+			.populate("_createdBy")
+			.exec(function(err,data){
+				if(err){
+					res.json(err);
+				}else{
+					console.log('------------\n',data)
+					res.json(data);
+				}
+			});
 		}
-	})();
+	}
+})();
