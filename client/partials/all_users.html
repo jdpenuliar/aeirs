@@ -12,57 +12,48 @@
 	</div>
 </nav>
 <h2>All Users</h2>
-<div>
-	<div class="container">
-		<table id="example" class="display" cellspacing="0" width="100%">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Username</th>
-					<th>Email Address</th>
-					<th>User Level</th>
-					<th>First Name</th>
-					<th>Middle Name</th>
-					<th>Last Name</th>
-					<th>Phone Number</th>
-					<th>Classes</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<th>ID</th>
-					<th>Username</th>
-					<th>Email Address</th>
-					<th>User Level</th>
-					<th>First Name</th>
-					<th>Middle Name</th>
-					<th>Last Name</th>
-					<th>Phone Number</th>
-					<th>Classes</th>
-				</tr>
-			</tfoot>
-		</table>
+<div ng-controller="allUsersController">
+	<div ng-repeat= "user in users">
+		<h4>Username: {{user.userName}}</h4>
+		<h5>Name: {{user.firstName}}
+		{{user.middleName}} {{user.lastName}}</h5>
+		<h5>User Email: {{user.emailAddress}}</h5>
+		<h5>Phone Number: {{user.phoneNumber}}</h5>
+		<h5><a href="#/users/{{user._id}}">Show User Record</a></h5>
+		<h5><a href="#/users/{{user._id}}/edit">Edit User Record</a></h5>
+		<hr>
 	</div>
 
-	<script type="text/javascript">
+</div>
+
+
+all_users
+
+<script type="text/javascript">
 		$(document).ready(function() {
 			$('#example').DataTable({
 				"scrollX": true,
-				"ajax": "http://localhost:8000/all_users",
+				"ajax": "http://localhost:8000/all_s",
 				"columns": [
 				{ "data": "_id" },
-				{ "data": "userName" },
-				{ "data": "emailAddress" },
-				{ "data": "userLevel" },
-				{ "data": "firstName" },
-				{ "data": "middleName" },
-				{ "data": "lastName" },
-				{ "data": "phoneNumber" },
-				{ "data": "classes" }
+				{ "data": "student_first" },
+				{ "data": "student_middle" },
+				{ "data": "student_last" },
+				{ "data": "student_id" },
+				{ "data": "student_email" },
+				{ "data": "student_phone" },
+				{ "data": "mother_first" },
+				{ "data": "mother_middle" },
+				{ "data": "mother_last" },
+				{ "data": "father_first" },
+				{ "data": "father_middle" },
+				{ "data": "father_last" },
+				{ "data": "parent_email" },
+				{ "data": "parent_phone" }
 				]
 			});
 		});
+
 	</script>
 	
 	<script src="js/init.js"></script>
-</div>
