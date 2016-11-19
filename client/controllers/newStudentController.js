@@ -25,6 +25,7 @@ angular.module('AEIRS').controller('newStudentController', function($scope, $rou
 			$scope.students=studentArray;
 			console.log("id--------------nrouteparams--------\n",$routeParams)
 		});
-		$location.url('/section/{{$routeParams.id}}');
+		console.log("routeparamsqwerqwer-----\n", $routeParams.id);
+		$location.url('/section/'+$scope.studentRegistrationData.section);
 	}
 })
