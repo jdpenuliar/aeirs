@@ -88,7 +88,7 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 
 	    })
 	    .otherwise({
-	    	redirectTo: "/"
+	    	redirectTo: "/dashboard"
 	    });
 	}]);
 
