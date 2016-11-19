@@ -1,21 +1,3 @@
-<!--  <nav>
- 	<div class="nav-wrapper">
- 		<a href="#!" class="brand-logo">Logo</a>
- 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
- 		<ul class="right hide-on-med-and-down">
- 			<li><a href="sass.html">Sass</a></li>
- 			<li><a href="badges.html">Components</a></li>
- 			<li><a href="collapsible.html">Javascript</a></li>
- 			<li><a href="mobile.html">Mobile</a></li>
- 		</ul>
- 		<ul class="side-nav" id="mobile-demo">
- 			<li><a href="sass.html">Sass</a></li>
- 			<li><a href="badges.html">Components</a></li>
- 			<li><a href="collapsible.html">Javascript</a></li>
- 			<li><a href="mobile.html">Mobile</a></li>
- 		</ul>
- 	</div>
- </nav> -->
 <nav>
 	<div class="nav-wrapper">
 		<a href="#/dashboard" class="brand-logo">AEIRS</a>
@@ -49,5 +31,22 @@
 	<h4>Student Email: {{student.student_email}}</h4>
 	<h4><a href="#/students/{{student._id}}">Show Student Record</a></h4>
 	<h4><a href="#/students/{{student._id}}/edit">Edit Student Record</a></h4>
+<div>
+	<h2>{{section.section}}</h2>
+	<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
 	<hr>
-</div>
+	<div ng-repeat= "student in section.students">
+		<h3>Student Name: {{student.student_first}} {{student.student_middle}} {{student.student_last}}</h3>
+		<h4>Student ID: {{student.student_id}}</h4>
+		<h4>Student Email: {{student.student_email}}</h4>
+		<h4>Grades: {{student.grades}}</h4>
+		<a href="#/student/{{student._id}}">Show Student Record</a>
+		<hr>
+	</div>
+
+
+	 <div ng-repeat="class in classes">
+ 	<h4>School Year: {{class.school_year}}</h4>
+ 	<a href="#/gradelevel/{{x._id}}" ng-repeat="x in class.grade_levels">{{x.grade_level}} | </a>
+ 	<hr>
+ </div>

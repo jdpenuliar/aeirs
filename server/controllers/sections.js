@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var GradeLevel = mongoose.model('GradeLevel');
 var Section = mongoose.model('Section');
 var Student = mongoose.model('Student');
+var Grade = mongoose.model('Grade');
 module.exports=(function(){
 	return{
 		addSection: function(req, res){
@@ -63,13 +64,12 @@ module.exports=(function(){
 				if(err){
 					res.json(err);
 				}else{
-					
-					res.json(data);
 					Student.populate(data,{path: "students._grades", model: "Grade"},function(err,data){
 						if(err){
 							res.json(err);
 						}else{
 							console.log('------------show grade in student in section\n',data)
+							res.json(data);
 						}
 					});
 					// Section.populate(data,{path: "students._grades", model:"Grades"},function(err,data){
