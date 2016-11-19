@@ -61,6 +61,16 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 			templateUrl: "partials/create_class.html"
 		})
 
+		//Grades routes 
+		.when('/student/:id/grades', {
+			controller: 'showStudentGradesController',
+			templateUrl: 'partials/show_student_grades.html'
+		})
+		.when('/student/:id/edit/grades', {
+			controller: 'editStudentGradesController',
+			templateUrl: 'partials/edit_student_grades.html'
+		})
+
 		//section routes
 		.when('/grade/:id/sections', {
 			controller: 'allSectionsController',

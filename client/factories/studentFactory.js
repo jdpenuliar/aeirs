@@ -6,7 +6,6 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 	// as how we would create a get request.
 	var students=[];
 	var factory = {};
-	factory.haha = "hahahaqwer";
 	factory.addStudent=function(data, callback){
 		console.log('made it to my student Factory\n',data);
 		$http.post('/student', data).then(function(data){
