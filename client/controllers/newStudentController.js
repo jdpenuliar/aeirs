@@ -23,7 +23,8 @@ angular.module('AEIRS').controller('newStudentController', function($scope, $rou
 		$scope.studentRegistrationData.section = $routeParams.id;
 		studentFactory.addStudent($scope.studentRegistrationData, function(studentArray){
 			$scope.students=studentArray;
-			$location.url('/all_students');
+			console.log("id--------------nrouteparams--------\n",$routeParams)
+			$location.url('/section/{{$routeParams.id}}');
 		})
 	}
 })
