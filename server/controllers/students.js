@@ -31,7 +31,7 @@ module.exports=(function(){
 				if(err){
 					console.log('fail test hahahahahahhahahahahahahahhaha\n');
 				}else{
-					console.log('niceeeee test hahahahahahhahahahahahahahhaha\n',data);
+					console.log('niceeeee test hahahahahahhahahahahahahahhaha\n',data.students);
 					console.log("--------new haha\n",req.body);
 					var new_student = new Student({
 						student_first: req.body.studentRegistrationFormStudentFirstName,
