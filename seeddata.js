@@ -19,8 +19,8 @@ list = [
       father_first: "Josh",
       father_middle: "Lee",
       father_last: "Bye",
-      parent_email: "parent@gmail.com",
       parent_phone: 14085557777
+      parent_email: "parent@gmail.com"
     }, {timestamps:true},
     {
       student_first: "Shivani",
@@ -35,8 +35,8 @@ list = [
       father_first: "J",
       father_middle: "K",
       father_last: "Bhardwaj",
-      parent_email: "parent@gmail.com",
-      parent_phone: 14085557777
+      parent_phone: 14085557777,
+      parent_email: "parent@gmail.com"
     }, {timestamps:true}
 ];
 
