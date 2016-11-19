@@ -1,16 +1,97 @@
+<!-- <nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo">AEIRS</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+	</div>
+</nav> -->
 <nav>
 	<div class="nav-wrapper">
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
-			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
-			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
-			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
-			<li><a href="#/students">View Student Records</a></li>
-			<li><a href="#/dashboard">Dashboard</a></li>
-			<li><a ng-click='logout()'>Log Out</a></li>
+		<a href="#/dashboard" class="brand-logo">AEIRS</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+		<ul class="side-nav" id="mobile-demo">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
 	</div>
 </nav>
+<!-- <nav style="min-height: 90px">
+	<div class="nav-wrapper" style ="margin: 0% -1%">
+		<a href="#!" data-activates="mobile-nav" class="button-collapse" style="float: right;margin: 0% 3%"><i class="material-icons blue-text">menu</i></a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+		<ul id="nav-mobile" class="side-nav teal">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+	</div>
+</nav> -->
+<!-- <nav style="min-height: 90px">
+	<div class="nav-wrapper" style ="margin: 0% -1%">
+		<a href="#!" data-activates="mobile-nav" class="button-collapse" style="float: right;margin: 0% 3%"><i class="material-icons blue-text">menu</i></a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+		<ul id="nav-mobile" class="side-nav #ffe082-4" id="mobile-nav">
+			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
+			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
+			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
+			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
+			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
+			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
+		</ul>
+	</div>
+</nav> -->
 <div>
 	<div class="container">
 		<a href="#/students/new">Create New Student</a>
@@ -64,26 +145,26 @@
 				"ajax": "http://localhost:8000/all_students",
 				"columns": [
 				{ "data": "_id",
-					"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-			            $(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
-			        } 
-				},
-				{ "data": "student_first" },
-				{ "data": "student_middle" },
-				{ "data": "student_last" },
-				{ "data": "student_id" },
-				{ "data": "student_email" },
-				{ "data": "student_phone" },
-				{ "data": "mother_first" },
-				{ "data": "mother_middle" },
-				{ "data": "mother_last" },
-				{ "data": "father_first" },
-				{ "data": "father_middle" },
-				{ "data": "father_last" },
-				{ "data": "parent_email" },
-				{ "data": "parent_phone" }
-				]
-			});
+				"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					$(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
+				} 
+			},
+			{ "data": "student_first" },
+			{ "data": "student_middle" },
+			{ "data": "student_last" },
+			{ "data": "student_id" },
+			{ "data": "student_email" },
+			{ "data": "student_phone" },
+			{ "data": "mother_first" },
+			{ "data": "mother_middle" },
+			{ "data": "mother_last" },
+			{ "data": "father_first" },
+			{ "data": "father_middle" },
+			{ "data": "father_last" },
+			{ "data": "parent_email" },
+			{ "data": "parent_phone" }
+			]
+		});
 		});
 
 	</script>
