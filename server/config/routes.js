@@ -87,8 +87,6 @@ module.exports = function(app){
 		gradeLevel.getGradeLevel(req,res);
 	});
 
-
-
 	//USER ROUTES
 	app.get("/all_users",function(req,res){
 		users.getUsers(req,res);

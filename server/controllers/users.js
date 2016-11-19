@@ -71,7 +71,6 @@ module.exports=(function(){
 				}
 			});
 		},
-    ///////
 		getUsers: function(req, res){
 			User.find({}, function(err, users){
 				if(err){
@@ -79,7 +78,8 @@ module.exports=(function(){
 					console.log('error in getUsers controller');
 				} else{
 					console.log('this is all the users', users);
-					res.json(users);
+					res.json({ "data": users});
+					//res.json(users);
 				}
 			});
 		},

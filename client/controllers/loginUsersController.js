@@ -1,6 +1,6 @@
 angular.module('AEIRS').controller('loginUsersController', function($scope, $location, $cookies, userFactory){
   var logged_in_user = $cookies.get('logged_user');
-  console.log(logged_in_user, " this is the logged in user in the loginController");
+  console.log(logged_in_user, " this is the logged in user in the loginUsersController");
   $scope.firstName = $cookies.get("firstName");
   $scope.emailAddress = $cookies.get("emailAddress");
   $scope.userLevel = $cookies.get("userLevel");

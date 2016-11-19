@@ -18,13 +18,13 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 		})
 		.when("/all_students",{
 			controller: "allStudentsController",
-			templateUrl: "partials/all_students.html"
+			templateUrl: "partials/students.html"
 		})
-		.when('/students/:id', {
+		.when('/student/:id', {
 			controller: 'showStudentController',
 			templateUrl: 'partials/show_student.html'
 		})
-		.when('/students/:id/edit', {
+		.when('/student/:id/edit', {
 			controller: 'editStudentController',
 			templateUrl: 'partials/edit_student.html'
 		})
