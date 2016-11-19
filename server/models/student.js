@@ -18,7 +18,3 @@ var StudentSchema = new mongoose.Schema({
 });
 
 mongoose.model('Student', StudentSchema);
-// Validations
-// StudentSchema.path('color').required(true, 'Color cannot be blank');
-// StudentSchema.path('weight').required(true, 'Weight cannot be blank');
-// StudentSchema.path('name').required(true, 'Name cannot be blank');
