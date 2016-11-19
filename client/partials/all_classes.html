@@ -1,21 +1,45 @@
-<nav>
-	<div class="nav-wrapper">
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
-			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
-			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
-			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
-			<li><a href="#/students">View Student Records</a></li>
-			<li><a href="#/dashboard">Dashboard</a></li>
-			<li><a ng-click='logout()'>Log Out</a></li>
-		</ul>
-	</div>
-</nav>
-<h2>All School Years</h2>
+ <nav>
+ 	<div class="nav-wrapper">
+ 		<a href="#!" class="brand-logo">AEIRS</a>
+ 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+ 		<ul class="right hide-on-med-and-down">
+ 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+ 			<li><a href="#/students">View Student Records</a></li>
+ 			<li><a href="#/dashboard">Dashboard</a></li>
+ 			<li><a ng-click='logout()'>Log Out</a></li>
+ 		</ul>
+ 		<ul class="side-nav" id="mobile-demo">
+ 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+ 			<li><a href="#/students">View Student Records</a></li>
+ 			<li><a href="#/dashboard">Dashboard</a></li>
+ 			<li><a ng-click='logout()'>Log Out</a></li>
+ 		</ul>
+ 	</div>
+ </nav>
+<!--  <nav>
+ 	<div class="nav-wrapper">
+ 		<ul id="nav-mobile" class="right hide-on-med-and-down">
+ 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers">View All Users</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/faculty/createUser">Create New User</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/allClasses">View All School Years</a></li>
+ 			<li><a ng-if="userLevel==0" href="#/new_class">Create New School Year</a></li>
+ 			<li><a href="#/students">View Student Records</a></li>
+ 			<li><a href="#/dashboard">Dashboard</a></li>
+ 			<li><a ng-click='logout()'>Log Out</a></li>
+ 		</ul>
+ 	</div>
+ </nav> -->
+ <h2>All School Years</h2>
 
-<div ng-repeat="class in classes">
-	<h4>School Year: {{class.school_year}}</h4>
-	<a href="#/gradelevel/{{x._id}}" ng-repeat="x in class.grade_levels">{{x.grade_level}} | </a>
-	<!-- <h4><a href="#/class/{{class._id}}">See Associated Grade Levels</a></h4> -->
-	<hr>
-</div>
+ <div ng-repeat="class in classes">
+ 	<h4>School Year: {{class.school_year}}</h4>
+ 	<a href="#/gradelevel/{{x._id}}" ng-repeat="x in class.grade_levels">{{x.grade_level}} | </a>
+ 	<!-- <h4><a href="#/class/{{class._id}}">See Associated Grade Levels</a></h4> -->
+ 	<hr>
+ </div>
