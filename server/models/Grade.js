@@ -1,10 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var GradeSchema = new Schema({
-	exam1: {type: Number, minlength:1},
-	exam2: {type: Number, minlength:1},
-	exam3: {type: Number, minlength:1},
-	exam4: {type: Number, minlength:1},
 	quiz1: {type: Number, minlength:1},
 	quiz2: {type: Number, minlength:1},
 	quiz3: {type: Number, minlength:1},
@@ -15,6 +11,11 @@ var GradeSchema = new Schema({
 	quiz8: {type: Number, minlength:1},
 	quiz9: {type: Number, minlength:1},
 	quiz10: {type: Number, minlength:1},
-	attendance: {type: Number, minlength:1}
+	exam1: {type: Number, minlength:1},
+	exam2: {type: Number, minlength:1},
+	exam3: {type: Number, minlength:1},
+	exam4: {type: Number, minlength:1},
+	attendance: {type: Number, minlength:1},
+	_studdent: {type: mongoose.Schema.Types.ObjectId, ref: "Student"}
 },{timestamps: true});
 mongoose.model("Grade",GradeSchema);

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Student = mongoose.model('Student');
 var Section = mongoose.model('Section');
+var Grade = mongoose.model('Grade');
 
 module.exports=(function(){
 	return{
@@ -16,7 +17,18 @@ module.exports=(function(){
 			});
 		},
 		getStudent: function(req, res){
-			Student.findOne({_id: req.params.id}, function(err, result){
+			console.log("show student haha---\n",req.body);
+			// Student.findOne({_id: req.params.id}, function(err, result){
+			// 	if(err){
+			// 		console.log('this is the err when looking for student', err);
+			// 	} else {
+			// 		console.log('this is the student', result);
+			// 		res.json(result);
+			// 	}
+			// });
+			Student.findOne({_id: req.params.id})
+			.populate("_grades")
+			.exec(function(err,data){
 				if(err){
 					console.log('this is the err when looking for student', err);
 				} else {
@@ -54,16 +66,51 @@ module.exports=(function(){
 						if(err){
 							console.log('noooo----\n',err);
 						}else{
-							console.log('yesssss----\n',data);
+							console.log('yesssss newstudentcreate----\n',data);
 							console.log(data);
+							var new_grade = new Grade({
+								quiz1: 0,
+								quiz2: 0,
+								quiz3: 0,
+								quiz4: 0,
+								quiz5: 0,
+								quiz6: 0,
+								quiz7: 0,
+								quiz8: 0,
+								quiz9: 0,
+								quiz10: 0,
+								exam1: 0,
+								exam2: 0,
+								exam3: 0,
+								exam4: 0,
+								attendance: 0,
+								_student: data._id
+							});
+							new_grade.save(function(err,data){
+								if(err){
+									console.log('nooooahahagrade----\n',err);
+								}else{
+									console.log('yessssshahgrade----\n',data);
+									// res.json(data);
+									new_student._grades = data._id;
+									new_student.save(function(err,data){
+										if(err){
+											console.log('gradesave--\n',err);
+										}else{
+											console.log('gradesave--success--\n',data);
+										}
+									});
+								}
+							});
 						}
 					});
 					data.students.push(new_student);
+					console.log('-----after student save push\n',data);
 					data.save(function(err,data){
 						if(err){
 							console.log('nooooahaha----\n',err);
 						}else{
-							console.log('yessssshaha----\n',data);
+							console.log('yessssshahasections----\n',data);
 							res.json(data);
 						}
 					});
