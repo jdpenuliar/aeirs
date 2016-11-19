@@ -34,6 +34,8 @@ angular.module('AEIRS').controller('showGradeLevelController', function($scope, 
 		sectionFactory.addSection($scope.newSection, function(data){
 			console.log("back from factory gradelevel haha\n",data)
 			$scope.sections=data;
+			$location.url('/grade/'+$routeParams.id+'/sections');
 		})
+
 	}
 })
