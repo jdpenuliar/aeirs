@@ -1,4 +1,4 @@
-AEIRSAppModule.controller('showSectionController', function($scope, $routeParams, $location, sectionFactory, studentFactory){
+AEIRSAppModule.controller('showSectionController', function($scope, $routeParams, $cookies, $location, sectionFactory, studentFactory){
 
 	console.log('I am able to load my showSectionController along with my show_section partial');
 
