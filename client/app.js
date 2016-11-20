@@ -1,4 +1,4 @@
-var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies","ui.materialize"]);
+var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies","ui.materialize", 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter']);
 (function(){
 
 	AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {

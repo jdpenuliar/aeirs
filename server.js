@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,"./client")));
 app.use(express.static(path.join(__dirname,"./node_modules")));
+app.use(express.static(path.join(__dirname,"./bower_components")));
 // app.use(expressJwt({ secret: jwtSecret }).unless({ path: ['/', '/login', '/register'] }));
 require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
