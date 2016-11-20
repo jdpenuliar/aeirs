@@ -23,30 +23,51 @@
 	</div>
 </nav>
 {{section.students}}
-<h2>Section: {{section.section}}</h2>
-<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
-<div ng-repeat= "student in students">
-	<h3>Student Name: {{student.student_first}} {{student.student_last}}</h3>
-	<h4>Student ID: {{student.student_id}}</h4>
-	<h4>Student Email: {{student.student_email}}</h4>
-	<h4><a href="#/students/{{student._id}}">Show Student Record</a></h4>
-	<h4><a href="#/students/{{student._id}}/edit">Edit Student Record</a></h4>
-<div>
-	<h2>{{section.section}}</h2>
-	<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
-	<hr>
-	<div ng-repeat= "student in section.students">
-		<h3>Student Name: {{student.student_first}} {{student.student_middle}} {{student.student_last}}</h3>
-		<h4>Student ID: {{student.student_id}}</h4>
-		<h4>Student Email: {{student.student_email}}</h4>
-		<h4>Grades: {{student.grades}}</h4>
-		<a href="#/student/{{student._id}}">Show Student Record</a>
-		<hr>
+<!-- <h2>Section: {{section.section}}</h2> -->
+<div class="row center-align">
+	<h2>Section: {{section.section}}</h2>
+</div>
+<div ng-repeat= "student in section.students">
+	<div class="row">
+		<div class="col s12 m6 l6">
+			<h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5>
+			<h6>Student ID: {{student.student_id}}</h6>
+			<h6>Student Email: {{student.student_email}}</h6>
+		</div>
+		<div class="col s12 m6 l6">
+			<div class="row">
+				<div class="col s12 m4 l4">
+					<p>Quiz 1: {{student._grades.quiz1}}</p>
+					<p>Quiz 2: {{student._grades.quiz2}}</p>
+					<p>Quiz 3: {{student._grades.quiz3}}</p>
+					<p>Quiz 4: {{student._grades.quiz4}}</p>
+					<p>Quiz 5: {{student._grades.quiz5}}</p>
+				</div>
+				<div class="col s12 m4 l4">
+					<p>Quiz 6: {{student._grades.quiz6}}</p>
+					<p>Quiz 7: {{student._grades.quiz7}}</p>
+					<p>Quiz 8: {{student._grades.quiz8}}</p>
+					<p>Quiz 9: {{student._grades.quiz9}}</p>
+					<p>Quiz 10: {{student._grades.quiz10}}</p>
+				</div>
+				<div class="col s12 m4 l4">
+					<p>Exam 1: {{student._grades.exam1}}</p>
+					<p>Exam 2: {{student._grades.exam2}}</p>
+					<p>Exam 3: {{student._grades.exam3}}</p>
+					<p>Exam 4: {{student._grades.exam4}}</p>
+					<p>Attendance: {{student._grades.attendance}}</p>
+				</div>
+			</div>
+		</div>
 	</div>
+	
+</div>
+<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
+<script>
+(function($){
+	$(function(){
+		$('.button-collapse').sideNav();
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
 
-
-	 <div ng-repeat="class in classes">
- 	<h4>School Year: {{class.school_year}}</h4>
- 	<a href="#/gradelevel/{{x._id}}" ng-repeat="x in class.grade_levels">{{x.grade_level}} | </a>
- 	<hr>
- </div>
+</script>

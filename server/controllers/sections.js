@@ -56,7 +56,7 @@ module.exports=(function(){
 		},
 		getStudentsFromSection: function(req, res){
 			Section.findOne({_id: req.params.id})
-			.populate("students")
+			.populate({path: 'students', options: { sort: {'student_last': -1, 'student_first': -1, 'student_middle': -1}}})
 			.populate("_grade_level")
 			.populate("_class")
 			.populate("_createdBy")
@@ -72,14 +72,6 @@ module.exports=(function(){
 							res.json(data);
 						}
 					});
-					// Section.populate(data,{path: "students._grades", model:"Grades"},function(err,data){
-					// 	if(err){
-					// 		console.log('populate fail\n',err);
-					// 	}else{
-					// 		console.log('populate haha\n',data);
-					// 		res.json(data);
-					// 	}
-					// })
 				}
 			});
 		}

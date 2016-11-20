@@ -1,6 +1,6 @@
 angular.module('AEIRS').controller('showStudentController', function($scope, $routeParams, $cookies, $location, studentFactory){
 
-	console.log('I am able to load my showStudentController along with my all_students partial');
+	console.log('show specific student');
 
   var studentID=$routeParams.id;
   console.log('this is routeParams.id ', $routeParams.id);

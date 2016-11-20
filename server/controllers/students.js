@@ -17,23 +17,16 @@ module.exports=(function(){
 			});
 		},
 		getStudent: function(req, res){
-			console.log("show student haha---\n",req.body);
-			// Student.findOne({_id: req.params.id}, function(err, result){
-			// 	if(err){
-			// 		console.log('this is the err when looking for student', err);
-			// 	} else {
-			// 		console.log('this is the student', result);
-			// 		res.json(result);
-			// 	}
-			// });
+			console.log("show specific student haha---\n",req.body,"\n",req.params.id);
 			Student.findOne({_id: req.params.id})
 			.populate("_grades")
+			.populate("_section")
 			.exec(function(err,data){
 				if(err){
 					console.log('this is the err when looking for student', err);
 				} else {
-					console.log('this is the student', result);
-					res.json(result);
+					console.log('this is the student', data);
+					res.json(data);
 				}
 			});
 		},
