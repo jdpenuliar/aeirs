@@ -22,9 +22,121 @@
 		</ul>
 	</div>
 </nav>
-<h2>Edit {{student.student_first}}'s Grades</h2>
+<h2>Edit {{grades._student.student_first}}'s Grades</h2>
 
 <p>partial to edit grades for a specific student</p>
+<div class="row">
+	<form class="col s12">
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz1" type="text" class="validate" ng-model="grade.quiz1">
+			<label for="Quiz1">Quiz 1: {{grades.quiz1}}</label>
+			{{errors.quiz1.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz2" type="text" class="validate" ng-model="grade.quiz2">
+			<label for="Quiz2">Quiz 2: {{grades.quiz2}}</label>
+			{{errors.quiz2.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz3" type="text" class="validate" ng-model="grade.quiz3">
+			<label for="Quiz3">Quiz 3: {{grades.quiz3}}</label>
+			{{errors.quiz3.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz4" type="text" class="validate" ng-model="grade.quiz4">
+			<label for="Quiz4">Quiz 4: {{grades.quiz4}}</label>
+			{{errors.quiz4.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz5" type="text" class="validate" ng-model="grade.quiz5">
+			<label for="Quiz5">Quiz 5: {{grades.quiz5}}</label>
+			{{errors.quiz5.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz6" type="text" class="validate" ng-model="grade.quiz6">
+			<label for="Quiz6">Quiz 6: {{grades.quiz6}}</label>
+			{{errors.quiz6.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz7" type="text" class="validate" ng-model="grade.quiz7">
+			<label for="Quiz7">Quiz 7: {{grades.quiz7}}</label>
+			{{errors.quiz7.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz8" type="text" class="validate" ng-model="grade.quiz8">
+			<label for="Quiz8">Quiz 8: {{grades.quiz8}}</label>
+			{{errors.quiz8.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz9" type="text" class="validate" ng-model="grade.quiz9">
+			<label for="Quiz9">Quiz 9: {{grades.quiz9}}</label>
+			{{errors.quiz9.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Quiz10" type="text" class="validate" ng-model="grade.quiz10">
+			<label for="Quiz10">Quiz 10: {{grades.quiz10}}</label>
+			{{errors.quiz10.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Exam2" type="text" class="validate" ng-model="grade.exam2">
+			<label for="Exam2">Exam 1: {{grades.exam1}}</label>
+			{{errors.exam2.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Exam2" type="text" class="validate" ng-model="grade.exam2">
+			<label for="Exam2">Exam 2: {{grades.exam2}}</label>
+			{{errors.exam2.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Exam3" type="text" class="validate" ng-model="grade.exam3">
+			<label for="Exam3">Exam 3: {{grades.exam3}}</label>
+			{{errors.exam3.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Exam4" type="text" class="validate" ng-model="grade.exam4">
+			<label for="Exam4">Exam 4: {{grades.exam4}}</label>
+			{{errors.exam4.messages}}
+		</div>
+		<div class="input-field col s12 m4 l4">
+			<input id="Attendance" type="text" class="validate" ng-model="grade.attendance">
+			<label for="Attendance">Attendance: {{grades.attendance}}</label>
+			{{errors.attendance.messages}}
+		</div>
+		
+		<button class="btn waves-effect waves-light col s4 m4 l2 offset-s4 offset-m4 offset-l5" ng-click="updateGrade()">Update<i class="material-icons right">send</i></button>
+	</form>
+</div>
+<div class="row">
+	<div class="col s12 m4 l4">
+		<p>Quiz 1: {{grades.quiz1}}</p>
+		<p>Quiz 2: {{grades.quiz2}}</p>
+		<p>Quiz 3: {{grades.quiz3}}</p>
+		<p>Quiz 4: {{grades.quiz4}}</p>
+		<p>Quiz 5: {{grades.quiz5}}</p>
+	</div>
+	<div class="col s12 m4 l4">
+		<p>Quiz 6: {{grades.quiz6}}</p>
+		<p>Quiz 7: {{grades.quiz7}}</p>
+		<p>Quiz 8: {{grades.quiz8}}</p>
+		<p>Quiz 9: {{grades.quiz9}}</p>
+		<p>Quiz 10: {{grades.quiz10}}</p>
+	</div>
+	<div class="col s12 m4 l4">
+		<p>Exam 1: {{grades.exam1}}</p>
+		<p>Exam 2: {{grades.exam2}}</p>
+		<p>Exam 3: {{grades.exam3}}</p>
+		<p>Exam 4: {{grades.exam4}}</p>
+		<p>Attendance: {{grades.attendance}}</p>
+	</div>
+</div>
 
 
 <a href="#/student/:id">View Student's Record</a>
+<script>
+	(function($){
+		$(function(){
+			$('.button-collapse').sideNav();
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+</script>

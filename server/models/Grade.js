@@ -16,6 +16,6 @@ var GradeSchema = new Schema({
 	exam3: {type: Number, minlength:1},
 	exam4: {type: Number, minlength:1},
 	attendance: {type: Number, minlength:1},
-	_studdent: {type: mongoose.Schema.Types.ObjectId, ref: "Student"}
+	_student: {type: Schema.Types.ObjectId, ref: "Student"}
 },{timestamps: true});
 mongoose.model("Grade",GradeSchema);

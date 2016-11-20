@@ -4,6 +4,7 @@ var students = require("./../controllers/students.js");
 var classes = require("./../controllers/classes.js");
 var gradeLevel = require("./../controllers/gradeLevels.js");
 var sections=require("./../controllers/sections.js")
+var grades=require("./../controllers/grades.js")
 // var jwt = require('express-jwt');
 
 module.exports = function(app){
@@ -49,6 +50,14 @@ module.exports = function(app){
 	//route for getting specific student
 	app.get("/students/:id",function(req,res){
 		students.getStudent(req,res);
+	});
+
+	//SECCTION GRADES
+	app.get("/student/:id/edit/grades",function(req,res){
+		grades.getGrades(req,res);
+	});
+	app.post("/student/:id/update/grades",function(req,res){
+		grades.updateGrades(req,res);
 	});
 
 	//SECTION ROUTES
