@@ -34,10 +34,15 @@
 	<p>Parent Email: {{student.parent_email}}</p>
 	<p>Parent Phone: {{student.parent_phone}}</p>
 	<p>Grades: {{student._grades}}</p>
+
 	<div ng-if="userLevel==0">
 		<a href="#/student/{{student._id}}/edit">Edit Student</a> | <a href="#/student/{{student._id}}/edit/grades">Edit Student Grades</a>
 	</div>
+
+
 </div>
+
+
 <div class="row">
 	<div ui-grid="gridOptions" ui-grid-selection ui-grid-exporter class="grid"></div>
 </div>

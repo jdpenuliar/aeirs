@@ -31,12 +31,11 @@ module.exports=(function(){
 			});
 		},
 		addStudent: function(req, res){
-			console.log('testing hahahahahahhahahahahahahahhaha\n');
 			Section.findOne({_id: req.body.section}, function(err,data){
 				if(err){
-					console.log('fail test hahahahahahhahahahahahahahhaha\n');
+					// console.log('fail test hahahahahahhahahahahahahahhaha\n');
 				}else{
-					console.log('niceeeee test hahahahahahhahahahahahahahhaha\n',data.students);
+					// console.log('niceeeee test hahahahahahhahahahahahahahhaha\n',data.students);
 					console.log("--------new haha\n",req.body);
 					var new_student = new Student({
 						student_first: req.body.studentRegistrationFormStudentFirstName,
@@ -55,48 +54,199 @@ module.exports=(function(){
 						parent_email: req.body.studentRegistrationFormParentEmail,
 						_section: req.body.section
 					});
-					new_student.save(function(err,data){
-						if(err){
-							console.log('noooo----\n',err);
-						}else{
-							console.log('yesssss newstudentcreate----\n',data);
-							console.log(data);
-							var new_grade = new Grade({
-								quiz1: 0,
-								quiz2: 0,
-								quiz3: 0,
-								quiz4: 0,
-								quiz5: 0,
-								quiz6: 0,
-								quiz7: 0,
-								quiz8: 0,
-								quiz9: 0,
-								quiz10: 0,
-								exam1: 0,
-								exam2: 0,
-								exam3: 0,
-								exam4: 0,
-								attendance: 0,
-								_student: data._id
-							});
-							new_grade.save(function(err,data){
-								if(err){
-									console.log('nooooahahagrade----\n',err);
-								}else{
-									console.log('yessssshahgrade----\n',data);
-									// res.json(data);
-									new_student._grades = data._id;
-									new_student.save(function(err,data){
-										if(err){
-											console.log('gradesave--\n',err);
-										}else{
-											console.log('gradesave--success--\n',data);
-										}
-									});
-								}
-							});
+
+					console.log('testing hahahahahahhahahahahahahahhaha\n',new_student);
+					list = [
+						{
+							subject: 'Filipino',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'English',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'Math',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'Science',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'Araling Panlipunan',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'Edukasyon sa Pagpapakatao',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'EPP',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
+						},
+						{
+							subject: 'MAPEH',
+							quiz1: 0,
+							quiz2: 0,
+							quiz3: 0,
+							quiz4: 0,
+							quiz5: 0,
+							quiz6: 0,
+							quiz7: 0,
+							quiz8: 0,
+							quiz9: 0,
+							quiz10: 0,
+							exam1: 0,
+							exam2: 0,
+							exam3: 0,
+							exam4: 0,
+							attendance: 0,
+							_student: new_student._id	
 						}
-					});
+					];
+					
+					for (var i in list){
+						// console.log('counter haha: ', i, "------\n", data);
+						// data._grades.push(new_grade);
+						// console.log("-------\n",i);
+						var new_grade = new Grade(list[i]);
+						console.log('new grade---\n', new_grade);
+						new_student._grades.push(new_grade._id);
+						new_grade.save(function(err,data){
+							if(err){
+								// console.log('nooooahahagrade----\n',err);
+							}else{
+								// res.json(data);
+								// console.log(''saved grade--\n',data._id)
+								// new_student._grades.push(data._id);
+								// console.log('yessssshahgrade----\n',new_student);
+								// console.log('yessssshahgradestudentupdated----\n',new_student._grades);
+							}
+						});
+
+						console.log('new grade pushed---\n',new_student._grades);
+						new_student.save(function(err,data){
+							if(err){
+								console.log('after grade noooo----\n',err);
+							}else{
+								console.log('after GRADEPUSH newstudentcreate----\n',data);
+							}
+						});
+
+
+						console.log('-------pushed grade new_student\n\n\n\n\n',new_student);
+					}
+					
+
+
+
+					
 					data.students.push(new_student);
 					console.log('-----after student save push\n',data);
 					data.save(function(err,data){

@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var GradeSchema = new Schema({
+	subject: {type: String, minlength:1},
 	quiz1: {type: Number, minlength:1},
 	quiz2: {type: Number, minlength:1},
 	quiz3: {type: Number, minlength:1},
