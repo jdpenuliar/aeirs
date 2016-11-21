@@ -22,32 +22,32 @@
 		</ul>
 	</div>
 </nav>
-<!-- <div ng-json-export-excel data="dataList" report-fields="{id: 'ID Heder', name: 'Name Header', price: 'Price Head'}" filename="filename">asdfasdf</div> -->
-<!-- <div ui-grid="gridOptions" ui-grid-selection ui-grid-exporter class="teal waves-effect waves-light" style="width:500px
-  height: 400px">haha</div> -->
+<div class="row">
+	<h1>{{student.student_first}}'s Student Record</h1>
 
-  <!-- <div ui-grid="{ data: myData }" class="myGrid" style="width:500% height: 100%"></div> -->
-
-  <div ui-grid="gridOptions" ui-grid-selection ui-grid-exporter class="grid"></div>
-<h1>{{student.student_first}}'s Student Record</h1>
-
-<p>Student Name: {{student.student_first}} {{student.student_middle}} {{student.student_last}}</p>
-<p>Student ID: {{student._id}}</p>
-<p>Email Address: {{student.student_email}}</p>
-<p>Phone Number: {{student.student_phone}}</p>
-<p>Mother's Name: {{student.mother_first}} {{student.mother_middle}} {{student.mother_last}}</p>
-<p>Father's Name: {{student.father_first}} {{student.father_middle}} {{student.father_last}}</p>
-<p>Parent Email: {{student.parent_email}}</p>
-<p>Parent Phone: {{student.parent_phone}}</p>
-<p>Grades: {{student._grades}}</p>
-<div ng-if="userLevel==0">
-	<a href="#/student/{{student._id}}/edit">Edit Student</a> | <a href="#/student/{{student._id}}/edit/grades">Edit Student Grades</a>
+	<p>Student Name: {{student.student_first}} {{student.student_middle}} {{student.student_last}}</p>
+	<p>Student ID: {{student._id}}</p>
+	<p>Email Address: {{student.student_email}}</p>
+	<p>Phone Number: {{student.student_phone}}</p>
+	<p>Mother's Name: {{student.mother_first}} {{student.mother_middle}} {{student.mother_last}}</p>
+	<p>Father's Name: {{student.father_first}} {{student.father_middle}} {{student.father_last}}</p>
+	<p>Parent Email: {{student.parent_email}}</p>
+	<p>Parent Phone: {{student.parent_phone}}</p>
+	<p>Grades: {{student._grades}}</p>
+	<div ng-if="userLevel==1">
+		<a href="#/student/{{student._id}}/edit">Edit Student</a> | <a href="#/student/{{student._id}}/edit/grades">Edit Student Grades</a>
+	</div>
 </div>
+<div class="row">
+	<div ui-grid="gridOptions" ui-grid-selection ui-grid-exporter class="grid"></div>
+</div>
+
+
 <script>
-(function($){
-	$(function(){
-		$('.button-collapse').sideNav();
-  }); // end of document ready
+	(function($){
+		$(function(){
+			$('.button-collapse').sideNav();
+}); // end of document ready
 })(jQuery); // end of jQuery name space
 
 </script>

@@ -24,8 +24,7 @@ AEIRSAppModule.controller('editStudentGradesController', function($scope, $route
 		// console.log("-------------\n",$scope.grades);
 		$scope.grade._id = $scope.grades._id
 		gradesFactory.updateGrade($scope.grade, function(data){
-			console.log("-------------updated\n",data);
-			// $location.path('#/student/'+data._id);
+			$location.url('/student/'+data.data._student);
 		});
 	};
 })
