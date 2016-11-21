@@ -72,20 +72,16 @@ angular.module('AEIRS').controller('showStudentController', function($http, $sco
   };
 
   gradesFactory.showStudentGrade(studentID, function(data){
-    // $scope.student=data.data;
-    // $scope.gridOptions.data = [$scope.student._grades];
     $scope.dataTableStudentGrade = data.data;
-    console.log("grades1-----\n",$scope.dataTableStudentGrade._id);
+    // console.log("grades1-----\n",$scope.dataTableStudentGrade._id);
     $scope.dataTableStudentGrade._id = $scope.dataTableStudentGrade._student._id;
     $scope.dataTableStudentGrade._student = $scope.dataTableStudentGrade._student.student_last + ", " + $scope.dataTableStudentGrade._student.student_first + " " + $scope.dataTableStudentGrade._student.student_middle;
-    // $scope.dataTableStudentGrade._id = $scope.dataTableStudentGrade._student._id;
-    console.log("grades2-----\n",$scope.dataTableStudentGrade);
+    // console.log("grades2-----\n",$scope.dataTableStudentGrade);
     $scope.gridOptions.data = [$scope.dataTableStudentGrade];
   });
 
   studentFactory.getStudent(studentID, function(data){
     $scope.student=data.data;
-    // $scope.gridOptions.data = [$scope.student._grades];
   });
   
   $scope.removeStudent = function(){
