@@ -19,6 +19,10 @@ AEIRSAppModule.controller('updateGradesController', function($scope, $routeParam
 
 	gradesFactory.getSubject(subjectID, function(data){
 		$scope.grades=data.data;
+		console.log("------\n",$scope.grades);
+	    $scope.myChartObject.options = {
+	        'title': 'Grades in '+ $scope.grades.sub
+	    };
 	});
 
 	$scope.updateGrade = function(){
@@ -27,5 +31,44 @@ AEIRSAppModule.controller('updateGradesController', function($scope, $routeParam
 			$location.url('/section/'+$scope.grades._student._section);
 		});
 	}
+	$scope.myChartObject = {};
+    
+    $scope.myChartObject.type = "ColumnChart";
+    
+    $scope.myChartObject.data = {
+    	"cols": [
+	        {id: "t", label: "Student", type: "string"},
+	        {id: "s", label: "Grades", type: "number"}
+	    ], 
+	    "rows": [
+	        {
+	        	c: [
+		            {v: "Mushrooms"},
+		            {v: 3},
+		        ]
+		    },
+	     //    {
+	     //    	c: $scope.onions
+	     //    },
+	     //    {
+	     //    	c: [
+		    //         {v: "Olives"},
+		    //         {v: 31}
+		    //     ]
+		    // },
+	     //    {
+	     //    	c: [
+		    //         {v: "Zucchini"},
+		    //         {v: 1},
+		    //     ]
+		    // },
+	     //    {
+	     //    	c: [
+		    //         {v: "Pepperoni"},
+		    //         {v: 2},
+		    //     ]
+		    // }
+    	]
+	};
 
 })

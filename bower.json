@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "angular-datatables": "^0.5.5",
-    "json-export-excel": "ng-json-export-excel#^1.0.2"
+    "json-export-excel": "ng-json-export-excel#^1.0.2",
+    "angular-google-chart": "^0.1.0"
   }
 }
