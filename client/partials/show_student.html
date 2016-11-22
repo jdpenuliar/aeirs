@@ -33,9 +33,9 @@
 	<p>Father's Name: {{student.father_first}} {{student.father_middle}} {{student.father_last}}</p>
 	<p>Parent Email: {{student.parent_email}}</p>
 	<p>Parent Phone: {{student.parent_phone}}</p>
-	<p>Grades: {{student._grades}}</p>
-
-	<div ng-if="userLevel==0">
+	
+	<a href="#/students">All Students</a>
+	<div ng-if="userLevel==1">
 		<a href="#/student/{{student._id}}/edit">Edit Student</a> | <a href="#/student/{{student._id}}/edit/grades">Edit Student Grades</a>
 	</div>
 

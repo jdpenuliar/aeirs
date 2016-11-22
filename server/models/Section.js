@@ -5,6 +5,7 @@ var SectionSchema = new Schema({
 	section: {type: String, required: true, minlength:1},
 	students: [{type: Schema.Types.ObjectId, ref: "Student"}],
 	_createdBy: {type: Schema.Types.ObjectId, ref: "User"},
+	_faculty: {type: Schema.Types.ObjectId, ref: "User"},
 	_class: {type: Schema.Types.ObjectId, ref: "Class"},
 	// productDescription: {type: String, required: true, minlength:1},
 },{timestamps: true});

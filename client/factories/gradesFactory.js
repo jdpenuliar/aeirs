@@ -15,6 +15,13 @@ AEIRSAppModule.factory('gradesFactory', function($http){
 			console.log('made it back from backend this is updated student', data);
 			callback(data);
 		});
-	}
+	};
+	factory.getSubject=function(subjectID, callback){
+		console.log("getSubject in gradesFactory ---\n ", subjectID);
+		$http.get('/subject/'+subjectID+'/assign').then(function(data){
+			console.log('made it back from backend this is the subject i am looking to update with faculty', data);
+			callback(data);
+		});
+	};
 	return factory;
 });

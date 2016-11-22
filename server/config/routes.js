@@ -120,4 +120,10 @@ module.exports = function(app){
 	app.get("/users/:id",function(req,res){
 		users.getUser(req,res);
 	});
+
+	//subject routes 
+	app.get("/subject/:id/assign",function(req,res){
+		grades.getSubject(req,res);
+	});
+
 };

@@ -75,26 +75,26 @@
 				"ajax": "http://localhost:8000/all_students",
 				"columns": [
 				{ "data": "_id",
-				"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-					$(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
-				} 
-			},
-			{ "data": "student_first" },
-			{ "data": "student_middle" },
-			{ "data": "student_last" },
-			{ "data": "student_id" },
-			{ "data": "student_email" },
-			{ "data": "student_phone" },
-			{ "data": "mother_first" },
-			{ "data": "mother_middle" },
-			{ "data": "mother_last" },
-			{ "data": "father_first" },
-			{ "data": "father_middle" },
-			{ "data": "father_last" },
-			{ "data": "parent_email" },
-			{ "data": "parent_phone" }
-			]
-		});
+					"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+						$(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
+					} 
+				},
+				{ "data": "student_first" },
+				{ "data": "student_middle" },
+				{ "data": "student_last" },
+				{ "data": "student_id" },
+				{ "data": "student_email" },
+				{ "data": "student_phone" },
+				{ "data": "mother_first" },
+				{ "data": "mother_middle" },
+				{ "data": "mother_last" },
+				{ "data": "father_first" },
+				{ "data": "father_middle" },
+				{ "data": "father_last" },
+				{ "data": "parent_email" },
+				{ "data": "parent_phone" }
+				]
+			});
 		});
 
 	</script>

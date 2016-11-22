@@ -14,6 +14,16 @@ module.exports=(function(){
 				}
 			});
 		},
+		getSubject: function(req, res){
+			Grade.findOne({_id: req.params.id}, function(err, result){
+				if(err){
+					console.log('this is the err when looking for a subject', err);
+				} else {
+					console.log('this is the subject', result);
+					res.json(result);
+				}
+			});
+		},
 		updateGrades: function(req, res){
 			console.log("udpate grades------------\n",req.body);
 			Grade.findOne({_id: req.body._id},function(err,data){

@@ -42,11 +42,11 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 	    	controller: 'loginController',
 	    	templateUrl: "partials/all_users.html"
 	    })
-	    .when('/users/:id', {
+	    .when('/user/:id', {
 	    	controller: 'showUserController',
 	    	templateUrl: 'partials/show_user.html'
 	    })
-	    .when('/users/:id/edit', {
+	    .when('/user/:id/edit', {
 	    	controller: 'editUserController',
 	    	templateUrl: 'partials/edit_user.html'
 	    })
@@ -69,6 +69,12 @@ var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies",
 		.when('/student/:id/edit/grades', {
 			controller: 'editStudentGradesController',
 			templateUrl: 'partials/edit_student_grades.html'
+		})
+
+		//subject routes
+		.when('/subject/:id', {
+			controller: 'assignFacultyController',
+			templateUrl: 'partials/assign_faculty.html'
 		})
 
 		//section routes
