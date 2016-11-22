@@ -24,6 +24,7 @@
 </nav>
 
 <div class="row" ng-if="userLevel==0">
+<h2>Welcome, {{firstName}}!</h2>
 	<div class="col s12 m6 l6">
 		<h5>The DepEd Vision</h5>
 		<p>
@@ -53,9 +54,7 @@
 		</p>
 	</div>
 </div>
-<div class="row" ng-if="userLevel==1">
-	<h2>Welcome, {{firstName}}!</h2>
-</div>
+
 <script>
 	(function($){
 		$(function(){
