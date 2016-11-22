@@ -24,6 +24,7 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
     })
   }
 
+  // var userID=$routeParams.id;
   // userFactory.getSection(userID, function(data){
   //   console.log('this is data from show controller-------------\n', data);
   //   $scope.user=data.data;
