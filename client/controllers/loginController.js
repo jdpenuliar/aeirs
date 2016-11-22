@@ -24,10 +24,10 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
     })
   }
 
-  userFactory.getSection(userID, function(data){
-    console.log('this is data from show controller-------------\n', data);
-    $scope.user=data.data;
-  })
+  // userFactory.getSection(userID, function(data){
+  //   console.log('this is data from show controller-------------\n', data);
+  //   $scope.user=data.data;
+  // })
 
   $scope.login = function(){
     userFactory.login(
