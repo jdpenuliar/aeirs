@@ -42,7 +42,7 @@ module.exports=(function(){
 						student_middle: req.body.studentRegistrationFormStudentMiddleName,
 						student_last: req.body.studentRegistrationFormStudentLastName,
 						student_id: req.body.studentRegistrationFormStudentID,
-						student_email: req.body.studentRegistrationFormParentEmail,
+						student_email: req.body.studentRegistrationFormEmail,
 						student_phone: req.body.studentregistrationFormPhone,
 						mother_first: req.body.studentRegistrationFormMotherFirstName,
 						mother_middle: req.body.studentRegistrationFormMotherMiddleName,
