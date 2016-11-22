@@ -23,6 +23,7 @@
 	</div>
 </nav>
 <h2>Edit Grades for {{grades._student.student_first}} in Subject: {{grades.subject}}</h2>
+<a href="#/student/{{grades._student._id}}">View Student's Record</a>
 <div class="row">
 	<form class="col s12">
 		<div class="input-field col s12 m4 l4">
@@ -131,7 +132,6 @@
 	<div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
 </div>
 
-<a href="#/student/:id">View Student's Record</a>
 <script>
 	(function($){
 		$(function(){
