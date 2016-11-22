@@ -23,12 +23,43 @@
 	</div>
 </nav>
 
-
-<h2>Welcome, {{firstName}}!</h2>
+<div class="row" ng-if="userLevel==0">
+	<div class="col s12 m6 l6">
+		<h5>The DepEd Vision</h5>
+		<p>
+			We dream of Filipinos 
+			who passionately love their country 
+			and whose values and competencies  
+			enable them to realize their full potential 
+			and contribute meaningfully to building the nation.
+		</p>
+		<p>
+			As a learner-centered public institution, 
+			the Department of Education 
+			continuously improves itself 
+			to better serve its stakeholders. 
+		</p>
+	</div>
+	<div class="col s12 m6 l6">
+		<h5>The DepEd Mission</h5>
+		<p>
+			To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:
+		</p>
+		<p>
+			<strong>Students</strong> learn in a child-friendly, gender-sensitive, safe, and motivating environment.
+			<strong>Teachers</strong> facilitate learning and constantly nurture every learner.
+			<strong>Administrators and staff</strong>, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.
+			<strong>Family, community, and other stakeholders</strong> are actively engaged and share responsibility for developing life-long learners.
+		</p>
+	</div>
+</div>
+<div class="row" ng-if="userLevel==1">
+	<h2>Welcome, {{firstName}}!</h2>
+</div>
 <script>
-(function($){
-	$(function(){
-		$('.button-collapse').sideNav();
+	(function($){
+		$(function(){
+			$('.button-collapse').sideNav();
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
