@@ -132,4 +132,29 @@ module.exports = function(app){
 		grades.updateSubjectGrades(req,res);
 	});
 
+
+	app.get("/text",function(req,res){
+		// SDK Version: 2.x 3.x
+		// Twilio Credentials 
+		var accountSid = 'AC6299d9965195b73c17cc2b122f001981'; 
+		var authToken = 'f5aaa6ee4c008c0606efa4e27a4417b4'; 
+		 
+		//require the Twilio module and create a REST client 
+		var client = require('twilio')(accountSid, authToken); 
+		 
+		client.messages.create({ 
+		    // to: "+14089307903", 
+		    // to: "+639056211093", 
+		    to: "+639267785622", 
+		    from: "+18443340250", 
+		    body: "DBAES test message", 
+		}, function(err, message) { 
+		    if(err){
+		    	console.log("twilio err\n", err);
+		    }else{
+		    	console.log("twilio haha\n", message);
+		    }
+		});
+	});
+
 };
