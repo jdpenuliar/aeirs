@@ -1,7 +1,18 @@
-var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies","ui.materialize", 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter']);
+var AEIRSAppModule = angular.module("AEIRS",["ngRoute","ngMessages","ngCookies","ui.materialize", 'ui.grid', 'ui.grid.selection', 'ui.grid.exporter',"chart.js"]);
 (function(){
 
-	AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider", function($httpProvider,$routeProvider,$locationProvider) {
+	AEIRSAppModule.config(["$httpProvider","$routeProvider", "$locationProvider",'ChartJsProvider', function($httpProvider,$routeProvider,$locationProvider,ChartJsProvider) {
+		
+		// Configure all charts
+		ChartJsProvider.setOptions({
+			chartColors: ['#FF5252', '#FF8A80'],
+			responsive: false
+		});
+		// Configure all line charts
+		ChartJsProvider.setOptions('line', {
+			showLines: false
+		});
+
 		$routeProvider
 		.when("/",{
 			templateUrl: "partials/login.html",
