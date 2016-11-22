@@ -27,16 +27,19 @@
 <div class="row center-align">
 	<h2>Section: {{section.section}}</h2>
 </div>
+<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
+
 <div ng-repeat= "student in section.students">
 	<div class="row">
 		<div class="col s12 m6 l6">
-			<h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5>
+			<!-- <h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5> -->
+			<h5>Student Name: {{student.student_last}}, {{student.student_first}} </p></h5>
 			<h6>Student ID: {{student.student_id}}</h6>
 			<h6>Student Email: {{student.student_email}}</h6>
 		</div>
 		<div class="col s12 m6 l6">
 			<div class="row" ng-repeat="subject in student._grades">
-				<h6>{{subject.subject}}</h6>
+				<h6><a href="#/subject/{{subject._id}}">{{subject.subject}}</a></h6>
 				<div class="col s12 m4 l4">
 					<p>Quiz 1: {{subject.quiz1}}</p>
 					<p>Quiz 2: {{subject.quiz2}}</p>
@@ -59,35 +62,10 @@
 					<p>Attendance: {{subject.attendance}}</p>
 				</div>
 			</div>
-			<!-- <div class="row">
-				<div class="col s12 m4 l4">
-					<p>Quiz 1: {{student._grades.quiz1}}</p>
-					<p>Quiz 2: {{student._grades.quiz2}}</p>
-					<p>Quiz 3: {{student._grades.quiz3}}</p>
-					<p>Quiz 4: {{student._grades.quiz4}}</p>
-					<p>Quiz 5: {{student._grades.quiz5}}</p>
-				</div>
-				<div class="col s12 m4 l4">
-					<p>Quiz 6: {{student._grades.quiz6}}</p>
-					<p>Quiz 7: {{student._grades.quiz7}}</p>
-					<p>Quiz 8: {{student._grades.quiz8}}</p>
-					<p>Quiz 9: {{student._grades.quiz9}}</p>
-					<p>Quiz 10: {{student._grades.quiz10}}</p>
-				</div>
-				<div class="col s12 m4 l4">
-					<p>Exam 1: {{student._grades.exam1}}</p>
-					<p>Exam 2: {{student._grades.exam2}}</p>
-					<p>Exam 3: {{student._grades.exam3}}</p>
-					<p>Exam 4: {{student._grades.exam4}}</p>
-					<p>Attendance: {{student._grades.attendance}}</p>
-				</div>
-			</div> -->
 		</div>
 	</div>
-	
 </div>
 <a href="#/section/{{section._id}}/add_student">Add Student to this Section</a>
-
 
 <script>
 	(function($){

@@ -24,7 +24,7 @@
 </nav>
 <div>
 	<div class="container">
-	<br><br>
+	<p><a href="#/faculty/createUser">Add New User</a></p><br>
 		<table id="example" class="display" cellspacing="0" width="100%">
 			<thead>
 				<tr>
@@ -36,7 +36,6 @@
 					<th>Middle Name</th>
 					<th>Last Name</th>
 					<th>Phone Number</th>
-					<!-- <th>Classes</th> -->
 				</tr>
 			</thead>
 			<tfoot>
@@ -49,7 +48,6 @@
 					<th>Middle Name</th>
 					<th>Last Name</th>
 					<th>Phone Number</th>
-					<!-- <th>Classes</th> -->
 				</tr>
 			</tfoot>
 		</table>
@@ -62,7 +60,11 @@
 				"scrollX": true,
 				"ajax": "http://localhost:8000/all_users",
 				"columns": [
-				{ "data": "_id" },
+				{ "data": "_id",
+					"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+						$(nTd).html("<a href='#/user/"+oData._id+"'>"+oData._id+"</a>");
+					} 
+				},
 				{ "data": "userName" },
 				{ "data": "emailAddress" },
 				{ "data": "userLevel" },
@@ -77,3 +79,12 @@
 	</script>
 	<script src="js/init.js"></script>
 </div>
+
+<script>
+	(function($){
+		$(function(){
+			$('.button-collapse').sideNav();
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+</script>

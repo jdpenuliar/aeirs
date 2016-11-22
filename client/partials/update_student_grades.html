@@ -22,9 +22,7 @@
 		</ul>
 	</div>
 </nav>
-<h2>Edit {{grades._student.student_first}}'s Grades</h2>
-
-<p>partial to edit grades for a specific student</p>
+<h2>Edit Grades for {{grades._student.student_first}} in Subject: {{grades.subject}}</h2>
 <div class="row">
 	<form class="col s12">
 		<div class="input-field col s12 m4 l4">
@@ -103,7 +101,7 @@
 			{{errors.attendance.messages}}
 		</div>
 		
-		<button class="btn waves-effect waves-light col s4 m4 l2 offset-s4 offset-m4 offset-l5" ng-click="updateGrade()">Update<i class="material-icons right">send</i></button>
+		<button class="btn waves-effect waves-light col s4 m4 l2 offset-s4 offset-m4 offset-l5" ng-click="updateGrade()">Assign<i class="material-icons right">send</i></button>
 	</form>
 </div>
 <div class="row">

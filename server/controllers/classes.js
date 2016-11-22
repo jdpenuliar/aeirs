@@ -66,7 +66,6 @@ module.exports=(function(){
 									if(err){
 										res.json(err);
 									}else{
-										console.log("-------------\n",data);
 										res.json(data);
 									}
 								});
