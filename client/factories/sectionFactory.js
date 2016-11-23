@@ -43,9 +43,9 @@ angular.module('AEIRS').factory('sectionFactory', function($http){
 	}
 	factory.getSectionFaculty=function(userID, callback){
 		console.log('hhahaf actoryadfs--\n',userID);
-		$http.get('/faculty/' + userID + '/sections').then(function(student){
-			console.log('made it back from backend this is one student ', student);
-			callback(student);
+		$http.get('/faculty/' + userID + '/sections').then(function(faculty){
+			console.log('made it back from backend this is one faculty ', faculty);
+			callback(faculty);
 		})
 	}
 

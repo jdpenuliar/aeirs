@@ -70,7 +70,7 @@ module.exports = function(app){
 		sections.addSection(req,res);
 	});
 	app.get("/faculty/:id/sections",function(req,res){
-		// console.log('made it to my /facultyidsection post route----------\n',req.params);
+		console.log('made it to my /facultyidsection get route----------\n',req.params);
 		sections.getSectionFaculty(req,res);
 	});
 	app.get("/GL/:id",function(req,res){

@@ -38,7 +38,6 @@ angular.module('AEIRS').controller('loginController', function($scope, $location
       $scope.userLogin,
       function(data){
         if (data.data.errors){
-
           console.log('front end fail log in---\n');
           $scope.errors = data.data.errors;
         }

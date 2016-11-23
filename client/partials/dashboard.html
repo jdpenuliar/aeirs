@@ -24,6 +24,9 @@
 </nav>
 
 <h3>Welcome, {{firstName}}!</h3>
+<div ng-repeat="section in sections">
+	<h5>You have been assigned to: <a href="#/section/{{section._id}}">{{section.section}}</a>, Year: {{section._class.school_year}}</h5>
+</div>
 <div class="row">
 	<div class="col s12 m6 l6">
 		<h5>The DepEd Vision</h5>

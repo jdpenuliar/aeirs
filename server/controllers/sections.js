@@ -78,25 +78,17 @@ module.exports=(function(){
 			});
 		},
 		getSectionFaculty: function(req,res){
-			Section.find({_facutly: req.params.id})
-			.populate("_grade_level")
-			.populate("_class")
-			.populate("_createdBy")
-			.exec(function(err,data){
+			console.log('inside getSectionFaculty, this is req.params.id ', req.params.id);
+			Section.find({_faculty: req.params.id}).populate("_class").exec(function(err, data){
 				if(err){
 					res.json(err);
 				}else{
-					Student.populate(data,{path: "students._grades", model: "Grade"},function(err,data){
-						if(err){
-							res.json(err);
-						}else{
-							console.log('------------show grade in student in section\n',data)
-							res.json(data);
-						}
-					});
+					console.log('this is the faculty section we are looking for', data);
+					res.json(data);
 				}
 			});
 		},
+
 		assignFacultyTosection: function(req, res){
 			console.log('assignFacultyTosection controller backend-----\n',req.body);
 			Section.findOne({_id: req.body.sectionId},function(err,data){
