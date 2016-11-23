@@ -33,6 +33,23 @@ angular.module('AEIRS').factory('sectionFactory', function($http){
 			callback(student);
 		})
 	}
+	factory.getSectionFaculty=function(userID, callback){
+		console.log('hhahaf actoryadfs--\n',userID);
+		$http.get('/faculty/' + userID + '/sections').then(function(student){
+			console.log('made it back from backend this is one student ', student);
+			callback(student);
+		})
+	}
+
+	factory.getFaculty=function(sectionID, callback){
+		console.log('made it to section factory getFaculty');
+		console.log('this is sectionID ',sectionID);
+		$http.get('/section/'+sectionID+'/assign_faculty').then(function(faculty){
+			console.log('made it back from backend this is all faculty ', faculty);
+			faculty_list=faculty.data;
+			callback(faculty_list);
+		});
+	};
 
 	return factory;
 })

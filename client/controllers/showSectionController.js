@@ -18,6 +18,10 @@ AEIRSAppModule.controller('showSectionController', function($scope, $routeParams
 		$location.url('/');
 	}
 
+	$scope.studentGradeText = function(){
+		//THIS is the function to send twilio text 
+	}
+
 	var sectionID=$routeParams.id;
 	console.log('this is routeParams.id ', $routeParams.id, "this is sectionID", sectionID);
 

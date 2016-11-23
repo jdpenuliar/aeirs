@@ -3,6 +3,7 @@ var GradeLevel = mongoose.model('GradeLevel');
 var Section = mongoose.model('Section');
 var Student = mongoose.model('Student');
 var Grade = mongoose.model('Grade');
+var User = mongoose.model('User');
 module.exports=(function(){
 	return{
 		addSection: function(req, res){
@@ -74,6 +75,39 @@ module.exports=(function(){
 					});
 				}
 			});
+		},
+		getSectionFaculty: function(req,res){
+			Section.find({_facutly: req.params.id})
+			.populate("_grade_level")
+			.populate("_class")
+			.populate("_createdBy")
+			.exec(function(err,data){
+				if(err){
+					res.json(err);
+				}else{
+					Student.populate(data,{path: "students._grades", model: "Grade"},function(err,data){
+						if(err){
+							res.json(err);
+						}else{
+							console.log('------------show grade in student in section\n',data)
+							res.json(data);
+						}
+					});
+				}
+			});
+		},
+
+		//JD LOOK AT THIS PLEASE AND SEE IF IT IS CORRECT
+		getFaculty: function(req, res){
+			User.find({userLevel:'1'}, function(err, faculty){
+				if(err){
+					console.log(err);
+					console.log('err in getFaculty section controller');
+				} else{
+					console.log('this is all the faculty', faculty);
+					res.json(faculty);
+				}
+			})
 		}
 	}
 })();
