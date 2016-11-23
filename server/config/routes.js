@@ -59,11 +59,19 @@ module.exports = function(app){
 	app.post("/student/:id/update/grades",function(req,res){
 		grades.updateGrades(req,res);
 	});
+	app.get("/student/:id/text",function(req,res){
+		console.log('text specific at backendasdf-------\n',req.params.id);
+		students.textStudentParents(req,res);
+	});
 
 	//SECTION ROUTES
 	app.post("/new_section",function(req,res){
 		console.log('made it to my /new_section post route');
 		sections.addSection(req,res);
+	});
+	app.get("/faculty/:id/sections",function(req,res){
+		// console.log('made it to my /facultyidsection post route----------\n',req.params);
+		sections.getSectionFaculty(req,res);
 	});
 	app.get("/GL/:id",function(req,res){
 		console.log('made it to my getSections by GL_ID route');
@@ -80,6 +88,12 @@ module.exports = function(app){
 	app.get("/section/:id/show_students",function(req,res){
 		console.log('made it to my addStudentSection by section/:id/show_students route');
 		sections.getStudentsFromSection(req,res);
+	});
+	app.get("/section/:id/assign_faculty",function(req,res){
+		sections.getFaculty(req,res);
+	});
+	app.post("/assignFacultyTosection",function(req,res){
+		sections.assignFacultyTosection(req,res);
 	});
 
 	//GRADE LEVEL ROUTES

@@ -42,7 +42,7 @@ module.exports=(function(){
 						student_middle: req.body.studentRegistrationFormStudentMiddleName,
 						student_last: req.body.studentRegistrationFormStudentLastName,
 						student_id: req.body.studentRegistrationFormStudentID,
-						student_email: req.body.studentRegistrationFormParentEmail,
+						student_email: req.body.studentRegistrationFormEmail,
 						student_phone: req.body.studentregistrationFormPhone,
 						mother_first: req.body.studentRegistrationFormMotherFirstName,
 						mother_middle: req.body.studentRegistrationFormMotherMiddleName,
@@ -289,6 +289,75 @@ module.exports=(function(){
 							console.log('successfully updated student!', result);
 							res.json(result);
 						}
+					});
+				}
+			});
+		},
+		textStudentParents: function(req, res){
+			
+			Student.findOne({_id: req.params.id})
+			.populate("_grades")
+			.populate("_section")
+			.exec(function(err,data){
+				if(err){
+					console.log('this is the err when looking for student', err);
+				} else {
+					console.log('this is the student before text------\n', data._grades);
+					var textBody = '"DBAES grade report\n'+data.student_first + " " + data.student_last+"\n";
+					for (var i=0;i<data._grades.length;i++){
+						textBody = textBody + "\n" + 
+						data._grades[i].subject + "\n" + 
+						"Q1: "+data._grades[i].quiz1 + "\n" +
+						"Q2: "+data._grades[i].quiz2 + "\n" +
+						"Q3: "+data._grades[i].quiz3 + "\n" +
+						"Q4: "+data._grades[i].quiz4 + "\n" +
+						"Q5: "+data._grades[i].quiz5 + "\n" +
+						"Q6: "+data._grades[i].quiz6 + "\n" +
+						"Q7: "+data._grades[i].quiz7 + "\n" +
+						"Q8: "+data._grades[i].quiz8 + "\n" +
+						"Q9: "+data._grades[i].quiz9 + "\n" +
+						"Q10: "+data._grades[i].quiz10 + "\n" +
+						"E1: "+data._grades[i].exam1 + "\n" +
+						"E2: "+data._grades[i].exam2 + "\n" +
+						"E3: "+data._grades[i].exam3 + "\n" +
+						"E4: "+data._grades[i].exam4 + "\n" +
+						"Att: "+data._grades[i].attendance + "\n";
+						console.log('ahaha ',i, "111111\n", textBody);
+					}
+					// SDK Version: 2.x 3.x
+					// Twilio Credentials 
+					var accountSid = 'AC6299d9965195b73c17cc2b122f001981'; 
+					var authToken = 'f5aaa6ee4c008c0606efa4e27a4417b4'; 
+					 
+					//require the Twilio module and create a REST client 
+					var client = require('twilio')(accountSid, authToken); 
+					 
+					client.messages.create({ 
+					    // to: "+14089307903", 
+					    // to: "+639056211093", 
+					    to: "+639267785622", 
+					    from: "+18443340250", 
+					    body: textBody, 
+					}, function(err, message) { 
+					    if(err){
+					    	console.log("twilio err\n", err);
+					    }else{
+					    	console.log("twilio haha\n", message);
+					    }
+					});
+
+					client.messages.create({ 
+					    to: "+14089307903", 
+					    // to: "+639056211093", 
+					    // to: "+639267785622", 
+					    from: "+18443340250", 
+					    body: textBody, 
+					}, function(err, message) { 
+					    if(err){
+					    	console.log("twilio err\n", err);
+					    }else{
+					    	console.log("twilio haha\n", message);
+					    }
 					});
 				}
 			});

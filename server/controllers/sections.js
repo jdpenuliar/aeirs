@@ -3,6 +3,7 @@ var GradeLevel = mongoose.model('GradeLevel');
 var Section = mongoose.model('Section');
 var Student = mongoose.model('Student');
 var Grade = mongoose.model('Grade');
+var User = mongoose.model('User');
 module.exports=(function(){
 	return{
 		addSection: function(req, res){
@@ -60,6 +61,7 @@ module.exports=(function(){
 			.populate("_grade_level")
 			.populate("_class")
 			.populate("_createdBy")
+			.populate("_faculty")
 			.exec(function(err,data){
 				if(err){
 					res.json(err);
@@ -74,6 +76,66 @@ module.exports=(function(){
 					});
 				}
 			});
+		},
+		getSectionFaculty: function(req,res){
+			Section.find({_facutly: req.params.id})
+			.populate("_grade_level")
+			.populate("_class")
+			.populate("_createdBy")
+			.exec(function(err,data){
+				if(err){
+					res.json(err);
+				}else{
+					Student.populate(data,{path: "students._grades", model: "Grade"},function(err,data){
+						if(err){
+							res.json(err);
+						}else{
+							console.log('------------show grade in student in section\n',data)
+							res.json(data);
+						}
+					});
+				}
+			});
+		},
+		assignFacultyTosection: function(req, res){
+			console.log('assignFacultyTosection controller backend-----\n',req.body);
+			Section.findOne({_id: req.body.sectionId},function(err,data){
+				if(err){
+					console.log('findsectionerr--\n',err);
+				}else{
+					console.log('data find section---\n',data);
+					data._faculty = req.body.facultyId;
+					data.save(function(err,data){
+						if(err){
+							console.log('updated sectionerr--\n',err);
+						}else{
+							console.log('updated sectionhaha--\n',data);
+							Section.findOne({_id: data._id})
+							.populate("_faculty")
+							.exec(function(err,data){
+								if(err){
+									console.log('updated sectionerr--\n',err);
+								}else{
+									console.log('updated section populated---\n', data)
+									res.json(data);
+								}
+							})
+						}
+					})
+				}
+			});
+		},
+		getFaculty: function(req, res){
+			User.find({userLevel:'1'}, function(err, faculty){
+				if(err){
+					console.log(err);
+					console.log('err in getFaculty section controller');
+				} else{
+					console.log('this is all the faculty', faculty);
+					res.json(faculty);
+				}
+			});
 		}
+
 	}
 })();

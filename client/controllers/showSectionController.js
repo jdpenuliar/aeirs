@@ -1,7 +1,5 @@
 AEIRSAppModule.controller('showSectionController', function($scope, $routeParams, $cookies, $location, sectionFactory, studentFactory){
 
-	console.log('I am able to load my showSectionController along with my show_section partial');
-
 	var logged_in_user = $cookies.get('logged_user');
 	$scope.firstName = $cookies.get("firstName");
 	$scope.userLevel = $cookies.get("userLevel");
@@ -18,12 +16,18 @@ AEIRSAppModule.controller('showSectionController', function($scope, $routeParams
 		$location.url('/');
 	}
 
+	$scope.studentGradeText = function(studentTextInfo){
+		//THIS is the function to send twilio text 
+		console.log("----text\n",studentTextInfo);
+		studentFactory.textStudentGradesToParents(studentTextInfo,function(successMessage){
+			console.log("----textsuccess\n",studentTextInfo);
+		});
+	}
+
 	var sectionID=$routeParams.id;
-	console.log('this is routeParams.id ', $routeParams.id, "this is sectionID", sectionID);
+	
 
 	sectionFactory.getStudentsFromSection(sectionID, function(data){
-		console.log('this is data from show controller showSectionController-------------\n', data);
 		$scope.section=data.data;
 	})
-
 })

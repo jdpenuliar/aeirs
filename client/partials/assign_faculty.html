@@ -22,50 +22,25 @@
 		</ul>
 	</div>
 </nav>
-<!-- <h2>Section: {{section.section}}</h2> -->
 
-<div class="row center-align">
-	<h2>Section: {{section.section}}</h2>
-</div>
-<h4>Assigned Teacher: {{section._faculty.lastName}}, {{section._faculty.firstName}}</h4>
-<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a> | <a href="#/section/{{section._id}}/assign_faculty">Assign Faculty to this Section</a>
+<h2>Assign Faculty to Section</h2>
 
-<div ng-repeat= "student in section.students">
-	<div class="row">
-		<div class="col s12 m6 l6">
-			<h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5>
-			<button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student)">Text Grades to Parents</button>
-		</div>
-		<div class="col s12 m6 l6">
-			<div class="row" ng-repeat="subject in student._grades">
-				<h6><a href="#/subject/{{subject._id}}">{{subject.subject}}</a></h6>
-				<div class="col s12 m4 l4">
-					<p>Quiz 1: {{subject.quiz1}}</p>
-					<p>Quiz 2: {{subject.quiz2}}</p>
-					<p>Quiz 3: {{subject.quiz3}}</p>
-					<p>Quiz 4: {{subject.quiz4}}</p>
-					<p>Quiz 5: {{subject.quiz5}}</p>
-				</div>
-				<div class="col s12 m4 l4">
-					<p>Quiz 6: {{subject.quiz6}}</p>
-					<p>Quiz 7: {{subject.quiz7}}</p>
-					<p>Quiz 8: {{subject.quiz8}}</p>
-					<p>Quiz 9: {{subject.quiz9}}</p>
-					<p>Quiz 10: {{subject.quiz10}}</p>
-				</div>
-				<div class="col s12 m4 l4">
-					<p>Exam 1: {{subject.exam1}}</p>
-					<p>Exam 2: {{subject.exam2}}</p>
-					<p>Exam 3: {{subject.exam3}}</p>
-					<p>Exam 4: {{subject.exam4}}</p>
-					<p>Attendance: {{subject.attendance}}</p>
-				</div>
-			</div>
-			<button ng-click='studentGradeText()'>Send Student Grades via Text</button>
-		</div>
+<!-- <form name="assignFacultyForm">
+	<select class="" ng-model="selectedFaculty.value" material-select watch required>
+		<option lass="btn waves-effect waves-light" ng-disabled="" ng-repeat="value in selectedFaculty.choices">{{value.lastName}}, {{value.firstName}} - <button type='button' class="btn waves-effect waves-light" ng-click="assignFacultyToSection(value)">assign</button></option>
+	</select>
+	<button type='button' class="btn waves-effect waves-light" ng-disabled="assignFacultyForm.$invalid" ng-click="assignFacultyToSection(value)">assign</button>
+</form> -->
+<div class="row" ng-repeat="x in faculty">
+	<div class="col s3 m3 l3">
+		<h4>{{x.lastName}} {{x.firstName}}</h4>
+	</div>
+	<div class="col s3 m3 l3">
+		<button type='button' class="btn waves-effect waves-light" ng-click="assignFacultyToSection(x)">Assign</button>
 	</div>
 </div>
 
+<script src="js/init.js"></script>
 <script>
 	(function($){
 		$(function(){
