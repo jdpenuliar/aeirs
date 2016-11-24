@@ -1,13 +1,13 @@
 <nav>
 	<div class="nav-wrapper">
-		<a href="#/dashboard" class="brand-logo">AEIRS</a>
+		<a href="#/dashboard" class="brand-logo">DBAES</a>
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -16,7 +16,7 @@
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -33,7 +33,7 @@
 					<th>Student Middle</th>
 					<th>Student Last</th>
 					<th>Student ID</th>
-					<th>Student Email</th>
+					<th>Student Address</th>
 					<th>Student Phone</th>
 					<th>Mother First</th>
 					<th>Mother Middle</th>
@@ -52,7 +52,7 @@
 					<th>Student Middle</th>
 					<th>Student Last</th>
 					<th>Student ID</th>
-					<th>Student Email</th>
+					<th>Student Address</th>
 					<th>Student Phone</th>
 					<th>Mother First</th>
 					<th>Mother Middle</th>
@@ -65,8 +65,6 @@
 				</tr>
 			</tfoot>
 		</table>
-
-		
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -77,26 +75,26 @@
 				"ajax": "http://54.244.34.90/all_students",
 				"columns": [
 				{ "data": "_id",
-					"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-						$(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
-					} 
-				},
-				{ "data": "student_first" },
-				{ "data": "student_middle" },
-				{ "data": "student_last" },
-				{ "data": "student_id" },
-				{ "data": "student_email" },
-				{ "data": "student_phone" },
-				{ "data": "mother_first" },
-				{ "data": "mother_middle" },
-				{ "data": "mother_last" },
-				{ "data": "father_first" },
-				{ "data": "father_middle" },
-				{ "data": "father_last" },
-				{ "data": "parent_email" },
-				{ "data": "parent_phone" }
-				]
-			});
+				"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+					$(nTd).html("<a href='#/student/"+oData._id+"'>"+oData._id+"</a>");
+				} 
+			},
+			{ "data": "student_first" },
+			{ "data": "student_middle" },
+			{ "data": "student_last" },
+			{ "data": "student_id" },
+			{ "data": "student_email" },
+			{ "data": "student_phone" },
+			{ "data": "mother_first" },
+			{ "data": "mother_middle" },
+			{ "data": "mother_last" },
+			{ "data": "father_first" },
+			{ "data": "father_middle" },
+			{ "data": "father_last" },
+			{ "data": "parent_email" },
+			{ "data": "parent_phone" }
+			]
+		});
 		});
 
 	</script>

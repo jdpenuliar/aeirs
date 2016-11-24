@@ -1,13 +1,13 @@
 <nav>
 	<div class="nav-wrapper">
-		<a href="#/dashboard" class="brand-logo">AEIRS</a>
+		<a href="#/dashboard" class="brand-logo">DBAES</a>
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -16,7 +16,7 @@
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -27,14 +27,16 @@
 
 	<p>Student Name: {{student.student_first}} {{student.student_middle}} {{student.student_last}}</p>
 	<p>Student ID: {{student._id}}</p>
-	<p>Email Address: {{student.student_email}}</p>
+	<p>Student Address: {{student.student_email}}</p>
 	<p>Phone Number: {{student.student_phone}}</p>
 	<p>Mother's Name: {{student.mother_first}} {{student.mother_middle}} {{student.mother_last}}</p>
 	<p>Father's Name: {{student.father_first}} {{student.father_middle}} {{student.father_last}}</p>
 	<p>Parent Email: {{student.parent_email}}</p>
 	<p>Parent Phone: {{student.parent_phone}}</p>
 	
-	<a href="#/students">All Students</a>
+	<div ng-if="userLevel==0">
+		<a href="#/students">View All Students</a>
+	</div>
 	<div ng-if="userLevel==1">
 		<a href="#/student/{{student._id}}/edit">Edit Student</a> | <a href="#/student/{{student._id}}/edit/grades">Edit Student Grades</a>
 	</div>

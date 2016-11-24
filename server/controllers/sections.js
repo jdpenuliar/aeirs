@@ -79,7 +79,7 @@ module.exports=(function(){
 		},
 		getSectionFaculty: function(req,res){
 			console.log('inside getSectionFaculty, this is req.params.id ', req.params.id);
-			Section.find({_faculty: req.params.id}).populate("_class").exec(function(err, data){
+			Section.find({_faculty: req.params.id}).populate("_class").populate("_grade_level").exec(function(err, data){
 				if(err){
 					res.json(err);
 				}else{

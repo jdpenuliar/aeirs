@@ -1,13 +1,13 @@
 <nav>
 	<div class="nav-wrapper">
-		<a href="#/dashboard" class="brand-logo">AEIRS</a>
-		<a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<a href="#/dashboard" class="brand-logo">DBAES</a>
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
 			<li><a ng-if="userLevel==0" href="#/faculty/allUsers" class="waves-effect waves-light">View All Users</a></li>
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -16,7 +16,7 @@
 			<li><a ng-if="userLevel==0" href="#/faculty/createUser" class="waves-effect waves-light">Create New User</a></li>
 			<li><a ng-if="userLevel==0" href="#/allClasses" class="waves-effect waves-light">View All School Years</a></li>
 			<li><a ng-if="userLevel==0" href="#/new_class" class="waves-effect waves-light">Create New School Year</a></li>
-			<li><a href="#/students" class="waves-effect waves-light">View Student Records</a></li>
+			<li><a ng-if="userLevel==0" href="#/students" class="waves-effect waves-light">View Student Records</a></li>
 			<li><a href="#/dashboard" class="waves-effect waves-light">Dashboard</a></li>
 			<li><a ng-click='logout()' class="waves-effect waves-light">Log Out</a></li>
 		</ul>
@@ -24,13 +24,6 @@
 </nav>
 
 <h2>Assign Faculty to Section</h2>
-
-<!-- <form name="assignFacultyForm">
-	<select class="" ng-model="selectedFaculty.value" material-select watch required>
-		<option lass="btn waves-effect waves-light" ng-disabled="" ng-repeat="value in selectedFaculty.choices">{{value.lastName}}, {{value.firstName}} - <button type='button' class="btn waves-effect waves-light" ng-click="assignFacultyToSection(value)">assign</button></option>
-	</select>
-	<button type='button' class="btn waves-effect waves-light" ng-disabled="assignFacultyForm.$invalid" ng-click="assignFacultyToSection(value)">assign</button>
-</form> -->
 <div class="row" ng-repeat="x in faculty">
 	<div class="col s3 m3 l3">
 		<h4>{{x.lastName}} {{x.firstName}}</h4>
