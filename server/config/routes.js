@@ -59,8 +59,8 @@ module.exports = function(app){
 	app.post("/student/:id/update/grades",function(req,res){
 		grades.updateGrades(req,res);
 	});
-	app.get("/student/:id/text",function(req,res){
-		console.log('text specific at backendasdf-------\n',req.params.id);
+	app.get("/student/:id/text/:quarter",function(req,res){
+		console.log('text specific at backendasdf-------\n',req.params);
 		students.textStudentParents(req,res);
 	});
 

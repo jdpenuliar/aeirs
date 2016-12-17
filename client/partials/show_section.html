@@ -33,7 +33,10 @@
 	<div class="row">
 		<div class="col s12 m6 l6">
 			<h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5>
-			<button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student)">Text Grades to Parents</button>
+			<button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 1)">Text Grades to Parents</button>
+      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 2)">Text Grades to Parents</button>
+      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 3)">Text Grades to Parents</button>
+      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 4)">Text Grades to Parents</button>
 		</div>
 		<div class="col s12 m6 l6">
 			<div class="row" ng-repeat="subject in student._grades">

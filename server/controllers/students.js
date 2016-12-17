@@ -534,7 +534,7 @@ module.exports=(function(){
 			});
 		},
 		textStudentParents: function(req, res){
-			
+		console.log('req.body params haha---\n', req.params);	
 			Student.findOne({_id: req.params.id})
 			.populate("_grades")
 			.populate("_section")

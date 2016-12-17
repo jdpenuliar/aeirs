@@ -38,9 +38,9 @@ angular.module('AEIRS').factory('studentFactory', function($http){
 		});
 	}
 
-	factory.textStudentGradesToParents=function(studentId, callback){
-		console.log('in factory text--update-\n',studentId);
-		$http.get('/student/'+studentId._id+'/text').then(function(data){
+	factory.textStudentGradesToParents=function(studentId, quarter, callback){
+		console.log('in factory text--update-\n',studentId, 'quarter------\n', quarter);
+		$http.get('/student/'+studentId._id+'/text/'+quarter).then(function(data){
 			console.log('made it back from backend this is the new student ', data);
 			// students.push(data.data);
 			// callback(students);

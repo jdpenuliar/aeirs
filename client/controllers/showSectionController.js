@@ -16,10 +16,11 @@ AEIRSAppModule.controller('showSectionController', function($scope, $routeParams
 		$location.url('/');
 	}
 
-	$scope.studentGradeText = function(studentTextInfo){
+	$scope.studentGradeText = function(studentTextInfo, quarter){
 		//THIS is the function to send twilio text 
 		console.log("----text\n",studentTextInfo);
-		studentFactory.textStudentGradesToParents(studentTextInfo,function(successMessage){
+    console.log("----quarter\n",quarter);
+		studentFactory.textStudentGradesToParents(studentTextInfo,quarter,function(successMessage){
 			console.log("----textsuccess\n",studentTextInfo);
 		});
 	}
