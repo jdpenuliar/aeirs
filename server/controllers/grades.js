@@ -74,6 +74,96 @@ module.exports=(function(){
 					if(req.body.quiz10 != null){
 						data.quiz10 = req.body.quiz10;
 					}
+					if(req.body.quiz11 != null){
+						data.quiz11 = req.body.quiz11;
+					}
+					if(req.body.quiz12 != null){
+						data.quiz12 = req.body.quiz12;
+					}
+					if(req.body.quiz13 != null){
+						data.quiz13 = req.body.quiz13;
+					}
+					if(req.body.quiz14 != null){
+						data.quiz14 = req.body.quiz14;
+					}
+					if(req.body.quiz15 != null){
+						data.quiz15 = req.body.quiz15;
+					}
+					if(req.body.quiz16 != null){
+						data.quiz16 = req.body.quiz16;
+					}
+					if(req.body.quiz17 != null){
+						data.quiz17 = req.body.quiz17;
+					}
+					if(req.body.quiz18 != null){
+						data.quiz18 = req.body.quiz18;
+					}
+					if(req.body.quiz19 != null){
+						data.quiz19 = req.body.quiz19;
+					}
+					if(req.body.quiz20 != null){
+						data.quiz20 = req.body.quiz20;
+					}
+					if(req.body.quiz21 != null){
+						data.quiz21 = req.body.quiz21;
+					}
+					if(req.body.quiz22 != null){
+						data.quiz22 = req.body.quiz22;
+					}
+					if(req.body.quiz23 != null){
+						data.quiz23 = req.body.quiz23;
+					}
+					if(req.body.quiz24 != null){
+						data.quiz24 = req.body.quiz24;
+					}
+					if(req.body.quiz25 != null){
+						data.quiz25 = req.body.quiz25;
+					}
+					if(req.body.quiz26 != null){
+						data.quiz26 = req.body.quiz26;
+					}
+					if(req.body.quiz27 != null){
+						data.quiz27 = req.body.quiz27;
+					}
+					if(req.body.quiz28 != null){
+						data.quiz28 = req.body.quiz28;
+					}
+					if(req.body.quiz29 != null){
+						data.quiz29 = req.body.quiz29;
+					}
+					if(req.body.quiz30 != null){
+						data.quiz30 = req.body.quiz30;
+					}
+					if(req.body.quiz31 != null){
+						data.quiz31 = req.body.quiz31;
+					}
+					if(req.body.quiz32 != null){
+						data.quiz32 = req.body.quiz32;
+					}
+					if(req.body.quiz33 != null){
+						data.quiz33 = req.body.quiz33;
+					}
+					if(req.body.quiz34 != null){
+						data.quiz34 = req.body.quiz34;
+					}
+					if(req.body.quiz35 != null){
+						data.quiz35 = req.body.quiz35;
+					}
+					if(req.body.quiz36 != null){
+						data.quiz36 = req.body.quiz36;
+					}
+					if(req.body.quiz37 != null){
+						data.quiz37 = req.body.quiz37;
+					}
+					if(req.body.quiz38 != null){
+						data.quiz38 = req.body.quiz38;
+					}
+					if(req.body.quiz39 != null){
+						data.quiz39 = req.body.quiz39;
+					}
+					if(req.body.quiz40 != null){
+						data.quiz40 = req.body.quiz40;
+					}
 					if(req.body.exam1 != null){
 						data.exam1 = req.body.exam1;
 					}
@@ -147,6 +237,96 @@ module.exports=(function(){
 					}
 					if(req.body.quiz10 != null){
 						data.quiz10 = req.body.quiz10;
+					}
+					if(req.body.quiz11 != null){
+						data.quiz11 = req.body.quiz11;
+					}
+					if(req.body.quiz12 != null){
+						data.quiz12 = req.body.quiz12;
+					}
+					if(req.body.quiz13 != null){
+						data.quiz13 = req.body.quiz13;
+					}
+					if(req.body.quiz14 != null){
+						data.quiz14 = req.body.quiz14;
+					}
+					if(req.body.quiz15 != null){
+						data.quiz15 = req.body.quiz15;
+					}
+					if(req.body.quiz16 != null){
+						data.quiz16 = req.body.quiz16;
+					}
+					if(req.body.quiz17 != null){
+						data.quiz17 = req.body.quiz17;
+					}
+					if(req.body.quiz18 != null){
+						data.quiz18 = req.body.quiz18;
+					}
+					if(req.body.quiz19 != null){
+						data.quiz19 = req.body.quiz19;
+					}
+					if(req.body.quiz20 != null){
+						data.quiz20 = req.body.quiz20;
+					}
+					if(req.body.quiz21 != null){
+						data.quiz21 = req.body.quiz21;
+					}
+					if(req.body.quiz22 != null){
+						data.quiz22 = req.body.quiz22;
+					}
+					if(req.body.quiz23 != null){
+						data.quiz23 = req.body.quiz23;
+					}
+					if(req.body.quiz24 != null){
+						data.quiz24 = req.body.quiz24;
+					}
+					if(req.body.quiz25 != null){
+						data.quiz25 = req.body.quiz25;
+					}
+					if(req.body.quiz26 != null){
+						data.quiz26 = req.body.quiz26;
+					}
+					if(req.body.quiz27 != null){
+						data.quiz27 = req.body.quiz27;
+					}
+					if(req.body.quiz28 != null){
+						data.quiz28 = req.body.quiz28;
+					}
+					if(req.body.quiz29 != null){
+						data.quiz29 = req.body.quiz29;
+					}
+					if(req.body.quiz30 != null){
+						data.quiz30 = req.body.quiz30;
+					}
+					if(req.body.quiz31 != null){
+						data.quiz31 = req.body.quiz31;
+					}
+					if(req.body.quiz32 != null){
+						data.quiz32 = req.body.quiz32;
+					}
+					if(req.body.quiz33 != null){
+						data.quiz33 = req.body.quiz33;
+					}
+					if(req.body.quiz34 != null){
+						data.quiz34 = req.body.quiz34;
+					}
+					if(req.body.quiz35 != null){
+						data.quiz35 = req.body.quiz35;
+					}
+					if(req.body.quiz36 != null){
+						data.quiz36 = req.body.quiz36;
+					}
+					if(req.body.quiz37 != null){
+						data.quiz37 = req.body.quiz37;
+					}
+					if(req.body.quiz38 != null){
+						data.quiz38 = req.body.quiz38;
+					}
+					if(req.body.quiz39 != null){
+						data.quiz39 = req.body.quiz39;
+					}
+					if(req.body.quiz40 != null){
+						data.quiz40 = req.body.quiz40;
 					}
 					if(req.body.exam1 != null){
 						data.exam1 = req.body.exam1;
