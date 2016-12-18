@@ -35,7 +35,6 @@ module.exports=(function(){
 				if(err){
 					// console.log('fail test hahahahahahhahahahahahahahhaha\n');
 				}else{
-					// console.log('niceeeee test hahahahahahhahahahahahahahhaha\n',data.students);
 					console.log("--------new haha\n",req.body);
 					var new_student = new Student({
 						student_first: req.body.studentRegistrationFormStudentFirstName,
@@ -542,28 +541,87 @@ module.exports=(function(){
 				if(err){
 					console.log('this is the err when looking for student', err);
 				} else {
-					console.log('this is the student before text------\n', data._grades);
-					var textBody = '"DBAES grade report\n'+data.student_first + " " + data.student_last+"\n";
-					for (var i=0;i<data._grades.length;i++){
-						textBody = textBody + "\n" + 
-						data._grades[i].subject + "\n" + 
-						"Q1: "+data._grades[i].quiz1 + "\n" +
-						"Q2: "+data._grades[i].quiz2 + "\n" +
-						"Q3: "+data._grades[i].quiz3 + "\n" +
-						"Q4: "+data._grades[i].quiz4 + "\n" +
-						"Q5: "+data._grades[i].quiz5 + "\n" +
-						"Q6: "+data._grades[i].quiz6 + "\n" +
-						"Q7: "+data._grades[i].quiz7 + "\n" +
-						"Q8: "+data._grades[i].quiz8 + "\n" +
-						"Q9: "+data._grades[i].quiz9 + "\n" +
-						"Q10: "+data._grades[i].quiz10 + "\n" +
-						"E1: "+data._grades[i].exam1 + "\n" +
-						"E2: "+data._grades[i].exam2 + "\n" +
-						"E3: "+data._grades[i].exam3 + "\n" +
-						"E4: "+data._grades[i].exam4 + "\n" +
-						"Att: "+data._grades[i].attendance + "\n";
-						console.log('ahaha ',i, "111111\n", textBody);
-					}
+          console.log('this is the student even before the text------\n', data);
+					// console.log('this is the student before text------\n', data._grades);
+					
+          if (req.params.quarter === '1') {
+            var textBody = '"DBAES grade report 1st Quarter\n'+data.student_first + " " + data.student_last+"\n";
+            for (var i=0;i<data._grades.length;i++){
+              textBody = textBody + "\n" + 
+                data._grades[i].subject + "\n" + 
+                "Q1: "+data._grades[i].quiz1 + "/10\n" +
+                "Q2: "+data._grades[i].quiz2 + "/10\n" +
+                "Q3: "+data._grades[i].quiz3 + "/10\n" +
+                "Q4: "+data._grades[i].quiz4 + "/10\n" +
+                "Q5: "+data._grades[i].quiz5 + "/10\n" +
+                "Q6: "+data._grades[i].quiz6 + "/10\n" +
+                "Q7: "+data._grades[i].quiz7 + "/10\n" +
+                "Q8: "+data._grades[i].quiz8 + "/10\n" +
+                "Q9: "+data._grades[i].quiz9 + "/10\n" +
+                "Q10: "+data._grades[i].quiz10 + "/10\n" +
+                "E1: "+data._grades[i].exam1 + "/50\n" +
+                "Att: "+data._grades[i].attendance + "\n";
+              // console.log('ahaha ',i, "111111\n", textBody);
+            }
+          } else if (req.params.quarter === '2') {
+            var textBody = '"DBAES grade report 2nd Quarter\n'+data.student_first + " " + data.student_last+"\n";
+            for (var i=0;i<data._grades.length;i++){
+              textBody = textBody + "\n" + 
+                data._grades[i].subject + "\n" + 
+                "Q11: "+data._grades[i].quiz11 + "/10\n" +
+                "Q12: "+data._grades[i].quiz12 + "/10\n" +
+                "Q13: "+data._grades[i].quiz13 + "/10\n" +
+                "Q14: "+data._grades[i].quiz14 + "/10\n" +
+                "Q15: "+data._grades[i].quiz15 + "/10\n" +
+                "Q16: "+data._grades[i].quiz16 + "/10\n" +
+                "Q17: "+data._grades[i].quiz17 + "/10\n" +
+                "Q18: "+data._grades[i].quiz18 + "/10\n" +
+                "Q19: "+data._grades[i].quiz19 + "/10\n" +
+                "Q20: "+data._grades[i].quiz20 + "/10\n" +
+                "E2: "+data._grades[i].exam2 + "/50\n" +
+                "Att: "+data._grades[i].attendance + "\n";
+              // console.log('ahaha ',i, "111111\n", textBody);
+            }
+          } else if (req.params.quarter === '3') {
+            var textBody = '"DBAES grade report 3rd Quarter\n'+data.student_first + " " + data.student_last+"\n";
+            for (var i=0;i<data._grades.length;i++){
+              textBody = textBody + "\n" + 
+                data._grades[i].subject + "\n" + 
+                "Q21: "+data._grades[i].quiz21 + "/10\n" +
+                "Q22: "+data._grades[i].quiz22 + "/10\n" +
+                "Q23: "+data._grades[i].quiz23 + "/10\n" +
+                "Q24: "+data._grades[i].quiz24 + "/10\n" +
+                "Q25: "+data._grades[i].quiz25 + "/10\n" +
+                "Q26: "+data._grades[i].quiz26 + "/10\n" +
+                "Q27: "+data._grades[i].quiz27 + "/10\n" +
+                "Q28: "+data._grades[i].quiz28 + "/10\n" +
+                "Q29: "+data._grades[i].quiz29 + "/10\n" +
+                "Q30: "+data._grades[i].quiz30 + "/10\n" +
+                "E3: "+data._grades[i].exam3 + "/50\n" +
+                "Att: "+data._grades[i].attendance + "\n";
+              // console.log('ahaha ',i, "111111\n", textBody);
+            }
+          } else if (req.params.quarter === '4') {
+            var textBody = '"DBAES grade report 4th Quarter\n'+data.student_first + " " + data.student_last+"\n";
+            for (var i=0;i<data._grades.length;i++){
+              textBody = textBody + "\n" + 
+                data._grades[i].subject + "\n" + 
+                "Q31: "+data._grades[i].quiz21 + "/10\n" +
+                "Q32: "+data._grades[i].quiz22 + "/10\n" +
+                "Q33: "+data._grades[i].quiz23 + "/10\n" +
+                "Q34: "+data._grades[i].quiz24 + "/10\n" +
+                "Q35: "+data._grades[i].quiz25 + "/10\n" +
+                "Q36: "+data._grades[i].quiz26 + "/10\n" +
+                "Q37: "+data._grades[i].quiz27 + "/10\n" +
+                "Q38: "+data._grades[i].quiz28 + "/10\n" +
+                "Q39: "+data._grades[i].quiz29 + "/10\n" +
+                "Q40: "+data._grades[i].quiz30 + "/10\n" +
+                "E4: "+data._grades[i].exam3 + "/50\n" +
+                "Att: "+data._grades[i].attendance + "\n";
+              // console.log('ahaha ',i, "111111\n", textBody);
+            }
+          }
+					
 					// SDK Version: 2.x 3.x
 					// Twilio Credentials 
 					var accountSid = 'AC6299d9965195b73c17cc2b122f001981'; 
@@ -571,7 +629,7 @@ module.exports=(function(){
 					 
 					//require the Twilio module and create a REST client 
 					var client = require('twilio')(accountSid, authToken); 
-					 
+					console.log('this is vinal text body-----\n') 
 					client.messages.create({ 
 					    // to: "+14089307903", 
 					    // to: "+639056211093", 
@@ -594,9 +652,9 @@ module.exports=(function(){
 					    body: textBody, 
 					}, function(err, message) { 
 					    if(err){
-					    	console.log("twilio err\n", err);
+					    	// console.log("twilio err\n", err);
 					    }else{
-					    	console.log("twilio haha\n", message);
+					    	// console.log("twilio haha\n", message);
 					    }
 					});
 				}

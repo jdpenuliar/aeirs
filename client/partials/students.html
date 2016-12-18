@@ -70,9 +70,8 @@
 		$(document).ready(function() {
 			$('#example').DataTable({
 				"scrollX": true,
-				// "ajax": "http://54.244.34.90/all_students",
-				// "ajax": "localhost:8000/all_students",
-				"ajax": "http://54.244.34.90/all_students",
+				"ajax": "http://localhost:8000/all_students",
+				//"ajax": "http://54.244.34.90/all_students",
 				"columns": [
 				{ "data": "_id",
 				"fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
