@@ -27,16 +27,29 @@
 	<h2>Section: {{section.section}}</h2>
 </div>
 <h4>Assigned Teacher: {{section._faculty.lastName}}, {{section._faculty.firstName}}</h4>
-<a href="#/section/{{section._id}}/add_student">Add Student to this Section</a> <div ng-if="userLevel==0" >| <a href="#/section/{{section._id}}/assign_faculty">Assign Faculty to this Section</a></div>
+<a ng-if='userLevel==1' href="#/section/{{section._id}}/add_student">Add Student to this Section</a> <div ng-if="userLevel==0" > 
+  <a ng-if='userLevel==0'href="#/section/{{section._id}}/assign_faculty">Assign Faculty to this Section</a></div>
 
 <div ng-repeat= "student in section.students">
 	<div class="row">
 		<div class="col s12 m6 l6">
 			<h5>Student Name: <a href="#/student/{{student._id}}">{{student.student_last}}, {{student.student_first}} </a></p></h5>
-			<button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 1)">Text 1st Quarter Grades to Parents</button>
-      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 2)">Text 2nd Quarter Grades to Parents</button>
-      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 3)">Text 3rd Quarter Grades to Parents</button>
-      <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 4)">Text 4th Quarter Grades to Parents</button>
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 1)">Text 1st Quarter Grades</button>
+        </div>
+        <div class="col s12 m6 l6">
+          <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 2)">Text 2nd Quarter Grades</button>
+        </div>
+      </div>	
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 3)">Text 3rd Quarter Grades</button>
+        </div>
+        <div class="col s12 m6 l6">
+          <button type='button' class="btn waves-effect waves-light" ng-click="studentGradeText(student, 4)">Text 4th Quarter Grades</button>
+        </div>
+      </div>
 		</div>
 		<div class="col s12 m6 l6">
 			<div class="row" ng-repeat="subject in student._grades">
